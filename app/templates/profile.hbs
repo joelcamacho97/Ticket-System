@@ -1,0 +1,57 @@
+ {{partial 'navbar'}}
+ 
+ {{log session.currentUser}}
+
+  <div class="container">
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 class="panel-title">Profile</h1>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src={{session.currentUser.profileImageURL}} class="img-circle img-responsive"> </div>
+            
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                       <tr>
+                        <td>ID:</td>
+                        <td>{{ session.uid }}</td>
+                      </tr>
+                      <tr>
+                        <td>Nome:</td>
+                        <td>(exemplo)</td>
+                      </tr>
+                      <tr>
+                        <td>Nivel:</td>
+                        <td>1 ou 2 (exemplo)</td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td><a href="mailto:info@support.com">{{session.currentUser.email}}</a></td>
+                      </tr>
+                        <tr>
+                        <td>Ablitações:</td>
+                        <td>----</td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                  <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
+                  <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                           {{#link-to 'profile-change' tagName="a" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning  pull-right"}}Alterar <i class="glyphicon glyphicon-edit"></i>{{/link-to}}
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">Remover <i class="glyphicon glyphicon-remove"></i></a>
+                    </div>
+            
+          </div>
+      </div>
+    </div>  
+  
+  
+ 

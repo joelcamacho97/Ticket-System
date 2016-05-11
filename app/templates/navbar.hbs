@@ -15,7 +15,9 @@
             {{#if session.currentUser}}
             
             {{#link-to 'index' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-            {{#link-to 'admin' tagName="li"}}<a href="">Admin</a>{{/link-to}}
+            {{#link-to 'dashboard' tagName="li"}}<a href="">Admin</a>{{/link-to}}
+            {{#link-to 'login' tagName="li"}}<a href="">Login TESTE</a>{{/link-to}}
+            {{#link-to 'signup' tagName="li"}}<a href="">Registo TESTE</a>{{/link-to}}
             
             {{else}}
             
@@ -27,7 +29,7 @@
      <ul class="nav navbar-nav navbar-right">
        {{#if session.currentUser}}
        
-       
+       {{#link-to 'profile' tagName="li"}}<a href="">Profile</a>{{/link-to}}
         <li {{action "logout"}}><a href="">Sair</a> </li>
 
        {{else}}

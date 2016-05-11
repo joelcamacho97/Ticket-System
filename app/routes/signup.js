@@ -2,13 +2,20 @@ import Ember from 'ember';
 import Firebase from 'firebase';
 
 export default Ember.Route.extend({
+
+    redirect: function() {
+        if (this.get('session.isAuthenticated')) {
+            this.transitionTo('dashboard');
+        }
+    },
+
     actions: {
         signUp: function() {
-            var controller = this.get('controller');
-            var firstName = controller.get('firstName');
-            var lastName = controller.get('lastName');
-            var email = controller.get('email');
-            var password = controller.get('password');
+            //  var controller = this.get('controller');
+            var firstName = this.controller.get('firstName');
+            var lastName = this.controller.get('lastName');
+            var email = this.controller.get('email');
+            var password = this.controller.get('password');
             var ref = new Firebase("https://brainpcn.firebaseio.com");
             var _this = this;
 
@@ -31,11 +38,12 @@ export default Ember.Route.extend({
                         });
                         user.save()
                             .then(function() {
-                                _this.transitionTo('admin');
+                                _this.transitionTo('dashboard');
                             });
                     });
                 }
             });
         }
     }
+
 });

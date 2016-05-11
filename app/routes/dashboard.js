@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    redirect: function() {
+
+  redirect: function() {
         if (!this.get('session.isAuthenticated')) {
             this.transitionTo('login');
-        } else {
-            this.transitionTo('dashboard');
         }
     }
+
 });
