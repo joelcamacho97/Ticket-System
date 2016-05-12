@@ -1,8 +1,14 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
 
-export default DS.Model.extend({
-    Name: DS.attr(),
-    Level: DS.attr(),
-    Ability: DS.attr(),
-    Supervisor: DS.attr(),
+export default Model.extend({
+
+
+    nome: attr('string'),
+    Level: attr('string', {
+        defaultValue: "1"
+    }),
+    Supervisor: attr('boolean', {
+        defaultValue: false
+    })
 });

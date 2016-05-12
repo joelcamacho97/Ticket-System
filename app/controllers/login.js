@@ -1,4 +1,5 @@
 import Ember from 'ember';
+//import Firebase from 'firebase';
 
 export default Ember.Controller.extend({
     actions: {
@@ -8,25 +9,37 @@ export default Ember.Controller.extend({
                 'email': this.get('userEmail'),
                 'password': this.get('userPassword')
             }).then(function() {
-                console.log('TESTES   //   ' + this.get('userEmail'));
-                console.log('TESTES   //   ' + this.get('session.uid'));
-                // console.log('TESTES   //   ' + employers.exists());
-                var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
-                ref.once("value", function(snapshot) {
-                    var a = snapshot.exists();
-                    console.log(a);
-                    console.log(snapshot.child("id").exists());
-                });
-                //snapshot.exists();
-                /*                 var user = this.store.createRecord('employer', {
-                                         id: this.get('session.uid'))
-                                 }); user.save()*/
-             //   .then(function() {
-                    this.transitionToRoute('index');
-               // });
 
+                var uid = this.get('session.uid');
+                var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
+                var org = new Firebase("https://brainpcn.firebaseio.com/");
+                var _this = this;
+
+                var login = this.store.createRecord('employers', {
+                    id: uid
+                });
+
+                ref.once("value", function(snapshot) {
+                    var c = snapshot.child(uid).exists();
+                    if (c == false) {
+                        console.log(uid + '???');
+
+                        console.log(ref + '  base de dados');
+                        login.save();
+
+                        console.log("1º opção");
+                        return _this.transitionToRoute('index');
+
+                    }
+
+                });
+
+                console.log("2º opção");
+                this.transitionToRoute('index');
 
             }.bind(this));
         }
+
     }
+
 });
