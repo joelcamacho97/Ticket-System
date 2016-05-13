@@ -10,7 +10,11 @@
 </div>!-->
 
 
+
+
 <form {{action "doSomething" on="submit"}}>
+  
+  
     {{input type="text" class="form-control" value=userEmail placeholder="Email"}} <br>
   {{input type="password" class="form-control" value=userPassword placeholder="Password"}}<br>
 <button type="submit" class="btn btn-lg btn-primary btn-block" {{action "login"}}> Login </button>

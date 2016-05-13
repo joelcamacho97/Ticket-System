@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('dashboard');
   this.route('profile');
   this.route('profile-change');
+  this.route('one-step-more');
 });
 
 export default Router;
