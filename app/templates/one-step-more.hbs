@@ -15,19 +15,23 @@
     {{input type="text" class="form-control" value=userName placeholder="Nome"}} 
     
     <h3> Abilidades: </h3>
-<label>{{input type="checkbox" name="isAdmin" checked=Analise}}   Analise  </label>
-<label>{{input type="checkbox" name="cfxv" checked=Orçamento}}   Orçamento  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Instalação}}   Instalação  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Manutenção}}   Manutenção  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Software}}   Software  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Hardware}}   Hardware  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Formação}}   Formação  </label>  
+<label>{{input type="checkbox" name="analise" checked=analise}}   Analise  </label>
+<label>{{input type="checkbox" name="orcamento" checked=orcamento}}   Orçamento  </label>
+<label>{{input type="checkbox" name="instalacao" checked=instalacao}}   Instalação  </label>
+<label>{{input type="checkbox" name="manutencao" checked=manutencao}}   Manutenção  </label>
+<label>{{input type="checkbox" name="Software" checked=Software}}   Software  </label>
+<label>{{input type="checkbox" name="hardware" checked=hardware}}   Hardware  </label>
+<label>{{input type="checkbox" name="formação" checked=formação}}   Formação  </label>  
+
+{{#if Software}}
 
       <label for="select" class="control-label">Que tipo de software ?</label> <br>
       
-<label>{{input type="checkbox" name="isAdmin" checked=Software}}   ICG  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Hardware}}   Primavera  </label>
-<label>{{input type="checkbox" name="isAdmin" checked=Formação}}   SAGE  </label>  
+<label>{{input type="checkbox" name="icg" checked=ICG}}   ICG  </label>
+<label>{{input type="checkbox" name="primavera" checked=Primavera}}   Primavera  </label>
+<label>{{input type="checkbox" name="sage" checked=SAGE}}   SAGE  </label>  
+
+{{/if}}
              
 <br><br>
 
