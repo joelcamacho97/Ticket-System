@@ -14,11 +14,15 @@
   
     {{input type="text" class="form-control" value=userName placeholder="Nome"}} 
     
+    
+   
+    
+    
     <h3> Abilidades: </h3>
 <label>{{input type="checkbox" name="analise" checked=analise}}   Analise  </label>
 <label>{{input type="checkbox" name="orcamento" checked=orcamento}}   Orçamento  </label>
 <label>{{input type="checkbox" name="instalacao" checked=instalacao}}   Instalação  </label>
-<label>{{input type="checkbox" name="manutencao" checked=manutencao}}   Manutenção  </label>
+<label>{{input type="checkbox" name="manutencao" checked=manutencao }}   Manutenção  </label>
 <label>{{input type="checkbox" name="Software" checked=Software}}   Software  </label>
 <label>{{input type="checkbox" name="hardware" checked=hardware}}   Hardware  </label>
 <label>{{input type="checkbox" name="formação" checked=formação}}   Formação  </label>  
@@ -27,10 +31,15 @@
 
       <label for="select" class="control-label">Que tipo de software ?</label> <br>
       
-<label>{{input type="checkbox" name="icg" checked=ICG}}   ICG  </label>
-<label>{{input type="checkbox" name="primavera" checked=Primavera}}   Primavera  </label>
-<label>{{input type="checkbox" name="sage" checked=SAGE}}   SAGE  </label>  
+<label>{{input type="checkbox" name="icg" checked=icg}}   ICG  </label>
+<label>{{input type="checkbox" name="primavera" checked=primavera}}   Primavera  </label>
+<label>{{input type="checkbox" name="sage" checked=sage}}   SAGE  </label>
+<label>{{input type="checkbox" name="Outro" checked=Outro}}   Outro  </label>    
+{{#if Outro}}
 
+{{input type="text" class="form-control" value=outro placeholder="Insira aqui o outro tipo de software"}} 
+
+{{/if}}
 {{/if}}
              
 <br><br>
