@@ -18,10 +18,17 @@
   {{input type="password" class="form-control" value=userPassword placeholder="Password"}}<br>
 <button type="submit" class="btn btn-lg btn-primary btn-block" {{action "login"}}> Login </button>
 </form>
-<label class="checkbox text-center">
+
+<label class="checkbox text-right">
 <input type="checkbox" value="remember-me">
 Guardar dados
+{{#link-to 'recovery-password' tagName="a" class="pull-left"}}Esqueceu a password ?{{/link-to}}
 </label>
+
+
+
+
+
 </div>
 </div>
 </div>

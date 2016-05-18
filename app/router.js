@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('email-change');
   this.route('password-change');
   this.route('detail-change');
+  this.route('recovery-password');
 });
 
 export default Router;
