@@ -12,6 +12,9 @@ Router.map(function() {
   this.route('profile');
   this.route('profile-change');
   this.route('one-step-more');
+  this.route('email-change');
+  this.route('password-change');
+  this.route('detail-change');
 });
 
 export default Router;

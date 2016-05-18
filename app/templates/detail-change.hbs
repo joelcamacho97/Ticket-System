@@ -1,0 +1,56 @@
+ {{partial 'navbar'}}
+ 
+ 
+ <div class="panel panel-default">
+  <div class="panel-heading">Alteração dos dados</div>
+  <div class="panel-body">
+ <form class="form-horizontal">
+  <fieldset>
+    <div class="form-group">
+      <label for="inputName" class="col-lg-2 control-label">Nome</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputName" placeholder="Nome">
+      </div>
+    </div>
+  
+  
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Supervisor</label>
+       <div class="col-lg-10">
+         <div class="checkbox">
+          <label>
+            <input type="checkbox"> True
+          </label>
+        </div>
+    </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Nivel</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+            1
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            2
+          </label>
+        </div>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        {{#link-to 'profile' class="btn btn-warning" tagName="button"}}Voltar{{/link-to}}
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primaryk" {{action "editar"}}> Submit </button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+  </div>
+</div>

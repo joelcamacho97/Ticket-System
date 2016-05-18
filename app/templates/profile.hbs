@@ -1,6 +1,6 @@
  {{partial 'navbar'}}
- 
- {{log model}}
+
+{{log model.Supervisor}}
 
   <div class="container">
       <div class="row">
@@ -21,26 +21,24 @@
                       </tr>
                       <tr>
                         <td>Nome:</td>
-                        <td>(exemplo)</td>
+                        <td>{{model.Name}}</td>
                       </tr>
                       <tr>
                         <td>Nivel:</td>
-                        <td>1 ou 2 (exemplo)</td>
+                        <td>{{model.Level}}</td>
                       </tr>
                       <tr>
                         <td>Email:</td>
-                        <td><a href="mailto:info@support.com">{{session.currentUser.email}}</a></td>
+                        <td><a href="mailto:{{session.currentUser.email}}">{{session.currentUser.email}}</a></td>
                       </tr>
-                        <tr>
-                        <td>Ablitações:</td>
-                        <td>----</td>
-                      </tr>
-                     
                     </tbody>
                   </table>
-                  
-                  <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
-                  <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a>
+                   <div align="center">    
+                     
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver abilitações</button>
+                   <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
+                   <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a>
+                  </div>         
                 </div>
               </div>
             </div>
@@ -52,6 +50,29 @@
           </div>
       </div>
     </div>  
+  
+   <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Minhas abilitações</h4>
+        </div>
+        <div class="modal-body">
+          <p>1.</p>
+          <p>2.</p>
+          <p>...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
   
   
  
