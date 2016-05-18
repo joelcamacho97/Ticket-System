@@ -1,78 +1,81 @@
- {{partial 'navbar'}}
+ {{partial 'navbar'}} {{log model.Supervisor}}
 
-{{log model.Supervisor}}
-
-  <div class="container">
-      <div class="row">
-          <div class="panel panel-default">
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
             <div class="panel-heading">
-              <h1 class="panel-title">Profile</h1>
+                <h1 class="panel-title">Profile</h1>
             </div>
             <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src={{session.currentUser.profileImageURL}} class="img-circle img-responsive"> </div>
-            
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                       <tr>
-                        <td>ID:</td>
-                        <td>{{ session.uid }}</td>
-                      </tr>
-                      <tr>
-                        <td>Nome:</td>
-                        <td>{{model.Name}}</td>
-                      </tr>
-                      <tr>
-                        <td>Nivel:</td>
-                        <td>{{model.Level}}</td>
-                      </tr>
-                      <tr>
-                        <td>Email:</td>
-                        <td><a href="mailto:{{session.currentUser.email}}">{{session.currentUser.email}}</a></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                   <div align="center">    
-                     
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver abilitações</button>
-                   <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
-                   <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a>
-                  </div>         
-                </div>
-              </div>
-            </div>
-                 <div class="panel-footer">
-                           {{#link-to 'profile-change' tagName="a" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning  pull-right"}}Alterar <i class="glyphicon glyphicon-edit"></i>{{/link-to}}
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">Remover <i class="glyphicon glyphicon-remove"></i></a>
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src={{session.currentUser.profileImageURL}} class="img-circle img-responsive"> </div>
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td>{{ session.uid }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nome:</td>
+                                    <td>{{model.Name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nivel:</td>
+                                    <td>{{model.Level}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td><a href="mailto:{{session.currentUser.email}}">{{session.currentUser.email}}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div align="center">
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver abilitações</button>
+                            <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
+                            <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a>
+                        </div>
                     </div>
-            
-          </div>
-      </div>
-    </div>  
-  
-   <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Minhas abilitações</h4>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">Remover <i class="glyphicon glyphicon-remove"></i></a>
+
+                <div class="btn-group dropup pull-right">
+                    {{#link-to 'profile-change' tagName="a" class="btn btn-sm btn-warning"}}Alterar <i class="glyphicon glyphicon-edit"></i>{{/link-to}}
+                    <a class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'detail-change' tagName="a"}}Detalhes de Perfil{{/link-to}}</li>
+                        <li>{{#link-to 'email-change' tagName="a"}}Email{{/link-to}}</li>
+                        <li>{{#link-to 'password-change' tagName="a"}}Password{{/link-to}}</li>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
-        <div class="modal-body">
-          <p>1.</p>
-          <p>2.</p>
-          <p>...</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
     </div>
-  </div>
-  
-  
-  
-  
- 
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Minhas abilitações</h4>
+            </div>
+            <div class="modal-body">
+                <p>1.</p>
+                <p>2.</p>
+                <p>...</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
