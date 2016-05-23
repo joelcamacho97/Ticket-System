@@ -1,1 +1,44 @@
-{{outlet}}
+ {{partial 'navbar'}}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome do utilizador</th>
+                <th>Nivel</th>
+                <th>Supervisor</th>
+                <th>Abilidades</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each model as |employers|}}
+            <tr>
+                <th>{{employers.id}}</th>
+                <td>{{employers.Name}}</td>
+                <td>{{employers.Level}}</td>
+                <td>
+                    <ul>
+                        {{#if employers.Supervisor}}
+
+                        <li> Sim </li>
+
+                        {{else}}
+
+                        <li> Não </li>
+
+                        {{/if}}
+                    </ul>
+                </td>
+
+
+                <td align="center"> {{#link-to 'users-ability' employers.id class="btn btn-primary btn-sm" tagName="button"}}Vizualizar{{/link-to}} </td>
+                <td align="center"> <a href="#" class="btn btn-primary btn-sm">Editar este utilizador</a> </td>
+            </tr>
+
+            {{/each}}
+        </tbody>
+
+    </table>
+</div>

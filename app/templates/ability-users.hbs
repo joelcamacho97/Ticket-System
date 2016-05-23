@@ -1,0 +1,131 @@
+<center>
+    <h2>Abilidades :</h2>
+</center>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Analise</th>
+                <th>Formação</th>
+                <th>Hardware</th>
+                <th>Instalação</th>
+                <th>Manutenção</th>
+                <th>Orçamento</th>
+                <th>Software</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+
+                <th> {{#if model.Ability.Analise}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <th> {{#if model.Ability.Formação}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <th> {{#if model.Ability.Hardware}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <th> {{#if model.Ability.Instalação}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <th> {{#if model.Ability.Manutenção}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <th> {{#if model.Ability.Orçamento}}
+
+                    <li>Sim </li>
+
+                    {{else}}
+
+                    <li>Não </li>
+
+                    {{/if}}
+                </th>
+
+                <td>
+                    <ul>
+                        {{#if model.Ability.software.ICG}}
+
+                        <li>ICG: Sim </li>
+
+                        {{else}}
+
+                        <li>ICG: Não </li>
+
+                        {{/if}} {{#if model.Ability.software.Primavera}}
+
+                        <li>Primavera: Sim </li>
+
+                        {{else}}
+
+                        <li>Primavera: Não </li>
+
+                        {{/if}} {{#if model.Ability.software.SAGE}}
+
+                        <li>SAGE: Sim </li>
+
+                        {{else}}
+
+                        <li>SAGE: Não </li>
+
+                        {{/if}} {{#if model.Ability.software.outro}}
+
+                        <li>Outro: ( model.Ability..software.outro ) </li>
+
+                        {{else}}
+
+                        <li>Outro: Não tem ..</li>
+
+                        {{/if}}
+                    </ul>
+                </td>
+            </tr>
+
+
+        </tbody>
+
+    </table>
+</div>
