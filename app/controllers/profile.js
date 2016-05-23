@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 
 
             ref.removeUser({
-                email: this.get('email'),
+                email: this.get('session.currentUser.email'),
                 password: this.get('password')
             }, function(error) {
                 if (error === null) {
