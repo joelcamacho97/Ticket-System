@@ -15,9 +15,7 @@
             {{#if session.currentUser}}
             
             {{#link-to 'dashboard' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-            {{#link-to 'login' tagName="li"}}<a href="">Login TESTE</a>{{/link-to}}
-            {{#link-to 'signup' tagName="li"}}<a href="">Registo TESTE</a>{{/link-to}}
-            
+            {{#link-to 'login' tagName="li"}}<a href="">Login TESTE</a>{{/link-to}}            
             {{else}}
             
             {{#link-to 'index' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
@@ -37,7 +35,6 @@
           <ul class="dropdown-menu">
             {{#link-to 'login' tagName="li"}}<a href="">Login</a>{{/link-to}}
             <li role="separator" class="divider"></li>
-            {{#link-to 'signup' tagName="li"}}<a href="">Registo</a>{{/link-to}}
           </ul>
         </li>
         {{/if}}
