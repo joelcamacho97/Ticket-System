@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
             var ref = new Firebase("https://brainpcn.firebaseio.com/");
             var _this = this;
 
-
             if (this.get('RepitaPassword') === this.get('NovaPassword')) {
 
                 ref.changePassword({
@@ -23,15 +22,9 @@ export default Ember.Controller.extend({
                         console.log("Erro:", error);
                     }
                 });
-
             } else {
-
                 console.log("Nao corresponde ....");
-
             }
-
-
         }
     }
-
 });

@@ -15,15 +15,10 @@ export default Ember.Controller.extend({
                 var uid = this.get('session.uid');
                 var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
                 var _this = this;
-                /*  var login = this.store.createRecord('employers', {
-                      id: uid
-                  });*/
 
                 ref.once("value", function(snapshot) {
                     var c = snapshot.child(uid).exists();
                     if (c == false) {
-
-                        //             login.save();
 
                         return _this.transitionToRoute('one-step-more');
 
@@ -33,12 +28,9 @@ export default Ember.Controller.extend({
                         _this.transitionToRoute('index');
 
                     }
-
                 });
 
             }.bind(this));
         }
-
     }
-
 });

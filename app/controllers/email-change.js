@@ -21,17 +21,10 @@ export default Ember.Controller.extend({
                     } else {
                         console.log("Error changing email:", error);
                     }
-
                 });
-
             } else {
-
                 console.log("nao corresponde email !!");
-
-
             }
-
         }
     }
-
 });

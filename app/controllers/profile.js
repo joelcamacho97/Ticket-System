@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
             var ref = new Firebase("https://brainpcn.firebaseio.com/");
             var _this = this;
 
-
             ref.removeUser({
                 email: this.get('session.currentUser.email'),
                 password: this.get('password')
@@ -20,8 +19,6 @@ export default Ember.Controller.extend({
                     console.log("Error removing user:", error);
                 }
             });
-
         }
     }
-
 });
