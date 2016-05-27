@@ -9,14 +9,21 @@
   <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
 </div>!-->
 
+{{#if responseMessage}}
 
+
+<div class="alert alert-dismissible alert-{{tipo}}">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>{{responseMessage}}</strong></div>
+
+{{/if}}
 
 <form {{action "doSomething" on="submit"}}>
   
   
     {{input type="text" class="form-control" value=userEmail placeholder="Email"}} <br>
   {{input type="password" class="form-control" value=userPassword placeholder="Password"}}<br>
-<button type="submit" class="btn btn-lg btn-primary btn-block" {{action "login"}}> Login </button>
+<button type="submit" class="btn btn-lg btn-primary btn-block" {{action "login"}} disabled={{isDisabled}}> Login </button>
 </form>
 
 <label class="checkbox text-right">
@@ -28,9 +35,6 @@ Guardar dados
 
 
 
-
 </div>
 </div>
 </div>
-
-{{log onerrorDefault}}

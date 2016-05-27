@@ -1,22 +1,24 @@
 import Ember from 'ember';
 export default Ember.Controller.extend({
 
-    tag: null,
+    responseMessage: '',
+    isValid: Ember.computed.match('email', /^.+@.+\..+$/),
+    isDisabled: Ember.computed.not('isValid'),
 
     actions: {
 
         recuperar: function() {
-
-            const truee = this.set('tag', true);
+            var _this = this;
             var ref = new Firebase("https://brainpcn.firebaseio.com/");
             ref.resetPassword({
                 email: this.get('email')
             }, function(error) {
                 if (error === null) {
-                    console.log("Password reset email sent successfully");
+                    _this.set('tipo', "success");
+                    _this.set('responseMessage', "Email ...");
                 } else {
-                    console.log("Error sending password reset email:", error);
-                    truee
+                    _this.set('tipo', "warning");
+                    _this.set('responseMessage', "Email invalido");
                 }
             });
         }

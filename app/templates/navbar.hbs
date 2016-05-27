@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'index' class="navbar-brand"}}PCN{{/link-to}}
+      {{#link-to 'dashboard' class="navbar-brand"}}PCN{{/link-to}}
     </div>
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
@@ -15,7 +15,7 @@
             {{#if session.currentUser}}
             
             {{#link-to 'dashboard' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-            {{#link-to 'login' tagName="li"}}<a href="">Login TESTE</a>{{/link-to}}            
+
             {{else}}
             
             {{#link-to 'index' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
