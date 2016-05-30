@@ -1,5 +1,7 @@
-@import "bootstrap";
-
-body {
-  padding-top: 40px;
-}
+//@import "bootstrap";
+// Example app.scss
+@import 'materialize';
+@import 'components/color';
+$primary-color: color("pink", "lighten-2");
+@import 'components/variables';
+@import 'ember-cli-materialize';

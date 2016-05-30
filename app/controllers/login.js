@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
     isValid: Ember.computed.match('userEmail', /^.+@.+\..+$/),
     isDisabled: Ember.computed.not('isValid'),
 
+
+
+
     actions: {
 
         login: function() {
