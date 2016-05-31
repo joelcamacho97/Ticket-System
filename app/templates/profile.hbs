@@ -9,7 +9,7 @@
         <div class="col s12 m12 l12 ">
             <div class="card">
                 <div class="card-image">
-                    <img style="height: 150px;" src="http://demo.geekslabs.com/materialize/v3.1/images/user-bg.jpg">
+                    <img style="height: 150px;" src="http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-0436/thumbnail/lg.png">
                 </div>
                 <div class="card-content">
                     <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
@@ -48,123 +48,75 @@
                 <div class="card-action">
                     
                     <div class="row">
+                        
                          
-                {{#md-btn-dropdown text='Alterar' class='amber accent-4 right col s12 l2' mdIcon="favorite"}}
+                {{#md-btn-dropdown text='Alterar' class='amber accent-4 right col s12 l2' }}
+                
                         <li>{{#link-to 'detail-change' tagName="a"}}Detalhes de Perfil{{/link-to}}</li>
                         <li>{{#link-to 'email-change' tagName="a"}}Email{{/link-to}}</li>
                         <li>{{#link-to 'password-change' tagName="a"}}Password{{/link-to}}</li>
                  {{/md-btn-dropdown}}
 
-                    <a class="waves-effect waves-light btn red col s12 l2"><i class="material-icons right">delete forever</i>Apagar a conta</a> 
+                    <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar a conta</a> 
 
-                    </div>
+{{!-- The Modal --}}
+{{#if isModalShown}}
+  {{#md-modal close='toggleModal'
+              class="test-modal"}}
 
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
- 
-<!--
-<div class="container">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1 class="panel-title">Profile</h1>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src={{session.currentUser.profileImageURL}} class="img-circle img-responsive"> </div>
-
-                    <div class=" col-md-9 col-lg-9 ">
-                        <table class="table table-user-information">
-                            <tbody>
-                                <tr>
-                                    <td>ID:</td>
-                                    <td>{{ session.uid }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nome:</td>
-                                    <td>{{model.Name}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nivel:</td>
-                                    <td>{{model.Level}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email:</td>
-                                    <td><a href="mailto:{{session.currentUser.email}}">{{session.currentUser.email}}</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div align="center">
-
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver abilitações</button>
-                            <a href="#" class="btn btn-primary">Meus pedidos de assistencia</a>
-                            <a href="#" class="btn btn-primary">Historico de pedidios de assistencia</a> {{#if model.Supervisor}} {{#link-to 'users' class="btn btn-success" tagName="button"}}Lista de todos os usuarios{{/link-to}} {{/if}}
+    {{!-- The body of the modal --}}
+    <div class="modal-content">
+      <h4>Confirmação da eliminação da conta</h4>
+      
+      <div class="row">
+                        <div class="col s12">
+                            <div class="card-panel yellow">
+                                <center>
+                                    <span class="black-text">Caso queira mesmo apagar insira a sua password em baixo !!!
+          </span> </center>
+                            </div>
                         </div>
+                    </div>            
+             <div class="input-field col s12">
+                 {{input type="password" value=password class="validate"}}
+          <label for="password">Password</label>
+        </div>
+            
+    </div>
+
+    {{!-- The actions at the bottom of the modal --}}
+    <div class="modal-footer">
+
+      {{!-- Modal's Agree Button --}}
+      <a class="modal-action
+                modal-close
+                waves-effect
+                waves-green
+                btn-flat
+                agree-button"
+          {{action "apagar"}}>
+        Apagar
+      </a>
+
+      {{!-- Modal's Cancel Button --}}
+      <a class="modal-action
+                modal-close
+                waves-effect
+                waves-green
+                btn-flat
+                cancel-button"
+          {{action 'toggleModal'}}>
+        Cancel
+      </a>
+
+    </div> {{!-- .modal-footer --}}
+  {{/md-modal}}
+{{/if}}
+
                     </div>
+
                 </div>
             </div>
-            <div class="panel-footer">
-                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#apagar">Remover <i class="glyphicon glyphicon-remove"></i></button>
-                <div class="btn-group dropup pull-right">
-                    {{#link-to 'profile-change' tagName="a" class="btn btn-sm btn-warning"}}Alterar <i class="glyphicon glyphicon-edit"></i>{{/link-to}}
-                    <a class="btn btn-sm btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'detail-change' tagName="a"}}Detalhes de Perfil{{/link-to}}</li>
-                        <li>{{#link-to 'email-change' tagName="a"}}Email{{/link-to}}</li>
-                        <li>{{#link-to 'password-change' tagName="a"}}Password{{/link-to}}</li>
-                    </ul>
-                </div>
-
-            </div>
-
         </div>
     </div>
 </div>
-
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Minhas abilitações</h4>
-            </div>
-            <div class="modal-body">
-                <p>1.</p>
-                <p>2.</p>
-                <p>...</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div class="modal fade" id="apagar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content panel-danger">
-            <div class="modal-header panel-heading">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Confirmação da elminação da compra</h4>
-            </div>
-            <div class="modal-body">
-
-                <label class="control-label"><font color="red">Tem a certeza que pretende apagar a sua conta definativamente ? </font></label>
-                <label for="inputPassword" class="control-label">Caso queira mesmo apagar insira aqui a sua password :</label> {{input type="password" class="form-control" value=password placeholder="Password"}}
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-danger" {{action "apagar"}}>Sim</button>
-            </div>
-        </div>
-    </div>
-</div>
-!-->

@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+    isModalShown: false,
+
     actions: {
 
         apagar: function() {
@@ -19,6 +21,15 @@ export default Ember.Controller.extend({
                     console.log("Error removing user:", error);
                 }
             });
+        },
+
+        toggleModal() {
+            this.toggleProperty('isModalShown');
+        },
+
+        agree() {
+            alert('Thanks for agreeing!');
+            this.set('isModalShown', false);
         }
     }
 });

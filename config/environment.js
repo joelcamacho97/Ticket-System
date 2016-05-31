@@ -8,7 +8,11 @@ module.exports = function(environment) {
         modulePrefix: 'brain',
         environment: environment,
         contentSecurityPolicy: {
-            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com"
+            'default-src': "'none'",
+            'img-src': "'self' https://secure.gravatar.com https://s3-media4.fl.yelpcdn.com/bphoto/BVZUmyvne_ouvGg7uJ09kA/o.jpg ",
+            'script-src': "'self' 'unsafe-inline' https://cdnjs.cloudflare.com/",
+            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+            'style-src': "'self' 'unsafe-inline'",
         },
         firebase: 'https://brainpcn.firebaseio.com/',
         torii: {

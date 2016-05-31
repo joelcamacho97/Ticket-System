@@ -1,7 +1,3 @@
-//@import "bootstrap";
-// Example app.scss
-@import 'materialize';
-@import 'components/color';
-$primary-color: color("pink", "lighten-2");
-@import 'components/variables';
+$roboto-font-path: '../assets/';
+@import "materialize";
 @import 'ember-cli-materialize';
