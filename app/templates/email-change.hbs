@@ -1,41 +1,52 @@
  {{partial 'navbar'}}
 
+<div class="container">
+    <div class="row">
+        <div class="col s12 m12 l12 ">
+            <div class="card">
+                <div class="card-image">
+                    <img style="height: 150px;" src="http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-0436/thumbnail/lg.png">
+                </div>
 
- <div class="panel panel-default">
-  <div class="panel-heading">Alteração dos dados</div>
-  <div class="panel-body">
- <form class="form-horizontal">
-  <fieldset>
+                <div class="card-content">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
 
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-      <div class="col-lg-10">
-        {{input type="email" class="form-control" value=inputEmail placeholder="Insira o seu Email"}}
-      </div>
+                    <span class="card-title text-darken-4"><h3> Alteração de email </h3></span>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{input id="email" type="email" class="validate" value=inputEmail}}
+                            <label for="icon_email">Email</label>
+                        </div>
+                        <div class="input-field col s6">
+                            {{input id="icon_remail" type="email" class="validate" value=REmail}}
+                            <label for="icon_remail">Introduza novamente o seu email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{input id="password" type="password" class="validate" value=Password}}
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="card-action">
+
+                    <div class="row">
+
+                        {{#link-to 'profile' class="btn waves-effect waves-light cyan darken-4" tagName="button"}}Voltar{{/link-to}}
+
+                        <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
+
+                        <button class="btn waves-effect waves-light cyan darken-4" type="submit" {{action "editar"}}>Submit
+                      <i class="material-icons right">send</i>
+                       </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-     <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Insira novamente o seu Email</label>
-      <div class="col-lg-10">
-        {{input type="email" class="form-control" value=REmail placeholder="Insira o seu Email"}}
-      </div>
-    </div>
-    
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-      <div class="col-lg-10">
-        {{input type="password" class="form-control" value=Password placeholder="Password"}}
-      </div>
-    </div>
-   
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        {{#link-to 'profile' class="btn btn-warning" tagName="button"}}Voltar{{/link-to}}
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primaryk" {{action "editar"}}> Submit </button>
-      </div>
-    </div>
-  </fieldset>
-</form>
-  </div>
 </div>

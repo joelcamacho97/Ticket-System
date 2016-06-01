@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
                     newPassword: this.get('NovaPassword')
                 }, function(error) {
                     if (error === null) {
+                        this.set('PasswordAtual', '');
+                        this.set('RepitaPassword', '');
+                        this.set('NovaPassword', '');
                         _this.transitionToRoute('profile'); //ou outro preocesso de next para o preocesso qd concluido ...
                     } else {
                         console.log("Erro:", error);
@@ -25,6 +28,14 @@ export default Ember.Controller.extend({
             } else {
                 console.log("Nao corresponde ....");
             }
+        },
+
+        limpar: function() {
+
+            this.set('PasswordAtual', '');
+            this.set('RepitaPassword', '');
+            this.set('NovaPassword', '');
         }
+
     }
 });

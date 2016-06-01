@@ -1,6 +1,6 @@
  {{partial 'navbar'}}
- 
- 
+
+
 <div class="container">
 
 
@@ -17,101 +17,112 @@
 
                     <span class="card-title text-darken-4"><h3> Profile </h3></span>
 
+                    <div class="row">
+                        <div class="col s8">
 
-                    <table>
+                            <table>
 
-                        <tbody>
-                            <tr>
-                                <td>ID:</td>
-                                <td>{{ session.uid }}</td>
-                            </tr>
-                            <tr>
-                                <td>Nome:</td>
-                                <td>{{model.Name}}</td>
-                            </tr>
-                            <tr>
-                                <td>Nivel:</td>
-                                <td>{{model.Level}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email:</td>
-                                <td>{{session.currentUser.email}}</td>
-                            </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>ID:</td>
+                                        <td>{{ session.uid }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nome:</td>
+                                        <td>{{model.Name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nivel:</td>
+                                        <td>{{model.Level}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>{{session.currentUser.email}}</td>
+                                    </tr>
 
 
 
-                        </tbody>
-                    </table>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col s4 wrapper">
+                            
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">cloud</i>Ver abilitações</a>
+                            </div>
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">cloud</i>Historico de pedidios de assistencia</a>
+                            </div>
+
+                            {{#if model.Supervisor}}
+                            <div class="row">
+                                {{#link-to 'users' class="col s12 waves-effect waves-light btn" tagName="a"}}<i class="material-icons right">cloud</i> Ver todos os utilizadores{{/link-to}}
+                            </div>
+                            {{/if}}
+
+                        </div>
+
+                    </div>
 
 
                 </div>
                 <div class="card-action">
-                    
+
                     <div class="row">
-                        
-                         
-                {{#md-btn-dropdown text='Alterar' class='amber accent-4 right col s12 l2' }}
-                
+
+
+                        {{#md-btn-dropdown text='Alterar' class='amber accent-4 right col s12 l2' }}
+
                         <li>{{#link-to 'detail-change' tagName="a"}}Detalhes de Perfil{{/link-to}}</li>
                         <li>{{#link-to 'email-change' tagName="a"}}Email{{/link-to}}</li>
                         <li>{{#link-to 'password-change' tagName="a"}}Password{{/link-to}}</li>
-                 {{/md-btn-dropdown}}
+                        {{/md-btn-dropdown}}
 
-                    <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar a conta</a> 
+                        <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar a conta</a> {{#if isModalShown}} {{#md-modal close='toggleModal' class="test-modal"}} {{!--
+                        The body of the modal --}}
+                        <div class="modal-content">
+                            <h4>Confirmação da eliminação da conta</h4>
 
-{{!-- The Modal --}}
-{{#if isModalShown}}
-  {{#md-modal close='toggleModal'
-              class="test-modal"}}
-
-    {{!-- The body of the modal --}}
-    <div class="modal-content">
-      <h4>Confirmação da eliminação da conta</h4>
-      
-      <div class="row">
-                        <div class="col s12">
-                            <div class="card-panel yellow">
-                                <center>
-                                    <span class="black-text">Caso queira mesmo apagar insira a sua password em baixo !!!
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class="card-panel yellow">
+                                        <center>
+                                            <span class="black-text">Caso queira mesmo apagar insira a sua password em baixo !!!
           </span> </center>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="input-field col s12">
+                                {{input type="password" value=password class="validate"}}
+                                <label for="password">Password</label>
+                            </div>
+
                         </div>
-                    </div>            
-             <div class="input-field col s12">
-                 {{input type="password" value=password class="validate"}}
-          <label for="password">Password</label>
-        </div>
-            
-    </div>
 
-    {{!-- The actions at the bottom of the modal --}}
-    <div class="modal-footer">
+                        {{!-- The actions at the bottom of the modal --}}
+                        <div class="modal-footer">
 
-      {{!-- Modal's Agree Button --}}
-      <a class="modal-action
+                            {{!-- Modal's Agree Button --}}
+                            <a class="modal-action
                 modal-close
                 waves-effect
                 waves-green
                 btn-flat
-                agree-button"
-          {{action "apagar"}}>
+                agree-button" {{action "apagar"}}>
         Apagar
-      </a>
-
-      {{!-- Modal's Cancel Button --}}
-      <a class="modal-action
+      </a> {{!-- Modal's Cancel Button --}}
+                            <a class="modal-action
                 modal-close
                 waves-effect
                 waves-green
                 btn-flat
-                cancel-button"
-          {{action 'toggleModal'}}>
+                cancel-button" {{action 'toggleModal'}}>
         Cancel
       </a>
 
-    </div> {{!-- .modal-footer --}}
-  {{/md-modal}}
-{{/if}}
+                        </div> {{/md-modal}} {{/if}}
 
                     </div>
 

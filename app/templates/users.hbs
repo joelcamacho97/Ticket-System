@@ -1,9 +1,23 @@
  {{partial 'navbar'}}
-{{log anothermodel.Name}}
+ 
+ <div class="container">
+
+    <div class="row">
+        <div class="col s12 m12 l12 ">
+            <div class="card">
+                <div class="card-image">
+                    <img style="height: 150px;" src="http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-0436/thumbnail/lg.png">
+                </div>
+                <div class="card-content">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
 
 
-<div class="table-responsive">
-    <table class="table table-bordered table-hover ">
+                    <span class="card-title text-darken-4"><h3> Utilizadores </h3></span>
+
+                    <div class="row">
+                        <div class="col s12">
+
+                            <table>
         <thead>
             <tr>
                 <th>ID:</th>
@@ -42,4 +56,14 @@
         </tbody>
 
     </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </div>

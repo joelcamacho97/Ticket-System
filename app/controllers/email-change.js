@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
                 }, function(error) {
                     if (error === null) {
                         _this.get('session').close();
+                        this.set('inputEmail', '');
+                        this.set('REmail', '');
+                        this.set('Password', '');
                         _this.transitionToRoute('profile');
                     } else {
                         console.log("Error changing email:", error);
@@ -25,6 +28,15 @@ export default Ember.Controller.extend({
             } else {
                 console.log("nao corresponde email !!");
             }
+        },
+
+        limpar: function() {
+
+            this.set('inputEmail', '');
+            this.set('REmail', '');
+            this.set('Password', '');
+
         }
+
     }
 });

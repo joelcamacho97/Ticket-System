@@ -56,6 +56,8 @@
     "ember-radio-button": "1.0.7",
     "ember-resolver": "^2.0.3",
     "ember-suave": "2.0.1",
+    "ember-tether": "0.3.1",
+    "ember-tooltips": "1.0.0",
     "ember-truth-helpers": "1.2.0",
     "ember-try": "^0.2.2",
     "emberfire": "^1.6.6",
