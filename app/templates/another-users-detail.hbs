@@ -15,7 +15,7 @@
                     <span class="card-title text-darken-4"><h3> Utilizador : {{model.Name}} </h3></span>
 
                     <div class="row">
-                        <div class="col s8">
+                        <div class="col s12 m8 l8">
 
                             <table>
 
@@ -39,20 +39,17 @@
 
                         </div>
 
-                        <div class="col s4 wrapper">
-                            
+                        <div class="col s12 m4 l4 wrapper">
+
                             <div class="row">
-                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">cloud</i>Ver abilitações</a>
+                                <a class="col s12 waves-effect waves-light btn" {{action "abilitações"}}><i class="material-icons right">cloud</i>Ver abilitações</a>
                             </div>
                             <div class="row">
                                 <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">cloud</i>Historico de pedidios de assistencia</a>
                             </div>
-
-                            {{#if model.Supervisor}}
                             <div class="row">
                                 {{#link-to 'users' class="col s12 waves-effect waves-light btn" tagName="a"}}<i class="material-icons right">cloud</i> Ver todos os utilizadores{{/link-to}}
                             </div>
-                            {{/if}}
 
                         </div>
 
@@ -72,32 +69,136 @@
                         <li>{{#link-to 'password-change' tagName="a"}}Password{{/link-to}}</li>
                         {{/md-btn-dropdown}}
 
-                        <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar a conta</a> {{#if isModalShown}} {{#md-modal close='toggleModal' class="test-modal"}} {{!--
-                        The body of the modal --}}
-                        <div class="modal-content">
-                            <h4>Confirmação da eliminação da conta</h4>
+                        <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar a conta</a>
 
-                            <div class="row">
-                                <div class="col s12">
-                                    <div class="card-panel yellow">
-                                        <center>
-                                            <span class="black-text">Caso queira mesmo apagar insira a sua password em baixo !!!
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+{{#if abilitações}} {{#md-modal close='abilitações' class="test-modal"}}
+
+<div class="modal-content">
+    {{#if ver}}
+    
+    {{partial 'ability-users'}}
+    
+    {{else}}
+    
+    <div class="row">
+        <div class="col s6" >
+         <h5 class="center"> Nome e outros dados pessoais: </h5>
+         
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="icon_prefix" type="text" class="validate">
+          <label for="icon_prefix">First Name</label>
+        </div>
+        
+         </div>
+         
+<div class="col s6" >
+<h5 class="center"> Abilidades: </h5>
+<div class="col s6" >
+{{md-check name="Analise" checked=analise}}
+{{md-check name="Orçamento" checked=orcamento}}
+{{md-check name="Instalação" checked=instalacao}}
+{{md-check name="Manutenção" checked=manutencao}}
+{{md-check name="Software" checked=Software}}
+{{md-check name="Hardware" checked=hardware}}
+{{md-check name="Formação" checked=formação}}
+</div>
+
+
+{{#if Software}}
+
+      <label class="control-label">Que tipo de software ?</label> <br>
+      
+{{md-check name="icg" checked=icg}}
+{{md-check name="primavera" checked=primavera}}
+{{md-check name="sage" checked=sage}}
+{{md-check name="Outro" checked=Outro}}
+
+ {{/if}}
+
+{{#if Outro}}
+
+{{input type="text" class="form-control" value=outro placeholder="Insira aqui o outro tipo de software"}} 
+
+{{/if}}
+       
+       
+</div>
+  </div>
+     
+{{/if}}    
+    
+</div>
+
+<div class="modal-footer">
+
+{{#if ver}}
+
+    <a class="modal-action
+                modal-close
+                waves-effect
+                waves-green
+                btn-flat
+                agree-button" {{action 'editar'}}>
+        Editar
+      </a>
+      {{else}}
+       <a class="modal-action
+                modal-close
+                waves-effect
+                waves-green
+                btn-flat
+                agree-button" {{action 'salvar_abilitacoes'}}>
+        Salvar
+      </a>
+      {{/if}}
+      
+      
+
+    <a class="modal-action
+                modal-close
+                waves-effect
+                waves-green
+                btn-flat
+                cancel-button" {{action 'abilitações'}}>
+        Cancel
+      </a>
+
+</div>
+{{/md-modal}} {{/if}} {{#if isModalShown}} {{#md-modal close='toggleModal' class="test-modal"}} {{!-- The body of the modal --}}
+<div class="modal-content">
+    <h4>Confirmação da eliminação da conta</h4>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel yellow">
+                <center>
+                    <span class="black-text">Caso queira mesmo apagar insira a sua password em baixo !!!
           </span> </center>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-field col s12">
-                                {{input type="password" value=password class="validate"}}
-                                <label for="password">Password</label>
-                            </div>
+            </div>
+        </div>
+    </div>
+    <div class="input-field col s12">
+        {{input type="password" value=password class="validate"}}
+        <label for="password">Password</label>
+    </div>
 
-                        </div>
+</div>
 
-                        {{!-- The actions at the bottom of the modal --}}
-                        <div class="modal-footer">
+<div class="modal-footer">
 
-                            {{!-- Modal's Agree Button --}}
-                            <a class="modal-action
+    {{!-- Modal's Agree Button --}}
+    <a class="modal-action
                 modal-close
                 waves-effect
                 waves-green
@@ -105,7 +206,7 @@
                 agree-button" {{action "apagar"}}>
         Apagar
       </a> {{!-- Modal's Cancel Button --}}
-                            <a class="modal-action
+    <a class="modal-action
                 modal-close
                 waves-effect
                 waves-green
@@ -114,16 +215,4 @@
         Cancel
       </a>
 
-                        </div> {{/md-modal}} {{/if}}
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
- {{partial 'ability-users'}}
-
-
-</div>
+</div> {{/md-modal}} {{/if}}
