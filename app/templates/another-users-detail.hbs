@@ -1,7 +1,5 @@
 <div class="container">
 
-
-
     <div class="row">
         <div class="col s12 m12 l12 ">
             <div class="card">
@@ -9,7 +7,7 @@
                     <img style="height: 150px;" src="http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-0436/thumbnail/lg.png">
                 </div>
                 <div class="card-content">
-                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=https://lh3.googleusercontent.com/-Y5Z33jtNf0k/AAAAAAAAAAI/AAAAAAAAAAA/j9WJUaU8k9M/W96-H96/photo.jpg?sz=64 alt="" class="circle responsive-img activator card-profile-image">
 
 
                     <span class="card-title text-darken-4"><h3> Utilizador : {{model.Name}} </h3></span>
@@ -42,13 +40,13 @@
                         <div class="col s12 m4 l4 wrapper">
 
                             <div class="row">
-                                <a class="col s12 waves-effect waves-light btn" {{action "abilitações"}}><i class="material-icons right">cloud</i>Ver abilitações</a>
+                                <a class="col s12 waves-effect waves-light btn" {{action "abilitações"}}><i class="material-icons right">fingerprint</i>Ver abilitações</a>
                             </div>
                             <div class="row">
-                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">cloud</i>Historico de pedidios de assistencia</a>
+                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">history</i>Historico de pedidios de assistencia</a>
                             </div>
                             <div class="row">
-                                {{#link-to 'users' class="col s12 waves-effect waves-light btn" tagName="a"}}<i class="material-icons right">cloud</i> Ver todos os utilizadores{{/link-to}}
+                                {{#link-to 'users' class="col s12 waves-effect waves-light yellow darken-2 black-text btn" tagName="a"}}<i class="material-icons right">view_list</i>Voltar a lista de utilizadores{{/link-to}}
                             </div>
 
                         </div>
@@ -94,24 +92,58 @@
         <div class="col s6" >
          <h5 class="center"> Nome e outros dados pessoais: </h5>
          
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
-        </div>
+         <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i> 
+                            
+                            {{input  type="text" value=model.Name}}
+                            <label class="active">Nome</label>
+                        </div>
+        
+        
+        <div class="row">
+  <div class="col s12">
+      
+      
+   <div class="row">
+  <div class="col s12">
+    <p>{{md-switch checked=model.Supervisor
+          onLabel="Sim"
+          offLabel="Não"
+          name="Supervisor"}}</p>
+  </div>
+</div>
+
+  </div>
+  
+  {{log model.Level}}
+  
+  <div class="col s12">
+      <p>Nivel:</p>
+   {{#md-radios
+   class="with-gap"
+    selection=model.Level
+    optionValuePath='id'
+    optionLabelPath='text'}}
+    <p>{{md-radio value='1' name="1"}}</p>
+      <p>{{md-radio value='2' name="2"}}</p>
+{{/md-radios}} 
+  </div>
+</div>
+        
+        
         
          </div>
          
 <div class="col s6" >
 <h5 class="center"> Abilidades: </h5>
 <div class="col s6" >
-{{md-check name="Analise" checked=analise}}
-{{md-check name="Orçamento" checked=orcamento}}
-{{md-check name="Instalação" checked=instalacao}}
-{{md-check name="Manutenção" checked=manutencao}}
+{{md-check name="Analise" checked=model.Ability.Analise}}
+{{md-check name="Orçamento" checked=model.Ability.Orçamento}}
+{{md-check name="Instalação" checked=model.Ability.Instalação}}
+{{md-check name="Manutenção" checked=model.Ability.Manutenção}}
 {{md-check name="Software" checked=Software}}
-{{md-check name="Hardware" checked=hardware}}
-{{md-check name="Formação" checked=formação}}
+{{md-check name="Hardware" checked=model.Ability.Hardware}}
+{{md-check name="Formação" checked=model.Ability.Formação}}
 </div>
 
 
@@ -119,9 +151,9 @@
 
       <label class="control-label">Que tipo de software ?</label> <br>
       
-{{md-check name="icg" checked=icg}}
-{{md-check name="primavera" checked=primavera}}
-{{md-check name="sage" checked=sage}}
+{{md-check name="icg" checked=model.Ability.software.ICG}}
+{{md-check name="primavera" checked=model.Ability.software.Primavera}}
+{{md-check name="sage" checked=model.Ability.software.SAGE}}
 {{md-check name="Outro" checked=Outro}}
 
  {{/if}}

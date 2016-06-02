@@ -23,111 +23,83 @@ export default Ember.Controller.extend({
 
         salvar_abilitacoes: function() {
 
-            if (this.get('analise') === undefined || this.get('analise') === false) {
-                var analise = false;
-            } else {
-                var analise = true;
-            }
+            /*    if (this.get('model.Ability.Analise') === undefined || this.get('model.Ability.Analise') === false) {
+                    var analise = false;
+                } else {
+                    var analise = true;
+                }
 
-            if (this.get('orcamento') === undefined || this.get('orcamento') === false) {
-                var orcamento = false;
-            } else {
-                var orcamento = true;
-            }
+                if (this.get('model.Ability.Orçamento') === undefined || this.get('model.Ability.Orçamento') === false) {
+                    var orcamento = false;
+                } else {
+                    var orcamento = true;
+                }
 
-            if (this.get('instalacao') === undefined || this.get('instalacao') === false) {
-                var instalacao = false;
-            } else {
-                var instalacao = true;
-            }
+                if (this.get('model.Ability.Instalação') === undefined || this.get('model.Ability.Instalação') === false) {
+                    var instalacao = false;
+                } else {
+                    var instalacao = true;
+                }
 
-            if (this.get('manutencao') === undefined || this.get('manutencao') === false) {
-                var manutencao = false;
-            } else {
-                var manutencao = true;
-            }
+                if (this.get('model.Ability.Manutenção') === undefined || this.get('model.Ability.Manutenção') === false) {
+                    var manutencao = false;
+                } else {
+                    var manutencao = true;
+                }
 
-            if (this.get('hardware') === undefined || this.get('hardware') === false) {
-                var hardware = false;
-            } else {
-                var hardware = true;
-            }
+                if (this.get('model.Ability.Hardware') === undefined || this.get('model.Ability.Hardware') === false) {
+                    var hardware = false;
+                } else {
+                    var hardware = true;
+                }
 
-            if (this.get('formação') === undefined || this.get('formação') === false) {
-                var formação = false;
-            } else {
-                var formação = true;
-            }
+                if (this.get('model.Ability.Formação') === undefined || this.get('model.Ability.Formação') === false) {
+                    var formação = false;
+                } else {
+                    var formação = true;
+                }
 
-            if (this.get('icg') === undefined || this.get('icg') === false) {
-                var icg = false;
-            } else {
-                var icg = true;
-            }
+                if (this.get('model.Ability.software.ICG') === undefined || this.get('model.Ability.software.ICG') === false) {
+                    var icg = false;
+                } else {
+                    var icg = true;
+                }
 
-            if (this.get('primavera') === undefined || this.get('primavera') === false) {
-                var primavera = false;
-            } else {
-                var primavera = true;
-            }
+                if (this.get('model.Ability.software.Primavera') === undefined || this.get('model.Ability.software.Primavera') === false) {
+                    var primavera = false;
+                } else {
+                    var primavera = true;
+                }
 
-            if (this.get('sage') === undefined || this.get('sage') === false) {
-                var sage = false;
-            } else {
-                var sage = true;
-            }
+                if (this.get('model.Ability.software.SAGE') === undefined || this.get('model.Ability.software.SAGE') === false) {
+                    var sage = false;
+                } else {
+                    var sage = true;
+                }*/
 
-            if (this.get('outro') === undefined || this.get('outro') === false) {
+            if (this.get('outro') === undefined || this.get('outro') === false || this.get('outro') === "") {
                 var outro = false;
             } else {
                 var outro = this.get('outro');
             }
 
+            var first = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id'));
             var fredNameRef = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/');
             var soft = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/software/');
-            console.log(analise);
 
-            fredNameRef.child('Analise').set(analise);
-            fredNameRef.child('Orçamento').set(orcamento);
-            fredNameRef.child('Instalação').set(instalacao);
-            fredNameRef.child('Manutenção').set(manutencao);
-            fredNameRef.child('Hardware').set(hardware);
-            fredNameRef.child('Formação').set(formação);
-
-            console.log(icg);
-
-            soft.child('ICG').set(icg);
-            /*  fredNameRef.child('Name').set(primavera);
-              fredNameRef.child('Name').set(sage);
-              fredNameRef.child('Name').set(outro);*/
-
-            /*     this.set(analise, undefined);
-                 this.set(orcamento, undefined);
-                 this.set(instalacao, undefined);
-                 this.set(manutencao, undefined);
-                 this.set(hardware, undefined);
-                 this.set(formação, undefined);*/
-
-
-
-
-
-            /* Ability: {
-                "Analise": analise,
-                "Orçamento": orcamento,
-                "Instalação": instalacao,
-                "Manutenção": manutencao,
-                "Hardware": hardware,
-                "Formação": formação,
-                "software": {
-                    "ICG": icg,
-                    "Primavera": primavera,
-                    "SAGE": sage,
-                    "outro": outro
-                }
-            }
-        });*/
-
+            first.child('Name').set(this.get('model.Name'));
+            first.child('Level').set(this.get('model.Level'));
+            first.child('Supervisor').set(this.get('model.Supervisor'));
+            fredNameRef.child('Analise').set(this.get('model.Ability.Analise'));
+            fredNameRef.child('Orçamento').set(this.get('model.Ability.Orçamento'));
+            fredNameRef.child('Instalação').set(this.get('model.Ability.Instalação'));
+            fredNameRef.child('Manutenção').set(this.get('model.Ability.Manutenção'));
+            fredNameRef.child('Hardware').set(this.get('model.Ability.Hardware'));
+            fredNameRef.child('Formação').set(this.get('model.Ability.Formação'));
+            soft.child('ICG').set(this.get('model.Ability.software.ICG'));
+            soft.child('Primavera').set(this.get('model.Ability.software.Primavera'));
+            soft.child('SAGE').set(this.get('model.Ability.software.SAGE'));
+            soft.child('outro').set(outro);
 
         }
 
