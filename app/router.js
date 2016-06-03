@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('users-ability', {
       path: 'users-ability/:employers'
   });
+  this.route('tikets');
 });
 
 export default Router;

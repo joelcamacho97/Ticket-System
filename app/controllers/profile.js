@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
         apagar: function() {
 
             var ref = new Firebase("https://brainpcn.firebaseio.com/");
-            var _this = this;
 
             ref.removeUser({
                 email: this.get('session.currentUser.email'),

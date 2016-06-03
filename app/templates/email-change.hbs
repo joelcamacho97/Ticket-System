@@ -14,11 +14,11 @@
                     <span class="card-title text-darken-4"><h3> Alteração de email </h3></span>
 
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m12 l6">
                             {{input id="email" type="email" class="validate" value=inputEmail}}
                             <label for="icon_email">Email</label>
                         </div>
-                        <div class="input-field col s6">
+                        <div class="input-field col s12 m12 l6">
                             {{input id="icon_remail" type="email" class="validate" value=REmail}}
                             <label for="icon_remail">Introduza novamente o seu email</label>
                         </div>
@@ -36,15 +36,29 @@
                 <div class="card-action">
 
                     <div class="row">
-
-                        {{#link-to 'profile' class="btn waves-effect waves-light cyan darken-4" tagName="button"}}Voltar{{/link-to}}
-
-                        <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
-
-                        <button class="btn waves-effect waves-light cyan darken-4" type="submit" {{action "editar"}}>Submit
+                        
+                                              
+                        <div class="col s12 m6 l6">
+                       
+                        <button class="btn waves-effect waves-light cyan darken-4 col s12 m6 l5" type="submit" {{action "editar"}}>Submit
                       <i class="material-icons right">send</i>
                        </button>
-                    </div>
+                        </div>
+                       
+                       <div class="col s12 m6 l6">
+                       <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right hide-on-small-only" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
+                       </div>
+                       
+                       </div>
+                       
+                       
+                       
+                       
+                       <div class="row">
+                       {{#link-to 'profile' class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
+                       </div>
+                       
+                    
                 </div>
             </div>
         </div>

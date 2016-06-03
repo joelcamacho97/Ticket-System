@@ -7,7 +7,6 @@ export default Ember.Controller.extend({
         editar: function() {
 
             if (this.get('name') === "") {
-                console.log("Insira aqui alogo -.-")
                 this.set('name', '');
 
             } else {

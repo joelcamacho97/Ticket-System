@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
 
                 ref.once("value", function(snapshot) {
                     var c = snapshot.child(uid).exists();
-                    if (c == false) {
+                    if (c === false) {
 
                         return _this.transitionToRoute('one-step-more');
 
@@ -39,7 +39,6 @@ export default Ember.Controller.extend({
                 });
 
             }.bind(this)).catch(function(error) {
-                var error = error;
                 if (error.code === 'INVALID_EMAIL') {
                     _this.set('tipo', "red");
                     _this.set('responseMessage', "Email invalido");
