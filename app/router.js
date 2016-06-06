@@ -20,6 +20,7 @@ Router.map(function() {
       path: 'users-ability/:employers'
   });
   this.route('tikets');
+  this.route('customers');
 });
 
 export default Router;
