@@ -3,16 +3,10 @@
    {{#if session.currentUser}}
             
             {{#link-to 'dashboard' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-
-            {{else}}
+            {{#link-to 'tikets' tagName="li"}}<a href="">Tickets</a>{{/link-to}}
+            {{#link-to 'profile' tagName="li"}}<a href="">Profile</a>{{/link-to}}
+            <li {{action "logout"}}><a href="">Sair</a> </li>
             
-            {{#link-to 'index' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-            
-           {{/if}}
-    
-   {{#if session.currentUser}}
-       {{#link-to 'profile' tagName="li"}}<a href="">Profile</a>{{/link-to}}
-        <li {{action "logout"}}><a href="">Sair</a> </li>
-        {{/if}}
+    {{/if}}
   
 {{/md-navbar}}

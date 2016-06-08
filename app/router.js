@@ -21,6 +21,8 @@ Router.map(function() {
   });
   this.route('tikets');
   this.route('customers');
+  this.route('add_tickets');
+  this.route('sortable-list');
 });
 
 export default Router;

@@ -4,66 +4,66 @@ export default Ember.Controller.extend({
 
     actions: {
 
-        salvar: function() {
+        salvar: function(analise, orcamento, instalacao, manutencao, hardware, formação, icg, primavera, sage, outro) {
 
             if (this.get('analise') === undefined) {
-                var analise = false;
+                analise = false;
             } else {
-                var analise = true;
+                analise = true;
             }
 
             if (this.get('orcamento') === undefined) {
-                var orcamento = false;
+                orcamento = false;
             } else {
-                var orcamento = true;
+                orcamento = true;
             }
 
             if (this.get('instalacao') === undefined) {
-                var instalacao = false;
+                instalacao = false;
             } else {
-                var instalacao = true;
+                instalacao = true;
             }
 
             if (this.get('manutencao') === undefined) {
-                var manutencao = false;
+                manutencao = false;
             } else {
-                var manutencao = true;
+                manutencao = true;
             }
 
             if (this.get('hardware') === undefined) {
-                var hardware = false;
+                hardware = false;
             } else {
-                var hardware = true;
+                hardware = true;
             }
 
             if (this.get('formação') === undefined) {
-                var formação = false;
+                formação = false;
             } else {
-                var formação = true;
+                formação = true;
             }
 
             if (this.get('icg') === undefined) {
-                var icg = false;
+                icg = false;
             } else {
-                var icg = true;
+                icg = true;
             }
 
             if (this.get('primavera') === undefined) {
-                var primavera = false;
+                primavera = false;
             } else {
-                var primavera = true;
+                primavera = true;
             }
 
             if (this.get('sage') === undefined) {
-                var sage = false;
+                sage = false;
             } else {
-                var sage = true;
+                sage = true;
             }
 
             if (this.get('outro') === undefined) {
-                var outro = false;
+                outro = false;
             } else {
-                var outro = this.get('outro');
+                outro = this.get('outro');
             }
 
             var login = this.store.createRecord('employers', {
