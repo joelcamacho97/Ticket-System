@@ -7,5 +7,8 @@ export default Ember.Controller.extend({
         model: function() {
             return this.store.find('user', this.get('session.uid'));
         }
+
+
+
     }
 });

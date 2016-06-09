@@ -1,8 +1,5 @@
 module.exports = function(environment) {
     var ENV = {
-        sassOptions: {
-            includePaths: ['bower_components/materialize/sass']
-        },
         modulePrefix: 'brain',
         environment: environment,
         contentSecurityPolicy: {
@@ -32,7 +29,7 @@ module.exports = function(environment) {
     };
 
     if (environment === 'development') {
-        ENV.APP.LOG_RESOLVER = true;
+        //    ENV.APP.LOG_RESOLVER = true;
         ENV.APP.LOG_ACTIVE_GENERATION = true;
         ENV.APP.LOG_TRANSITIONS = true;
         ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
