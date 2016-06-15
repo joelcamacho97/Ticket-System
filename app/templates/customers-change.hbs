@@ -9,9 +9,9 @@
                 </div>
 
                 <div class="card-content">
-                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/another-users.png alt="" class="circle responsive-img activator card-profile-image">
 
-                    <span class="card-title text-darken-4"><h3> Alteração de email </h3></span>
+                    <span class="card-title text-darken-4"><h3> Alteração no cliente: {{model.Company_Name}}</h3></span>
 
                     <div class="row">
                         <div class="input-field col s12 m12 l6">
@@ -55,7 +55,7 @@
                        
                        
                        <div class="row">
-                       {{#link-to 'profile' class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
+                       {{#link-to 'profile-customers' model.id class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
                        </div>
                        
                     

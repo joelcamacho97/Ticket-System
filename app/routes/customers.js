@@ -6,7 +6,6 @@ export default Ember.Route.extend({
 
     model() {
 
-
         var array = this.store.findAll('customers');
 
         var tabela = ArrayPager.create({
@@ -14,17 +13,6 @@ export default Ember.Route.extend({
             limit: 5
         });
 
-        // console.log(array.toArray());
-        //  i = i + 5
-        // console.log(i);
-        // tabela.set('offset', i);
-
-        // console.log(this.get('model') + " ola");
-
         return tabela;
     }
-
-
-
-
 });

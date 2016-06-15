@@ -23,6 +23,12 @@ Router.map(function() {
     this.route('customers');
     this.route('add_tickets');
     this.route('sortable-list');
+    this.route('profile-customers', {
+        path: 'profile-customers/:customers'
+    });
+    this.route('customers-change', {
+        path: 'customers-change/:customers'
+    });
 });
 
 export default Router;

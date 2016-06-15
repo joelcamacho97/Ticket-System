@@ -8,14 +8,20 @@
         <div class="col s12 m12 l12 ">
             <div class="card">
                 <div class="card-image">
-                    <img style="height: 150px;" src="http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-0436/thumbnail/lg.png">
+                    <img style="height: 150px;" src="../img/fundo_form.png">
                 </div>
                 <div class="card-content">
                     <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src={{session.currentUser.profileImageURL}} alt="" class="circle responsive-img activator card-profile-image">
 
 
-                    <span class="card-title text-darken-4"><h3>Lista de todos os clientes</h3></span>
 
+                    <span class="card-title text-darken-4"><h3>Lista de todos os clientes</h3>    </span> 
+ <div class="row">
+                    <a class="waves-effect waves-teal btn-flat right" {{action "pesquisar" }}><i class="material-icons">search</i></a>
+
+
+                    
+ </div>
     <div class="row">
                         <div style="overflow-x:auto;" >
 
@@ -27,17 +33,16 @@
                 <th>City:</th>
                 <th>Common_Name:</th>
                 <th>Company_Name:</th>
-                <th>Company_Type:</th>
                 <th>Country:</th>
-                <th>Home_Email:</th>
-                <th>Home_Phone:</th>
                 <th>Mobile:</th>
                 <th>Email:</th>
                 <th>Phone:</th>
                 <th>Zip:</th>
+                <th>Alterações:</th>
             </tr>
         </thead>
         <tbody>
+
             {{#each model as |customers|}}
 
             <tr>
@@ -46,34 +51,29 @@
                 <td>{{customers.City}}</td>
                 <td>{{customers.Common_Name}}</td>
                 <td>{{customers.Company_Name}}</td>
-                <td>{{customers.Company_Type}}</td>
                 <td>{{customers.Country}}</td>
-                <td>{{customers.Home_Email}}</td>
-                <td>{{customers.Home_Phone}}</td>
                 <td>{{customers.Mobile}}</td>
                 <td>{{customers.Work_Email}}</td>
                 <td>{{customers.Work_Phone}}</td>
                 <td>{{customers.Zip}}</td>
-                <td align="center"> {{#link-to 'users-ability' employers.id class="btn btn-default btn-sm btn-block" tagName="button"}}Vizualizar{{/link-to}} </td>
+                <td align="center"> {{#link-to 'profile-customers' customers.id class="btn-floating btn-large waves-effect waves-light right"}}<i class="material-icons">assignment_ind</i>{{/link-to}} </td>
             </tr>
 
             {{/each}}
         </tbody>
 
     </table>
-    
-
-      <ul class="pagination">
-    <li class="waves-effect" {{action "menos" }}><a href=""><i class="material-icons">chevron_left</i></a></li>
-    <li class="waves-effect" {{action "mais" }}><a href=""><i class="material-icons">chevron_right</i></a></li>
-  </ul>
 
                         </div>
 
                     </div> 
 
+ <ul class="pagination">
+    <li class="waves-effect" {{action "menos" }}><a href=""><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect" {{action "mais" }}><a href=""><i class="material-icons">chevron_right</i></a></li>
+  </ul>
                 </div>
-                
+
             </div>
         </div>
     </div>

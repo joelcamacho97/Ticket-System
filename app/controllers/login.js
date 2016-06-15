@@ -14,6 +14,8 @@ export default Ember.Controller.extend({
 
         login: function() {
 
+            console.log("1");
+
             var _this = this;
 
             this.get('session').open('firebase', {
@@ -21,12 +23,15 @@ export default Ember.Controller.extend({
                 'email': this.get('userEmail'),
                 'password': this.get('userPassword')
             }).then(function() {
-
+                console.log("2");
                 var uid = this.get('session.uid');
-                var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
+                // var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
 
-                ref.once("value", function(snapshot) {
+                console.log(this.get('session'));
+                console.log("3");
+                this.get('session').once("value", function(snapshot) {
                     var c = snapshot.child(uid).exists();
+                    console.log("oaaaaa" + c);
                     if (c === false) {
 
                         return _this.transitionToRoute('one-step-more');

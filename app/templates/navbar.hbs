@@ -3,7 +3,7 @@
    {{#if session.currentUser}}
             
             {{#link-to 'dashboard' tagName="li"}}<a href="">Inicio</a>{{/link-to}}
-            {{#link-to 'tikets' tagName="li"}}<a href="">Tickets</a>{{/link-to}}
+            {{#link-to 'tikets' tagName="li"}}<a href="">Tickets <span class="new badge red">4</span></a>{{/link-to}}
             {{#link-to 'profile' tagName="li"}}<a href="">Profile</a>{{/link-to}}
             <li {{action "logout"}}><a href="">Sair</a> </li>
             

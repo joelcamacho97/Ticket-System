@@ -5,11 +5,18 @@ module.exports = function(environment) {
         contentSecurityPolicy: {
             'default-src': "'none'",
             'img-src': "'self' https://secure.gravatar.com https://s3-media4.fl.yelpcdn.com/bphoto/BVZUmyvne_ouvGg7uJ09kA/o.jpg ",
-            'script-src': "'self' 'unsafe-inline' https://cdnjs.cloudflare.com/",
-            'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+            'script-src': "'self' 'unsafe-eval' apis.google.com https://cdnjs.cloudflare.com/",
+            'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
             'style-src': "'self' 'unsafe-inline'",
+            'frame-src': "'self' https://*.firebaseapp.com",
+
         },
-        firebase: 'https://brainpcn.firebaseio.com/',
+        firebase: {
+            apiKey: "AIzaSyDuF_-2TRrtGquGKYT9skUHpB0_o3Akx0E",
+            authDomain: "brainpcn.firebaseapp.com",
+            databaseURL: "https://brainpcn.firebaseio.com",
+            storageBucket: "project-8607016508820273191.appspot.com",
+        },
         torii: {
             sessionServiceName: 'session'
         },
@@ -42,8 +49,8 @@ module.exports = function(environment) {
         ENV.locationType = 'none';
 
         // keep test console output quieter
-        ENV.APP.LOG_ACTIVE_GENERATION = false;
-        ENV.APP.LOG_VIEW_LOOKUPS = false;
+        ENV.APP.LOG_ACTIVE_GENERATION = true;
+        ENV.APP.LOG_VIEW_LOOKUPS = true;
 
         ENV.APP.rootElement = '#ember-testing';
     }

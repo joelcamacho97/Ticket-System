@@ -1,0 +1,79 @@
+ {{partial 'navbar'}}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12 m12 l12 ">
+            <div class="card">
+                <div class="card-image">
+                    <img style="height: 150px;" src=../img/fundo_form.png>
+                </div>
+                <div class="card-content">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/another-users.png alt="" class="circle responsive-img activator card-profile-image">
+
+
+                    <span class="card-title text-darken-4"><h3> Cliente : {{model.Company_Name}} </h3></span>
+
+                    <div class="row">
+                        <div class="col s12 m8 l8">
+
+                            <table>
+
+                                <tbody>
+                                    <tr>
+                                        <td>ID:</td>
+                                        <td>{{ model.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nome:</td>
+                                        <td>{{model.Company_Name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Morada:</td>
+                                        <td>{{model.Address}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telemovel:</td>
+                                        <td>{{model.Phone}}</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col s12 m4 l4 wrapper">
+
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn" {{action "abilitações"}}><i class="material-icons right">add_circle_outline</i>Adicionar pedidio de assistência</a>
+                            </div>
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">history</i>Historico de pedidios de assistência</a>
+                            </div>
+                            <div class="row">
+                                {{#link-to 'customers' class="col s12 waves-effect waves-light yellow darken-2 black-text btn" tagName="a"}}<i class="material-icons right">view_list</i>Voltar a lista de clientes{{/link-to}}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="card-action">
+
+                    <div class="row">
+
+                                {{#link-to 'customers-change' model.id  class="waves-effect waves-light btn right col s12 l2"}}<i class="material-icons right">border_color</i>Editar{{/link-to}}
+
+                        <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar cliente</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

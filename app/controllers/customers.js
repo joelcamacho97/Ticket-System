@@ -24,6 +24,19 @@ export default Ember.Controller.extend({
                 this.get('model').set('offset', multi);
             }
 
+        },
+        pesquisar: function() {
+
+            var pesquisar = this.store.findAll('customers', {
+                equalTo: "102823278"
+            });
+
+
+            this.get('model').set('content', pesquisar);
+            console.log(pesquisar);
+
+            return this.get('model');
+
         }
 
     }
