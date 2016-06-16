@@ -1,17 +1,15 @@
 {
     "name": "brain",
     "dependencies": {
-        "ember": "release",
+        "ember": "~2.6.0",
         "ember-cli-shims": "0.1.1",
         "ember-cli-test-loader": "0.2.2",
         "ember-qunit-notifications": "0.1.0",
-        "firebase": "^3.0.4",
-        "ember-simple-auth": "0.8.0",
+        "firebase": "^3.0.5",
         "materialize": "0.97.6",
-        "es5-shim": "^4.0.5",
-        "antiscroll": "git://github.com/Addepar/antiscroll#e0d1538cf4f3fd61c5bedd6168df86d651f125da",
         "jquery-mousewheel": "~3.1.4",
         "jquery-ui": "~1.11.4",
-        "jquerypic": "https://github.com/LaminSanneh/sitepoint-jquerypic.git#faulty"
+        "jquerypic": "https://github.com/LaminSanneh/sitepoint-jquerypic.git#faulty",
+        "emberfire": "^2.0.0"
     }
 }

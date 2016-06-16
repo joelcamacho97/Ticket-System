@@ -1,6 +1,5 @@
 import Ember from 'ember';
-//import ArraySlice from 'array-slice';
-import ArrayPager from 'array-pager';
+import ArraySlice from 'array-slice';
 
 export default Ember.Route.extend({
 
@@ -8,7 +7,7 @@ export default Ember.Route.extend({
 
         var array = this.store.findAll('customers');
 
-        var tabela = ArrayPager.create({
+        var tabela = ArraySlice.create({
             content: array,
             limit: 5
         });

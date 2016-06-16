@@ -13,22 +13,61 @@
 
                     <span class="card-title text-darken-4"><h3> Alteração no cliente: {{model.Company_Name}}</h3></span>
 
+
                     <div class="row">
-                        <div class="input-field col s12 m12 l6">
-                            {{input id="email" type="email" class="validate" value=inputEmail}}
-                            <label for="icon_email">Email</label>
+                        <div class="input-field col s4">
+                            {{input type="text" value=model.Common_Name}}
+                            <label class="active">Nome comum</label>
                         </div>
-                        <div class="input-field col s12 m12 l6">
-                            {{input id="icon_remail" type="email" class="validate" value=REmail}}
-                            <label for="icon_remail">Introduza novamente o seu email</label>
+                        <div class="input-field col s4">
+                            {{input  type="text" class="validate" value=model.Company_Name}}
+                            <label class="active">Nome fiscal</label>
+                        </div>
+                        <div class="input-field col s4">
+                            {{input  type="text" class="validate" value=model.id}}
+                            <label class="active">NIF</label>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            {{input  type="text" class="validate" value=model.City}}
+                            <label class="active">Cidade</label>
+                        </div>
+                        <div class="input-field col s3">
+                            {{input  type="text" class="validate" value=model.Address}}
+                            <label class="active">Morada</label>
+                        </div>
+                        <div class="input-field col s3">
+                            {{input  type="text" class="validate" value=model.Country}}
+                            <label class="active">Pais</label>
+                        </div>
+                        <div class="input-field col s3">
+                            {{input  type="text" class="validate" value=model.Zip}}
+                            <label class="active">ZIP</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            {{input  type="text" class="validate" value=model.Mobile}}
+                            <label class="active">Telemovel</label>
+                        </div>
+                        <div class="input-field col s12 m12 l6">
+                            {{input  type="text" class="validate" value=model.Home_Phone}}
+                            <label class="active">Telefone</label>
+                        </div>
+                    </div>
+
+
                     <div class="row">
                         <div class="input-field col s12">
-                            {{input id="password" type="password" class="validate" value=Password}}
-                            <label for="password">Password</label>
+                            {{input  type="text" class="validate" value=model.Home_E-mail}}
+                            <label class="active">Email</label>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -36,29 +75,25 @@
                 <div class="card-action">
 
                     <div class="row">
-                        
-                                              
+
+
                         <div class="col s12 m6 l6">
-                       
-                        <button class="btn waves-effect waves-light cyan darken-4 col s12 m6 l5" type="submit" {{action "editar"}}>Submit
+
+                            <button class="btn waves-effect waves-light cyan darken-4 col s12 m6 l5" type="submit" {{action "editar"}}>Submit
                       <i class="material-icons right">send</i>
                        </button>
                         </div>
-                       
-                       <div class="col s12 m6 l6">
-                       <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right hide-on-small-only" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
-                       </div>
-                       
-                       </div>
-                       
-                       
-                       
-                       
-                       <div class="row">
-                       {{#link-to 'profile-customers' model.id class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
-                       </div>
-                       
-                    
+
+                        <div class="col s12 m6 l6">
+                            <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right hide-on-small-only" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        {{#link-to 'profile-customers' model.id class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
+                    </div>
+
                 </div>
             </div>
         </div>

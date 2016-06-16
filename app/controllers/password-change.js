@@ -2,11 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+    ref: Ember.inject.service('firebase'),
+
     actions: {
 
         editar: function() {
 
-            var ref = new Firebase("https://brainpcn.firebaseio.com/");
+            let ref = this.get('ref');
             var _this = this;
 
             if (this.get('RepitaPassword') === this.get('NovaPassword')) {

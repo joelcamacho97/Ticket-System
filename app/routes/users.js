@@ -2,9 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
+    ref: Ember.inject.service('firebase'),
+
     redirect: function() {
 
         //Usar este redirect para paginas que apenas os supervisores possam ter acesso ! 
+        let ref = this.get('ref');
         var _this = this;
 
         if (!_this.get('session.isAuthenticated')) {
@@ -12,9 +15,11 @@ export default Ember.Route.extend({
 
         } else {
 
-            var ref = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('session.uid'));
-            ref.once("value", function(snapshot) {
-                var b = snapshot.child("Supervisor").val();
+            ref.on("value", function(snapshot) {
+
+                var uid = _this.get('session.uid');
+                console.log('ola' + uid);
+                var b = snapshot.child('employers/' + uid + "/Supervisor").val();
 
                 if (b === false) {
                     _this.transitionTo('dashboard');

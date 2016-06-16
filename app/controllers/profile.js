@@ -3,12 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
     isModalShown: false,
+    ref: Ember.inject.service('firebase'),
 
     actions: {
 
         apagar: function() {
 
-            var ref = new Firebase("https://brainpcn.firebaseio.com/");
+            let ref = this.get('ref');
 
             ref.removeUser({
                 email: this.get('session.currentUser.email'),

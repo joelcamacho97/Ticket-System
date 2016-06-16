@@ -6,15 +6,14 @@ export default Ember.Controller.extend({
     tipo: '',
     isValid: Ember.computed.match('userEmail', /^.+@.+\..+$/),
     isDisabled: Ember.computed.not('isValid'),
-
+    ref: Ember.inject.service('firebase'),
 
 
 
     actions: {
 
         login: function() {
-
-            console.log("1");
+            let ref = this.get('ref');
 
             var _this = this;
 
@@ -23,15 +22,15 @@ export default Ember.Controller.extend({
                 'email': this.get('userEmail'),
                 'password': this.get('userPassword')
             }).then(function() {
-                console.log("2");
-                var uid = this.get('session.uid');
-                // var ref = new Firebase("https://brainpcn.firebaseio.com/employers");
 
-                console.log(this.get('session'));
-                console.log("3");
-                this.get('session').once("value", function(snapshot) {
-                    var c = snapshot.child(uid).exists();
-                    console.log("oaaaaa" + c);
+                var uid = this.get('session.uid');
+
+                ref.on("value", function(snapshot) {
+
+                    var c = snapshot.child('employers/' + uid).exists();
+
+                    //                    console.log(c);
+
                     if (c === false) {
 
                         return _this.transitionToRoute('one-step-more');
@@ -61,5 +60,6 @@ export default Ember.Controller.extend({
             this.set('userEmail', '');
             this.set('userPassword', '');
         }
+
     }
 });

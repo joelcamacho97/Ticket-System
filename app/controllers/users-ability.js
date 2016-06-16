@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
     isModalShown: false,
     abilitações: false,
     ver: true,
+    ref: Ember.inject.service('firebase'),
+
     actions: {
 
         editar: function() {
@@ -21,7 +23,10 @@ export default Ember.Controller.extend({
             this.toggleProperty('abilitações');
         },
 
-        salvar_abilitacoes: function() {
+        salvar_abilitacoes: function(outro) {
+
+            let ref = this.get('ref');
+
 
             /*    if (this.get('model.Ability.Analise') === undefined || this.get('model.Ability.Analise') === false) {
                     var analise = false;
@@ -78,28 +83,30 @@ export default Ember.Controller.extend({
                 }*/
 
             if (this.get('outro') === undefined || this.get('outro') === false || this.get('outro') === "") {
-                var outro = false;
+                outro = false;
             } else {
-                var outro = this.get('outro');
+                outro = this.get('outro');
             }
 
-            var first = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id'));
-            var fredNameRef = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/');
-            var soft = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/software/');
+            //    var first = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id'));
+            //    var fredNameRef = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/');
+            //    var soft = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/software/');
 
-            first.child('Name').set(this.get('model.Name'));
-            first.child('Level').set(this.get('model.Level'));
-            first.child('Supervisor').set(this.get('model.Supervisor'));
-            fredNameRef.child('Analise').set(this.get('model.Ability.Analise'));
-            fredNameRef.child('Orçamento').set(this.get('model.Ability.Orçamento'));
-            fredNameRef.child('Instalação').set(this.get('model.Ability.Instalação'));
-            fredNameRef.child('Manutenção').set(this.get('model.Ability.Manutenção'));
-            fredNameRef.child('Hardware').set(this.get('model.Ability.Hardware'));
-            fredNameRef.child('Formação').set(this.get('model.Ability.Formação'));
-            soft.child('ICG').set(this.get('model.Ability.software.ICG'));
-            soft.child('Primavera').set(this.get('model.Ability.software.Primavera'));
-            soft.child('SAGE').set(this.get('model.Ability.software.SAGE'));
-            soft.child('outro').set(outro);
+            var uid = this.get('model.id');
+
+            ref.child('employers/' + uid + '/Name').set(this.get('model.Name'));
+            ref.child('employers/' + uid + '/Level').set(this.get('model.Level'));
+            ref.child('employers/' + uid + '/Supervisor').set(this.get('model.Supervisor'));
+            ref.child('employers/' + uid + '/Ability/Analise').set(this.get('model.Ability.Analise'));
+            ref.child('employers/' + uid + '/Ability/Orçamento').set(this.get('model.Ability.Orçamento'));
+            ref.child('employers/' + uid + '/Ability/Instalação').set(this.get('model.Ability.Instalação'));
+            ref.child('employers/' + uid + '/Ability/Manutenção').set(this.get('model.Ability.Manutenção'));
+            ref.child('employers/' + uid + '/Ability/Hardware').set(this.get('model.Ability.Hardware'));
+            ref.child('employers/' + uid + '/Ability/Formação').set(this.get('model.Ability.Formação'));
+            ref.child('employers/' + uid + '/Ability/software/ICG').set(this.get('model.Ability.software.ICG'));
+            ref.child('employers/' + uid + '/Ability/software/Primavera').set(this.get('model.Ability.software.Primavera'));
+            ref.child('employers/' + uid + '/Ability/software/SAGE').set(this.get('model.Ability.software.SAGE'));
+            ref.child('employers/' + uid + '/Ability/software/outro').set(outro);
 
         }
 

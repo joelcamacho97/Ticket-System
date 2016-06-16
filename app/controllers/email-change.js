@@ -2,11 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+    ref: Ember.inject.service('firebase'),
+
     actions: {
 
         editar: function() {
-
-            var ref = new Firebase("https://brainpcn.firebaseio.com/");
+            let ref = this.get('ref');
+            //  var ref = new Firebase("https://brainpcn.firebaseio.com/");
             var _this = this;
 
             if (this.get('REmail') === this.get('inputEmail')) {

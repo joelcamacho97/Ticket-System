@@ -4,12 +4,14 @@ export default Ember.Controller.extend({
     responseMessage: '',
     isValid: Ember.computed.match('email', /^.+@.+\..+$/),
     isDisabled: Ember.computed.not('isValid'),
+    ref: Ember.inject.service('firebase'),
 
     actions: {
 
         recuperar: function() {
+            let ref = this.get('ref');
             var _this = this;
-            var ref = new Firebase("https://brainpcn.firebaseio.com/");
+            // var ref = new Firebase("https://brainpcn.firebaseio.com/");
             ref.resetPassword({
                 email: this.get('email')
             }, function(error) {

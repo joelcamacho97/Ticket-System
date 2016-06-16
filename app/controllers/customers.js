@@ -7,15 +7,10 @@ export default Ember.Controller.extend({
     actions: {
 
         mais: function(multi) {
-
             multi = this.incrementProperty('i') * 5;
-
-            console.log(multi);
-
             this.get('model').set('offset', multi);
         },
         menos: function(multi) {
-
             multi = this.decrementProperty('i') * 5;
             this.get('model').set('offset', multi);
 
@@ -23,22 +18,21 @@ export default Ember.Controller.extend({
                 this.incrementProperty('i') * 0;
                 this.get('model').set('offset', multi);
             }
-
-        },
-        pesquisar: function() {
-
-            var pesquisar = this.store.findAll('customers', {
-                equalTo: "102823278"
-            });
-
-
-            this.get('model').set('content', pesquisar);
-            console.log(pesquisar);
-
-            return this.get('model');
-
         }
-
     }
 
 });
+
+/*   pesquisar: function() {
+
+         var pesquisar = this.store.findAll('customers', {
+             equalTo: "102823278"
+         });
+
+
+         this.get('model').set('content', pesquisar);
+         console.log(pesquisar);
+
+         return this.get('model');
+
+     }*/

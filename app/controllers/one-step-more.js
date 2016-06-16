@@ -67,7 +67,7 @@ export default Ember.Controller.extend({
             }
 
             var login = this.store.createRecord('employers', {
-                'id': this.get('session.uid'),
+                id: this.get('session.uid'),
                 Name: this.get('userName'),
                 Ability: {
                     "Analise": analise,
