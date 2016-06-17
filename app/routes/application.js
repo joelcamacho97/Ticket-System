@@ -4,11 +4,11 @@ export default Ember.Route.extend({
 
     session: Ember.inject.service('session'),
 
-    beforeModel: function() {
+    beforeModel() {
 
-        return this.get("session").fetch().catch(function() {
+        this._super("session");
 
-        });
+        return this.get("session").fetch().catch();
     },
 
     actions: {

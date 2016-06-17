@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
     i: 0,
+    ref: Ember.inject.service('firebase'),
 
     actions: {
 
@@ -18,21 +19,33 @@ export default Ember.Controller.extend({
                 this.incrementProperty('i') * 0;
                 this.get('model').set('offset', multi);
             }
+        },
+
+
+        pesquisar: function() {
+
+            let ref = this.get('ref');
+            var _this = this;
+
+            ref.child('customers/').orderByChild("id").equalTo('128').on("child_added", function(snapshot) {
+                console.log(snapshot);
+
+                //     _this.get('model').set('content', pesquisar);
+
+                //     return _this.get('model');
+            });
+
+
+            /*  var pesquisar = this.store.find('customers', {
+                  equalTo: "102823278"
+              });*/
+
+            //   console.log(pesquisar);
+
+
+
         }
+
     }
 
 });
-
-/*   pesquisar: function() {
-
-         var pesquisar = this.store.findAll('customers', {
-             equalTo: "102823278"
-         });
-
-
-         this.get('model').set('content', pesquisar);
-         console.log(pesquisar);
-
-         return this.get('model');
-
-     }*/

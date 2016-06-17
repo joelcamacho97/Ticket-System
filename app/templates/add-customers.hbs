@@ -11,7 +11,7 @@
                 <div class="card-content">
                     <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/another-users.png alt="" class="circle responsive-img activator card-profile-image">
 
-                    <span class="card-title text-darken-4"><h3> Alteração no cliente: {{model.Company_Name}}</h3></span> {{#if erro}}
+                    <span class="card-title text-darken-4"><h3> Adicionar novo cliente:</h3></span> {{#if erro}}
                     <div class="row">
                         <div class="col s12 ">
                             <div class="card-panel yellow">
@@ -23,68 +23,55 @@
 
                     <div class="row">
                         <div class="input-field col s12 l4">
-                            {{input type="text" value=model.Common_Name}}
-                            <label class="active">Nome comum</label>
+                            {{input type="text" value=Common_Name}}
+                            <label>Nome comum</label>
                         </div>
                         <div class="input-field col s12 l4">
-                            {{input type="text" class="validate" value=model.Company_Name}}
-                            <label class="active">Nome fiscal</label>
+                            {{input type="text" class="validate" value=Company_Name}}
+                            <label>Nome fiscal</label>
                         </div>
-                        {{#if nif}}
-                        <div class="input-field col s10 l3">
+                        <div class="input-field col s12 l4">
                             {{input type="text" class="validate" value=id}}
-                            <label class="active">NIF</label>
+                            <label>NIF</label>
                         </div>
-                        <div class="input-field col s1">
-                            <a class="btn-floating" {{action "nif_back"}}><i class="material-icons">settings_backup_restore</i></a>
-                        </div>
-                        {{else}}
-                        <div class="input-field col s10 l3">
-                            <input disabled value={{model.id}} id="first_name2" type="text">
-                            <label class="active">NIF</label>
-                        </div>
-                        <div class="input-field col s1">
-                            <a class="btn-floating" {{action "nif"}}><i class="material-icons">mode_edit</i></a>
-                        </div>
-                        {{/if}}
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12 l3">
-                            {{input type="text" class="validate" value=model.City}}
-                            <label class="active">Cidade</label>
+                            {{input type="text" class="validate" value=City}}
+                            <label>Cidade</label>
                         </div>
                         <div class="input-field col s12 l3">
-                            {{input type="text" class="validate" value=model.Address}}
-                            <label class="active">Morada</label>
+                            {{input type="text" class="validate" value=Address}}
+                            <label>Morada</label>
                         </div>
                         <div class="input-field col s12 l3">
-                            {{input type="text" class="validate" value=model.Country}}
-                            <label class="active">Pais</label>
+                            {{input type="text" class="validate" value=Country}}
+                            <label>Pais</label>
                         </div>
                         <div class="input-field col s12 l3">
-                            {{input type="text" class="validate" value=model.Zip}}
-                            <label class="active">ZIP</label>
+                            {{input type="text" class="validate" value=Zip}}
+                            <label>ZIP</label>
                         </div>
 
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12 l6">
-                            {{input type="text" class="validate" value=model.Mobile}}
-                            <label class="active">Telemovel</label>
+                            {{input type="text" class="validate" value=Mobile}}
+                            <label>Telemovel</label>
                         </div>
-                        <div class="input-field col s12 m12 l6">
-                            {{input type="text" class="validate" value=model.Home_Phone}}
-                            <label class="active">Telefone</label>
+                        <div class="input-field col s12 l6">
+                            {{input type="text" class="validate" value=Home_Phone}}
+                            <label>Telefone</label>
                         </div>
                     </div>
 
 
                     <div class="row">
                         <div class="input-field col s12">
-                            {{input type="text" class="validate" value=model.Home_Email}}
-                            <label class="active">Email</label>
+                            {{input type="text" class="validate" value=Home_Email}}
+                            <label>Email</label>
                         </div>
                     </div>
 
@@ -111,7 +98,7 @@
                     </div>
 
                     <div class="row">
-                        {{#link-to 'profile-customers' model.id class="btn waves-effect waves-light cyan darken-4 col s12" tagName="button"}}Voltar{{/link-to}}
+                        <button class="btn waves-effect waves-light cyan darken-4 col s12" {{action "voltar"}}>Voltar</button>
                     </div>
 
                 </div>

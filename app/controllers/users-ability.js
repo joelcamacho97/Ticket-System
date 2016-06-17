@@ -28,69 +28,11 @@ export default Ember.Controller.extend({
             let ref = this.get('ref');
 
 
-            /*    if (this.get('model.Ability.Analise') === undefined || this.get('model.Ability.Analise') === false) {
-                    var analise = false;
-                } else {
-                    var analise = true;
-                }
-
-                if (this.get('model.Ability.Orçamento') === undefined || this.get('model.Ability.Orçamento') === false) {
-                    var orcamento = false;
-                } else {
-                    var orcamento = true;
-                }
-
-                if (this.get('model.Ability.Instalação') === undefined || this.get('model.Ability.Instalação') === false) {
-                    var instalacao = false;
-                } else {
-                    var instalacao = true;
-                }
-
-                if (this.get('model.Ability.Manutenção') === undefined || this.get('model.Ability.Manutenção') === false) {
-                    var manutencao = false;
-                } else {
-                    var manutencao = true;
-                }
-
-                if (this.get('model.Ability.Hardware') === undefined || this.get('model.Ability.Hardware') === false) {
-                    var hardware = false;
-                } else {
-                    var hardware = true;
-                }
-
-                if (this.get('model.Ability.Formação') === undefined || this.get('model.Ability.Formação') === false) {
-                    var formação = false;
-                } else {
-                    var formação = true;
-                }
-
-                if (this.get('model.Ability.software.ICG') === undefined || this.get('model.Ability.software.ICG') === false) {
-                    var icg = false;
-                } else {
-                    var icg = true;
-                }
-
-                if (this.get('model.Ability.software.Primavera') === undefined || this.get('model.Ability.software.Primavera') === false) {
-                    var primavera = false;
-                } else {
-                    var primavera = true;
-                }
-
-                if (this.get('model.Ability.software.SAGE') === undefined || this.get('model.Ability.software.SAGE') === false) {
-                    var sage = false;
-                } else {
-                    var sage = true;
-                }*/
-
             if (this.get('outro') === undefined || this.get('outro') === false || this.get('outro') === "") {
                 outro = false;
             } else {
                 outro = this.get('outro');
             }
-
-            //    var first = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id'));
-            //    var fredNameRef = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/');
-            //    var soft = new Firebase("https://brainpcn.firebaseio.com/employers/" + this.get('model.id') + '/Ability/software/');
 
             var uid = this.get('model.id');
 

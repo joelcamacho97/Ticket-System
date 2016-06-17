@@ -13,106 +13,105 @@
                     <span class="card-title text-darken-4"><h3> Novo Ticket </h3></span>
 
                     <div class="row">
-      <div class="col s12">
-        <div class="card-panel ">
+                        <div class="col s12">
+                            <div class="card-panel ">
 
-            <h3>Requisitante</h3>
+                                <h3>Requisitante</h3>
 
- <div class="row">
-                        <div class="input-field col s12 m12 l6">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">Cliente</label>
-                        </div>
-                         <div class="input-field col s12 m12 l6">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">Solicitante</label>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l6">
+                                        {{input type="text" value=name}}
+                                        <label>Cliente</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l6">
+                                        {{input type="text" value=name}}
+                                        <label>Solicitante</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        {{input type="text" value=name}}
+                                        <label>Morada</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l4">
+                                        {{input type="text" value=name}}
+                                        <label>Localidade</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l4">
+                                        {{input type="text" value=name}}
+                                        <label>Telemovel/Telefone</label>
+                                    </div>
+                                    <div class="input-field col s12 m12 l4">
+                                        {{input type="text" value=name}}
+                                        <label>NIF</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input col s12 m12 l4">
+                                        {{md-input-date label='Data do pedido' value=dateValue }}
+                                    </div>
+                                    <div class="input-field col s12 m12 l4">
+                                        <i class="material-icons prefix">access_time</i> {{input type="time" value=dateValue}}
+                                    </div>
+                                    <div class="input-field col s12 m12 l4">
+                                        {{input label='Recebido por' type="text" value=name}}
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
 
                     <div class="row">
-                        <div class="input-field col s12">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">Morada</label>
+                        <div class="col s12">
+                            <div class="card-panel ">
+
+                                <div class="row">
+                                    <h3>Descrição</h3>
+
+
+
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Análise" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Orçamento" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Instalação" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Manutenção" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Anomalia Software" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l2">
+                                        {{md-check name="Anomalia Hardware" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l6">
+                                        {{md-check class="right" name="Anomalia Hardware" checked=checkboxIsSelected}}
+                                    </div>
+                                    <div class="col s12 m12 l6">
+                                        {{md-check name="Formação" checked=checkboxIsSelected}}
+                                    </div>
+
+                                    <div class="input-field col s12 ">
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Introduza uma breve descrição</label>
+                                    </div>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
-                     <div class="row">
-                        <div class="input-field col s12 m12 l4">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">Localidade</label>
-                        </div>
-                         <div class="input-field col s12 m12 l4">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">Telemovel/Telefone</label>
-                        </div>
-                        <div class="input-field col s12 m12 l4">
-                            {{input  type="text" class="validate" value=name}}
-                            <label for="nome">NIF</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input col s12 m12 l4">
-                              {{md-input-date label='Data do pedido' class="validate" value=dateValue }}
-                        </div>
-                         <div class="input-field col s12 m12 l4">
-                             <i class="material-icons prefix">access_time</i>
-                             {{input type="time" value=dateValue}}
-                        </div>
-                        <div class="input-field col s12 m12 l4">
-                            {{input label='Recebido por' type="text"  value=name}}
-                        </div>
-                    </div>
-
-        </div>
-      </div>
-    </div>
-
-
-            <div class="row">
-      <div class="col s12">
-        <div class="card-panel ">
-
-  <div class="row">
-                         <h3>Descrição</h3>
-                         
-           
-                         
-<div class="col s12 m12 l2">
-{{md-check name="Análise" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l2">
-{{md-check name="Orçamento" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l2">
-{{md-check name="Instalação" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l2">
-{{md-check name="Manutenção" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l2">
-{{md-check name="Anomalia Software" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l2">
-{{md-check name="Anomalia Hardware" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l6">
-{{md-check class="right" name="Anomalia Hardware" checked=checkboxIsSelected}}
-</div>
-<div class="col s12 m12 l6">
-{{md-check name="Formação" checked=checkboxIsSelected}}
-</div>
-
- <div class="input-field col s12 ">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Introduza uma breve descrição</label>
-        </div>
-
-                    </div>
-
-        </div>
-      </div>
-    </div>
 
                 </div>
 
