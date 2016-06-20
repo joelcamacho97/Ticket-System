@@ -26,26 +26,10 @@ export default Ember.Controller.extend({
 
             let ref = this.get('ref');
             var _this = this;
-
-            ref.child('customers/').orderByChild("id").equalTo('128').on("child_added", function(snapshot) {
-                console.log(snapshot);
-
-                //     _this.get('model').set('content', pesquisar);
-
-                //     return _this.get('model');
-            });
-
-
-            /*  var pesquisar = this.store.find('customers', {
-                  equalTo: "102823278"
-              });*/
-
-            //   console.log(pesquisar);
-
-
+            var pesquisar = [1, 2, 3];
+            this.get('model').set('content', pesquisar);
+            //  return this.get('model');
 
         }
-
     }
-
 });
