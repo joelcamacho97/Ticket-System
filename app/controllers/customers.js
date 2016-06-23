@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ArraySlice from 'array-slice';
 
 export default Ember.Controller.extend({
 
@@ -27,7 +28,8 @@ export default Ember.Controller.extend({
             let ref = this.get('ref');
             var _this = this;
             var pesquisar = [1, 2, 3];
-            this.get('model').set('content', pesquisar);
+            this.get('model').clear();
+            //this.get('model').set('content', pesquisar);
             //  return this.get('model');
 
         }

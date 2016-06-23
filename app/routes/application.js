@@ -6,9 +6,11 @@ export default Ember.Route.extend({
 
     beforeModel() {
 
-        this._super("session");
 
-        return this.get("session").fetch().catch();
+        if (this.get('session').get('isAuthenticated')) {
+            return this.get("session").fetch().catch();
+        }
+
     },
 
     actions: {

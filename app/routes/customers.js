@@ -3,21 +3,22 @@ import ArraySlice from 'array-slice';
 
 export default Ember.Route.extend({
 
-    model(array, tabela) {
+    model(tabela, array) {
 
 
 
-        array = this.store.query('customers', {
-            limit: 5
-        });
+        array = this.store.findAll('customers');
 
         tabela = ArraySlice.create({
-            content: array,
-            limit: 5
+
+            content: Ember.A(array),
+            limit: 5,
+
         });
 
+        tabela.set('content', array);
         //console.log(array); // true);
-
+        //this.get('tabela').set('content', pesquisar);
         return tabela;
     }
 });
