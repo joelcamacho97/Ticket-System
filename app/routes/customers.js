@@ -1,24 +1,22 @@
 import Ember from 'ember';
-import ArraySlice from 'array-slice';
+var startAt = 0;
+var endAt = 5;
 
 export default Ember.Route.extend({
 
-    model(tabela, array) {
 
 
+    model(tabela, ar) {
+        return this.store.query('customers', {}).then((posts) => {
 
-        array = this.store.findAll('customers');
-
-        tabela = ArraySlice.create({
-
-            content: Ember.A(array),
-            limit: 5,
+            ar = posts.slice(startAt, endAt);
+            return Ember.ArrayProxy.create({
+                content: ar
+            });
 
         });
-
-        tabela.set('content', array);
-        //console.log(array); // true);
-        //this.get('tabela').set('content', pesquisar);
-        return tabela;
     }
 });
+
+
+//  console.log(posts.compact().length)

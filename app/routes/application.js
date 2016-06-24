@@ -1,16 +1,17 @@
 import Ember from 'ember';
+import configuration from 'torii/configuration';
 
 export default Ember.Route.extend({
 
     session: Ember.inject.service('session'),
 
-    beforeModel() {
 
+    beforeModel: function(transition) {
 
-        if (this.get('session').get('isAuthenticated')) {
-            return this.get("session").fetch().catch();
-        }
-
+        return this.get('session').fetch()
+            .catch(function() {
+                // no-op, cause no session is ok
+            })
     },
 
     actions: {
