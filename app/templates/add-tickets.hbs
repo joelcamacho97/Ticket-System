@@ -20,46 +20,46 @@
 
                                 <div class="row">
                                     <div class="input-field col s12 m12 l6">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=Cliente}}
                                         <label>Cliente</label>
                                     </div>
                                     <div class="input-field col s12 m12 l6">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=Solicitante}}
                                         <label>Solicitante</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=Morada}}
                                         <label>Morada</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=Localidade}}
                                         <label>Localidade</label>
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=Telemovel}}
                                         <label>Telemovel/Telefone</label>
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=name}}
+                                        {{input type="text" value=NIF}}
                                         <label>NIF</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input col s12 m12 l4">
-                                        {{md-input-date label='Data do pedido' value=dateValue }}
+                                        {{md-input-date label='Data do pedido' value=dateValue}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        <i class="material-icons prefix">access_time</i> {{input type="time" value=dateValue}}
+                                        <i class="material-icons prefix">access_time</i> {{input type="time" value=hora}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input label='Recebido por' type="text" value=name}}
+                                        {{input label='Recebido por' type="text" value=Recebido_por}}
                                     </div>
                                 </div>
 
@@ -78,33 +78,30 @@
 
 
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Análise" checked=checkboxIsSelected}}
+                                        {{md-check name="Análise" checked=Análise}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Orçamento" checked=checkboxIsSelected}}
+                                        {{md-check name="Orçamento" checked=Orçamento}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Instalação" checked=checkboxIsSelected}}
+                                        {{md-check name="Instalação" checked=Instalação}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Manutenção" checked=checkboxIsSelected}}
+                                        {{md-check name="Manutenção" checked=Manutenção}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Anomalia Software" checked=checkboxIsSelected}}
+                                        {{md-check name="Anomalia Software" checked=Software}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Anomalia Hardware" checked=checkboxIsSelected}}
+                                        {{md-check name="Anomalia Hardware" checked=Hardware}}
                                     </div>
                                     <div class="col s12 m12 l6">
-                                        {{md-check class="right" name="Anomalia Hardware" checked=checkboxIsSelected}}
-                                    </div>
-                                    <div class="col s12 m12 l6">
-                                        {{md-check name="Formação" checked=checkboxIsSelected}}
+                                        {{md-check name="Formação" checked=Formação}}
                                     </div>
 
                                     <div class="input-field col s12 ">
-                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1">Introduza uma breve descrição</label>
+                                        <textarea id="descrição" class="materialize-textarea"></textarea>
+                                        <label for="descrição">Introduza uma breve descrição</label>
                                     </div>
 
                                 </div>
@@ -123,7 +120,7 @@
 
                         <a class="btn-floating btn-large waves-effect waves-light cyan darken-4 right" {{action "limpar"}}><i class="material-icons">clear_all</i></a>
 
-                        <button class="btn waves-effect waves-light cyan darken-4" type="submit" {{action "editar"}}>Submit
+                        <button class="btn waves-effect waves-light cyan darken-4" type="submit" {{action "add"}}>Submit
                       <i class="material-icons right">send</i>
                        </button>
                     </div>

@@ -20,7 +20,19 @@
 
 
                     <div class="row">
-                        <a class="waves-effect waves-teal btn-flat right" {{action "pesquisar" }}><i class="material-icons">search</i></a>
+                        {{#if ver}}
+
+                          {{md-input value=pesqui}}
+                          <a class="waves-effect waves-teal btn-flat right" {{action "pesquisa" }}><i class="material-icons">search</i></a>
+                          <a class="waves-effect waves-teal btn-flat right" {{action "fechar" }}><i class="material-icons">close</i></a>
+
+                        {{else}}
+
+                          <a class="waves-effect waves-teal btn-flat right" {{action "ver" }}><i class="material-icons">search</i></a>
+
+                       {{/if}}
+
+
 
 
 
