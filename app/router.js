@@ -30,6 +30,7 @@ Router.map(function() {
       path: 'customers-change/:customers'
   });
   this.route('add-customers');
+  this.route('view-tickets');
 });
 
 export default Router;

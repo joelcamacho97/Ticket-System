@@ -12,121 +12,119 @@ export default Ember.Controller.extend({
             let ref = this.get('ref');
 
             if (this.get('Cliente') === undefined || this.get('Cliente') === "") {
-                Cliente = "nao descriminado";
+                Cliente = "N/A";
             } else {
                 Cliente = this.get('Cliente');
             }
             if (this.get('Solicitante') === undefined || this.get('Solicitante') === "") {
-                Solicitante = "nao descriminado";
+                Solicitante = "N/A";
             } else {
                 Solicitante = this.get('Solicitante');
             }
             if (this.get('Morada') === undefined || this.get('Morada') === "") {
-                Morada = "nao descriminado";
+                Morada = "N/A";
             } else {
                 Morada = this.get('Morada');
             }
             if (this.get('Localidade') === undefined || this.get('Localidade') === "") {
-                Localidade = "nao descriminado";
+                Localidade = "N/A";
             } else {
                 Localidade = this.get('Localidade');
             }
             if (this.get('Telemovel') === undefined || this.get('Telemovel') === "") {
-                Telemovel = "nao descriminado";
+                Telemovel = "N/A";
             } else {
                 Telemovel = this.get('Telemovel');
             }
             if (this.get('NIF') === undefined || this.get('NIF') === "") {
-                NIF = "nao descriminado";
+                NIF = "N/A";
             } else {
                 NIF = this.get('NIF');
             }
             if (this.get('dateValue') === undefined || this.get('dateValue') === "") {
-                dateValue = "nao descriminado";
+                dateValue = "N/A";
             } else {
                 dateValue = this.get('dateValue');
             }
             if (this.get('hora') === undefined || this.get('hora') === "") {
-                hora = "nao descriminado";
+                hora = "N/A";
             } else {
                 hora = this.get('hora');
             }
             if (this.get('Recebido_por') === undefined || this.get('Recebido_por') === "") {
-                Recebido_por = "nao descriminado";
+                Recebido_por = "N/A";
             } else {
                 Recebido_por = this.get('Recebido_por');
             }
             if (this.get('Telemovel') === undefined || this.get('Telemovel') === "") {
-                Telemovel = "nao descriminado";
+                Telemovel = "N/A";
             } else {
                 Telemovel = this.get('Telemovel');
             }
             if (this.get('Orçamento') === undefined || this.get('Orçamento') === "") {
-                Orçamento = "nao descriminado";
+                Orçamento = "N/A";
             } else {
                 Orçamento = this.get('Orçamento');
             }
             if (this.get('Instalação') === undefined || this.get('Instalação') === "") {
-                Instalação = "nao descriminado";
+                Instalação = "N/A";
             } else {
                 Instalação = this.get('Instalação');
             }
             if (this.get('Manutenção') === undefined || this.get('Manutenção') === "") {
-                Manutenção = "nao descriminado";
+                Manutenção = "N/A";
             } else {
                 Manutenção = this.get('Manutenção');
             }
             if (this.get('Software') === undefined || this.get('Software') === "") {
-                Software = "nao descriminado";
+                Software = "N/A";
             } else {
                 Software = this.get('Software');
             }
             if (this.get('Hardware') === undefined || this.get('Hardware') === "") {
-                Hardware = "nao descriminado";
+                Hardware = "N/A";
             } else {
                 Hardware = this.get('Hardware');
             }
             if (this.get('Formação') === undefined || this.get('Formação') === "") {
-                Formação = "nao descriminado";
+                Formação = "N/A";
             } else {
                 Formação = this.get('Formação');
             }
             if (this.get('descrição') === undefined || this.get('descrição') === "") {
-                descrição = "nao descriminado";
+                descrição = "N/A";
             } else {
                 descrição = this.get('descrição');
             }
             if (this.get('Análise') === undefined || this.get('Análise') === "") {
-                Análise = "nao descriminado";
+                Análise = "N/A";
             } else {
                 Análise = this.get('Análise');
             }
 
-            this.store.query('tickets', {}).then((posts) => {
+            this.store.query('tickets/nivel/1', {}).then((posts) => {
 
                 var id = posts.compact().length + 1;
 
-
-                ref.child('tickets/' + id + '/Cliente').set(Cliente);
-                ref.child('tickets/' + id + '/Solicitante').set(Solicitante);
-                ref.child('tickets/' + id + '/Morada').set(Morada);
-                ref.child('tickets/' + id + '/Localidade').set(Localidade);
-                ref.child('tickets/' + id + '/Telemovel').set(Telemovel);
-                ref.child('tickets/' + id + '/NIF').set(NIF);
-                ref.child('tickets/' + id + '/dateValue').set(dateValue);
-                ref.child('tickets/' + id + '/hora').set(hora);
-                ref.child('tickets/' + id + '/Recebido_por').set(Recebido_por);
-                ref.child('tickets/' + id + '/Análise').set(Análise);
-                ref.child('tickets/' + id + '/Orçamento').set(Orçamento);
-                ref.child('tickets/' + id + '/Instalação').set(Instalação);
-                ref.child('tickets/' + id + '/Manutenção').set(Manutenção);
-                ref.child('tickets/' + id + '/Software').set(Software);
-                ref.child('tickets/' + id + '/Hardware').set(Hardware);
-                ref.child('tickets/' + id + '/Formação').set(Formação);
-                ref.child('tickets/' + id + '/descrição').set(descrição);
-                ref.child('tickets/' + id + '/nivel').set(1);
-
-
+                ref.child('tickets/nivel/1s/' + id + '/Cliente').set(Cliente);
+                ref.child('tickets/nivel/1s/' + id + '/Solicitante').set(Solicitante);
+                ref.child('tickets/nivel/1s/' + id + '/Morada').set(Morada);
+                ref.child('tickets/nivel/1s/' + id + '/Localidade').set(Localidade);
+                ref.child('tickets/nivel/1s/' + id + '/Telemovel').set(Telemovel);
+                ref.child('tickets/nivel/1s/' + id + '/NIF').set(NIF);
+                ref.child('tickets/nivel/1s/' + id + '/dateValue').set(dateValue);
+                ref.child('tickets/nivel/1s/' + id + '/hora').set(hora);
+                ref.child('tickets/nivel/1s/' + id + '/Recebido_por').set(Recebido_por);
+                ref.child('tickets/nivel/1s/' + id + '/Análise').set(Análise);
+                ref.child('tickets/nivel/1s/' + id + '/Orçamento').set(Orçamento);
+                ref.child('tickets/nivel/1s/' + id + '/Instalação').set(Instalação);
+                ref.child('tickets/nivel/1s/' + id + '/Manutenção').set(Manutenção);
+                ref.child('tickets/nivel/1s/' + id + '/Software').set(Software);
+                ref.child('tickets/nivel/1s/' + id + '/Hardware').set(Hardware);
+                ref.child('tickets/nivel/1s/' + id + '/Formação').set(Formação);
+                ref.child('tickets/nivel/1s/' + id + '/descrição').set(descrição);
+                ref.child('tickets/nivel/1s/' + id + '/nivel').set(1);
+                ref.child('tickets/nivel/1s/' + id + '/estado').set("pendente");
             });
 
             this.set('Cliente', "");
@@ -145,9 +143,7 @@ export default Ember.Controller.extend({
             this.set('Hardware', "");
             this.set('Formação', "");
             this.set('descrição', "");
-
-
-
+            this.transitionToRoute('tikets');
         },
         limpar() {
             if (this.get('Cliente') != undefined) {
@@ -174,7 +170,6 @@ export default Ember.Controller.extend({
             if (this.get('Recebido_por') != undefined) {
                 this.set('Recebido_por', "");
             }
-            // this.transitionToRoute('tickets');
 
         }
     }

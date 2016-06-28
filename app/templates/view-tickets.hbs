@@ -1,0 +1,84 @@
+ {{partial 'navbar'}}
+
+<div class="container">
+
+
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 ">
+            <div class="card">
+                <div class="card-image">
+                    <img style="height: 150px;" src="../img/teste.jpg">
+                </div>
+                <div class="card-content">
+                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/suporte.png alt="" class="circle responsive-img activator card-profile-image">
+
+
+                    <span class="card-title text-darken-4"><h3> RIT x </h3></span>
+
+                    <div class="row">
+                        <div class="col s12 m8 l8">
+
+                            <table>
+
+                                <tbody>
+                                    <tr>
+                                        <td>ID:</td>
+                                        <td>{{ session.uid }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nome:</td>
+                                        <td>{{model.Name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nivel:</td>
+                                        <td>{{model.Level}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>{{session.currentUser.email}}</td>
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        
+                        <div class="col s12 m4 l4 wrapper">
+                            
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn blue-grey darken-3 "><i class="material-icons right">fingerprint</i>Ver abilitações</a>
+                            </div>
+                            <div class="row">
+                                <a class="col s12 waves-effect waves-light btn blue-grey darken-3"><i class="material-icons right">history</i>Historico de pedidios de assistencia</a>
+                            </div>
+                             <div class="row">
+                                {{#link-to 'customers' class="col s12 waves-effect waves-light blue-grey darken-1 btn " tagName="a"}}<i class="material-icons right">view_list</i> Listagem de todos os clientes{{/link-to}}
+                            </div>
+
+                            {{#if model.Supervisor}}
+                            <div class="row">
+                                {{#link-to 'users' class="col s12 waves-effect waves-light blue-grey darken-1 btn" tagName="a"}}<i class="material-icons right">view_list</i> Ver todos os utilizadores{{/link-to}}
+                            </div>
+                            {{/if}}
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-action">
+
+     
+
+                   {{#link-to 'tikets' class="btn waves-effect waves-light blue-grey darken-3"}}<i class="material-icons left">arrow_back</i>Voltar atras{{/link-to}}
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

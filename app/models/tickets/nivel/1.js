@@ -20,5 +20,17 @@ export default Model.extend({
     Hardware: attr('string'),
     Formação: attr('string'),
     descrição: attr('string'),
-    nivel: attr('string')
+    nivel: attr('string'),
+    estado: attr('string')
+
 });
+
+
+
+
+
+
+
+
+
+// defaultValue: function() { return new Date(); }
