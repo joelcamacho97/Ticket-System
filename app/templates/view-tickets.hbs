@@ -2,80 +2,162 @@
 
 <div class="container">
 
-
-
-
     <div class="row">
         <div class="col s12 m12 l12 ">
-            <div class="card">
-                <div class="card-image">
-                    <img style="height: 150px;" src="../img/teste.jpg">
-                </div>
-                <div class="card-content">
-                    <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/suporte.png alt="" class="circle responsive-img activator card-profile-image">
-
-
-                    <span class="card-title text-darken-4"><h3> RIT x </h3></span>
+            <br>
+            <br>
+            <div class="card z-depth-1">
+                <div class="card-content ">
+                    <span class="card-title "><h3> RIT nº{{model.id}} </h3>
+                    </span>
 
                     <div class="row">
-                        <div class="col s12 m8 l8">
-
-                            <table>
-
-                                <tbody>
-                                    <tr>
-                                        <td>ID:</td>
-                                        <td>{{ session.uid }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nome:</td>
-                                        <td>{{model.Name}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nivel:</td>
-                                        <td>{{model.Level}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email:</td>
-                                        <td>{{session.currentUser.email}}</td>
-                                    </tr>
-
-
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                        
-                        <div class="col s12 m4 l4 wrapper">
-                            
-                            <div class="row">
-                                <a class="col s12 waves-effect waves-light btn blue-grey darken-3 "><i class="material-icons right">fingerprint</i>Ver abilitações</a>
+                        <div class="col s12 m12">
+                            <div class="col s12 m6">
+                                <h5>Dados :</h5> {{#if editar}}
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>NIF:</td>
+                                            <td>{{md-input value=model.NIF}}</td>
+                                            <td>Solicitante:</td>
+                                            <td>{{md-input value=model.Solicitante}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cliente:</td>
+                                            <td>{{md-input value=model.Cliente}}</td>
+                                            <td>Telemovel:</td>
+                                            <td>{{md-input value=model.Telemovel}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Morada:</td>
+                                            <td>{{md-input value=model.Morada}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Localidade:</td>
+                                            <td>{{md-input value=model.Localidade}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table> {{else}}
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>NIF:</td>
+                                            <td>{{model.NIF}} </td>
+                                            <td>Solicitante:</td>
+                                            <td>{{model.Solicitante}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cliente:</td>
+                                            <td>{{model.Cliente}}</td>
+                                            <td>Telemovel:</td>
+                                            <td>{{model.Telemovel}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Morada:</td>
+                                            <td>{{model.Morada}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Localidade:</td>
+                                            <td>{{model.Localidade}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table> {{/if}}
                             </div>
-                            <div class="row">
-                                <a class="col s12 waves-effect waves-light btn blue-grey darken-3"><i class="material-icons right">history</i>Historico de pedidios de assistencia</a>
-                            </div>
-                             <div class="row">
-                                {{#link-to 'customers' class="col s12 waves-effect waves-light blue-grey darken-1 btn " tagName="a"}}<i class="material-icons right">view_list</i> Listagem de todos os clientes{{/link-to}}
-                            </div>
 
-                            {{#if model.Supervisor}}
-                            <div class="row">
-                                {{#link-to 'users' class="col s12 waves-effect waves-light blue-grey darken-1 btn" tagName="a"}}<i class="material-icons right">view_list</i> Ver todos os utilizadores{{/link-to}}
-                            </div>
-                            {{/if}}
 
+
+                            <div class="col s12 m6">
+                                <h5>Descrição :</h5> {{#if editar}}
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Análise:</td>
+                                            <td>{{md-input value=model.Análise}}</td>
+                                            <td>Manutenção:</td>
+                                            <td>{{md-input value=model.Manutenção}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Orçamento:</td>
+                                            <td>{{md-input value=model.Orçamento}}</td>
+                                            <td>Anomalia Software:</td>
+                                            <td>{{md-input value=model.Software}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Instalação:</td>
+                                            <td>{{md-input value=model.Instalação}}</td>
+                                            <td>Anomalia Hardware:</td>
+                                            <td>{{md-input value=model.Hardware}}</td>
+                                        </tr>
+                                        <tr class="center">
+                                            <td>Formação:</td>
+                                            <td>{{md-input value=model.Formação}}</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table> {{else}}
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Análise:</td>
+                                            <td>{{model.Análise}}</td>
+                                            <td>Manutenção:</td>
+                                            <td>{{model.Manutenção}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Orçamento:</td>
+                                            <td>{{model.Orçamento}}</td>
+                                            <td>Anomalia Software:</td>
+                                            <td>{{model.Software}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Instalação:</td>
+                                            <td>{{model.Instalação}}</td>
+                                            <td>Anomalia Hardware:</td>
+                                            <td>{{model.Hardware}}</td>
+                                        </tr>
+                                        <tr class="center">
+                                            <td>Formação:</td>
+                                            <td>{{model.Formação}}</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                {{/if}}
+                            </div>
                         </div>
                     </div>
+
+                    <h5>Detalhes do RIT Nº {{model.id}} :</h5> {{#if editar}} ---- {{else}} --- {{/if}} {{#if editar}}
+
+
+                    <div class="row">
+                        <a class="btn waves-effect waves-light green right-align right" {{action 'salvar'}}><i class="material-icons right">save</i>Guardar</a>
+                    </div>
+                    <div class="row">
+                        <a class="btn waves-effect waves-light red right-align right" {{action 'cancelar'}}><i class="material-icons right">cancel</i>Cancelar</a>
+                    </div>
+
+                    {{else}}
+
+                    <div class="row">
+                        <a class="btn waves-effect waves-light yellow accent-4 black-text right-align right" {{action 'editar'}}><i class="material-icons right">edit</i>Editar</a>
+                    </div>
+
+                    {{/if}}
+
                 </div>
-                
+
+
                 <div class="card-action">
 
-     
+                    {{#link-to 'tikets' class="btn waves-effect waves-light light-blue darken-4"}}<i class="material-icons left">arrow_back</i>Voltar atras{{/link-to}}
 
-                   {{#link-to 'tikets' class="btn waves-effect waves-light blue-grey darken-3"}}<i class="material-icons left">arrow_back</i>Voltar atras{{/link-to}}
-                
-
+                    <div class="chip right">
+                        Nivel: {{model.id}} | Data: {{model.dateValue}} | Hora: {{model.hora}}
+                    </div>
 
                 </div>
             </div>

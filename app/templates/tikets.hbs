@@ -7,10 +7,9 @@
 
 
         <div class="col s12 m6 l6 ">
-            <div class="card blue-grey darken-1">
+            <div class="card light-blue darken-3">
                 <div class="card-content white-text">
-                    <span class="card-title">RIT {{tickets.id}}</span>
-                    <span class="card-title right">{{tickets.dateValue}}</span>
+                    <span class="card-title">RIT nº{{tickets.id}} - {{tickets.dateValue}}</span> {{md-badge class='white black-text' text="Por atribuir"}}
                     <p>Nif: {{tickets.NIF}}</p>
                     <p>Solicitante: {{tickets.Solicitante}}</p>
                     <p>Telemovel: {{tickets.Telemovel}}</p>
@@ -20,7 +19,7 @@
 
                 </div>
                 <div class="card-action">
-                   {{#link-to 'view-tickets' class="btn waves-effect waves-blue-grey darken-1 white black-text"}}<i class="material-icons right">visibility</i>Ver detalhes {{/link-to}}
+                    {{#link-to 'view-tickets' tickets.id class="btn waves-effect waves-blue-grey darken-1 white black-text"}}<i class="material-icons right">visibility</i>Ver detalhes {{/link-to}}
                     <span>  
                       <div class="chip right">
                      Nivel   {{tickets.nivel}}
@@ -34,48 +33,44 @@
     </div>
 
     <div class="col s12 l4">
-                     <h4 class="center"> Tickets nivel 2</h4>
-       
+        <h4 class="center"> Tickets nivel 2</h4>
+
 
         <div class="col s12 m12">
 
 
 
+
             {{#each model2 as |tickets|}}
 
-    <div class="col s12 m12 l12 ">
-            
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">RIT {{tickets.id}}</span>
-                    <span class="card-title right">{{tickets.dateValue}}</span>
-                    <p>Nif: {{tickets.NIF}}</p>
-                    <p>Solicitante: {{tickets.Solicitante}}</p>
-                    <p>Telemovel: {{tickets.Telemovel}}</p>
-                    <p>Recebido por: {{tickets.Recebido_por}}</p>
-                    <p>Hora: {{tickets.hora}}</p>
+            <div class="col s12 m12 l12 ">
 
-                </div>
-                <div class="card-action">
-                   {{#link-to 'view-tickets' class="btn waves-effect waves-teal white black-text"}}<i class="material-icons right">visibility</i>Ver detalhes {{/link-to}}
-                    <span>  
-                      <div class="chip right">
-                     Nivel   {{tickets.nivel}}
-                    </div> 
-                    </span>
+                <div class="card light-blue darken-3">
+                    <div class="card-content white-text">
+                        <span class="card-title">RIT nº{{tickets.id}} - {{tickets.dateValue}}</span> {{md-badge class='white black-text' text="Por atribuir"}}
+                        <p>Nif: {{tickets.NIF}}</p>
+                        <p>Solicitante: {{tickets.Solicitante}}</p>
+                        <p>Telemovel: {{tickets.Telemovel}}</p>
+                        <p>Recebido por: {{tickets.Recebido_por}}</p>
+                        <p>Hora: {{tickets.hora}}</p>
+
+                    </div>
+                    <div class="card-action">
+
+                        {{#link-to 'view-tickets' tickets.id class="btn waves-effect waves-teal white black-text"}}<i class="material-icons right">visibility</i>Ver detalhes {{/link-to}}
+                        <div class="chip right">
+                            Nivel {{tickets.nivel}}
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-
             {{/each}}
+
         </div>
-
-
-
-
     </div>
 </div>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    {{#link-to 'add_tickets'}}<a class="btn-floating btn-large waves-effect waves-light grey"><i class="large material-icons">add</i>  </a>{{/link-to}}
+    {{#link-to 'add_tickets' }}<a class="btn-floating btn-large waves-effect waves-light grey"><i class="large material-icons">add</i>  </a>{{/link-to}}
 </div>

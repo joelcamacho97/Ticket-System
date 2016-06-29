@@ -62,44 +62,44 @@ export default Ember.Controller.extend({
                 Telemovel = this.get('Telemovel');
             }
             if (this.get('Orçamento') === undefined || this.get('Orçamento') === "") {
-                Orçamento = "N/A";
+                Orçamento = "Não";
             } else {
-                Orçamento = this.get('Orçamento');
+                Orçamento = "Sim";
             }
             if (this.get('Instalação') === undefined || this.get('Instalação') === "") {
-                Instalação = "N/A";
+                Instalação = "Não";
             } else {
-                Instalação = this.get('Instalação');
+                Instalação = "Sim";
             }
             if (this.get('Manutenção') === undefined || this.get('Manutenção') === "") {
-                Manutenção = "N/A";
+                Manutenção = "Não";
             } else {
-                Manutenção = this.get('Manutenção');
+                Manutenção = "Sim";
             }
             if (this.get('Software') === undefined || this.get('Software') === "") {
-                Software = "N/A";
+                Software = "Não";
             } else {
-                Software = this.get('Software');
+                Software = "Sim";
             }
             if (this.get('Hardware') === undefined || this.get('Hardware') === "") {
-                Hardware = "N/A";
+                Hardware = "Não";
             } else {
-                Hardware = this.get('Hardware');
+                Hardware = "Sim";
             }
             if (this.get('Formação') === undefined || this.get('Formação') === "") {
-                Formação = "N/A";
+                Formação = "Não";
             } else {
-                Formação = this.get('Formação');
+                Formação = "Sim";
             }
             if (this.get('descrição') === undefined || this.get('descrição') === "") {
-                descrição = "N/A";
+                descrição = "Sim";
             } else {
                 descrição = this.get('descrição');
             }
             if (this.get('Análise') === undefined || this.get('Análise') === "") {
-                Análise = "N/A";
+                Análise = "Não";
             } else {
-                Análise = this.get('Análise');
+                Análise = "Sim";
             }
 
             this.store.query('tickets/nivel/1', {}).then((posts) => {

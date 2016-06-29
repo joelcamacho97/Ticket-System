@@ -6,31 +6,33 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('login');
-  this.route('dashboard');
-  this.route('profile');
-  this.route('profile-change');
-  this.route('one-step-more');
-  this.route('email-change');
-  this.route('password-change');
-  this.route('detail-change');
-  this.route('recovery-password');
-  this.route('users');
-  this.route('users-ability', {
-      path: 'users-ability/:employers'
-  });
-  this.route('tikets');
-  this.route('customers');
-  this.route('add_tickets');
-  this.route('sortable-list');
-  this.route('profile-customers', {
-      path: 'profile-customers/:customers'
-  });
-  this.route('customers-change', {
-      path: 'customers-change/:customers'
-  });
-  this.route('add-customers');
-  this.route('view-tickets');
+    this.route('login');
+    this.route('dashboard');
+    this.route('profile');
+    this.route('profile-change');
+    this.route('one-step-more');
+    this.route('email-change');
+    this.route('password-change');
+    this.route('detail-change');
+    this.route('recovery-password');
+    this.route('users');
+    this.route('users-ability', {
+        path: 'users-ability/:employers'
+    });
+    this.route('tikets');
+    this.route('customers');
+    this.route('add_tickets');
+    this.route('sortable-list');
+    this.route('profile-customers', {
+        path: 'profile-customers/:customers'
+    });
+    this.route('customers-change', {
+        path: 'customers-change/:customers'
+    });
+    this.route('add-customers');
+    this.route('view-tickets', {
+        path: 'view-tickets/:tickets'
+    });
 });
 
 export default Router;
