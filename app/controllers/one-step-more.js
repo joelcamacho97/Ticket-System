@@ -1,10 +1,13 @@
 import Ember from 'ember';
 
+
+
 export default Ember.Controller.extend({
 
     actions: {
 
         salvar: function(analise, orcamento, instalacao, manutencao, hardware, formação, icg, primavera, sage, outro) {
+
 
             if (this.get('analise') === undefined) {
                 analise = false;

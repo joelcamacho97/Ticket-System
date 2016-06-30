@@ -62,44 +62,44 @@ export default Ember.Controller.extend({
                 Telemovel = this.get('Telemovel');
             }
             if (this.get('Orçamento') === undefined || this.get('Orçamento') === "") {
-                Orçamento = "Não";
+                Orçamento = false;
             } else {
-                Orçamento = "Sim";
+                Orçamento = true;
             }
             if (this.get('Instalação') === undefined || this.get('Instalação') === "") {
-                Instalação = "Não";
+                Instalação = false;
             } else {
-                Instalação = "Sim";
+                Instalação = true;
             }
             if (this.get('Manutenção') === undefined || this.get('Manutenção') === "") {
-                Manutenção = "Não";
+                Manutenção = false;
             } else {
-                Manutenção = "Sim";
+                Manutenção = true;
             }
             if (this.get('Software') === undefined || this.get('Software') === "") {
-                Software = "Não";
+                Software = false;
             } else {
-                Software = "Sim";
+                Software = true;
             }
             if (this.get('Hardware') === undefined || this.get('Hardware') === "") {
-                Hardware = "Não";
+                Hardware = false;
             } else {
-                Hardware = "Sim";
+                Hardware = true;
             }
             if (this.get('Formação') === undefined || this.get('Formação') === "") {
-                Formação = "Não";
+                Formação = false;
             } else {
-                Formação = "Sim";
+                Formação = true;
             }
             if (this.get('descrição') === undefined || this.get('descrição') === "") {
-                descrição = "Sim";
+                descrição = true;
             } else {
                 descrição = this.get('descrição');
             }
             if (this.get('Análise') === undefined || this.get('Análise') === "") {
-                Análise = "Não";
+                Análise = false;
             } else {
-                Análise = "Sim";
+                Análise = true;
             }
 
             this.store.query('tickets/nivel/1', {}).then((posts) => {
