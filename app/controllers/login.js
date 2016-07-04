@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
             this.get('session').open('firebase', {
                 provider: 'password',
                 'email': this.get('userEmail'),
-                'password': this.get('userPassword')
+                'password': this.get('userPassword'),
             }).then(function() {
 
                 var uid = this.get('session.uid');
@@ -29,18 +29,17 @@ export default Ember.Controller.extend({
 
                     var c = snapshot.child('employers/' + uid).exists();
 
-                    //                    console.log(c);
+                    console.log(c);
 
                     if (c === false) {
 
-                        return _this.transitionToRoute('one-step-more');
-
-                    } else {
-
-                        _this.transitionToRoute('dashboard');
+                        _this.transitionToRoute('one-step-more');
 
                     }
+
                 });
+
+                this.transitionToRoute('dashboard');
 
             }.bind(this)).catch(function(error) {
                 if (error.code === 'INVALID_EMAIL') {

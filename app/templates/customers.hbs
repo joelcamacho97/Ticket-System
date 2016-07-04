@@ -51,13 +51,20 @@
                                 <tbody>
                                     {{#each model as |customers|}}
 
+{{#if model.isUpdating}}
+      ujp89u89u
 
-
+    
+    {{else}}
+ 
+  
                                     <tr>
                                         <th class="center">{{customers.id}}</th>
                                         <td>{{customers.Company_Name}}</td>
                                         <td align="center"> {{#link-to 'profile-customers' customers.id class="btn-floating btn-large waves-effect waves-light right"}}<i class="material-icons">assignment_ind</i>{{/link-to}} </td>
                                     </tr>
+
+  {{/if}}
                                      {{/each}}
                                    
                                 </tbody>

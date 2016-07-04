@@ -13,9 +13,9 @@
 
                     <div class="row">
                         <div class="col s12 m12">
-                            <div class="col s12 m6">
-                                <h5>Dados :</h5> {{#if editar}}
 
+                            <h5>Dados :</h5> {{#if editar}}
+                            <div class="col s12 m6">
                                 <div class="col s6">
                                     NIF: {{md-input value=model.NIF}} Solicitante: {{md-input value=model.Solicitante}}
 
@@ -53,14 +53,11 @@
                                             <td>{{model.Localidade}}</td>
                                         </tr>
                                     </tbody>
-                                </table> {{/if}}
+                                </table>
                             </div>
-
-
+                            {{/if}} {{#if editar}}
 
                             <div class="col s12 m6">
-                                <h5>Descrição :</h5> {{#if editar}}
-
                                 <div class="row">
                                     <div class="col s12">
                                         {{md-switch checked=model.Análise onLabel="Sim" offLabel="Não" name="Análise:"}}
@@ -82,9 +79,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="row">
                                     <div class="col s12">
                                         {{md-switch checked=model.Instalação onLabel="Sim" offLabel="Não" name="Instalação:"}}
@@ -100,65 +94,130 @@
                                         {{md-switch checked=model.Formação onLabel="Sim" offLabel="Não" name="Formação"}}
                                     </div>
                                 </div>
+
                                 {{else}}
+
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td>Análise:</td>
-                                            <td>{{model.Análise}}</td>
+                                            {{#if model.Análise}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                             <td>Manutenção:</td>
-                                            <td>{{model.Manutenção}}</td>
-
+                                            {{#if model.Manutenção}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                         </tr>
                                         <tr>
                                             <td>Orçamento:</td>
-                                            <td>{{model.Orçamento}}</td>
+                                            {{#if model.Orçamento}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                             <td>Anomalia Software:</td>
-                                            <td>{{model.Software}}</td>
+                                            {{#if model.Software}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                         </tr>
                                         <tr>
                                             <td>Instalação:</td>
-                                            <td>{{model.Instalação}}</td>
+                                            {{#if model.Instalação}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                             <td>Anomalia Hardware:</td>
-                                            <td>{{model.Hardware}}</td>
+                                            {{#if model.Hardware}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                         </tr>
-                                        <tr class="center">
+                                        <tr>
                                             <td>Formação:</td>
-                                            <td>{{model.Formação}}</td>
+                                            {{#if model.Formação}}
+                                            <td>Sim</td>
+                                            {{else}}
+                                            <td>Não</td>
+                                            {{/if}}
                                         </tr>
                                     </tbody>
-
                                 </table>
                                 {{/if}}
+
                             </div>
                         </div>
                     </div>
 
-{{#if editar}}
-
+                    {{#if editar}}
                     <div class="col s12">
-                        <h5>Detalhes do RIT Nº {{model.id}} :</h5> {{#if editar}} g {{else}} fdsgfds {{/if}}
-                    </div>
-{{else}}
+                        <h5>Detalhes do RIT Nº {{model.id}} :</h5> {{#if editar}}
 
- <div class="col s6">
-                        <h5>Descrição de incidência :</h5> {{#if editar}} g {{else}} fdsgfds {{/if}}
-                    </div>
-                    <div class="col s6">
+                        <div class="row">
+                            <div class="col s12">
+                                {{md-textarea value=model.descrição class="col s12"}}
+                            </div>
+                        </div>
 
-                        <h5>Historico de atualizações :</h5>
-                        
+                        {{else}} fdsgfds {{/if}}
                     </div>
 
-{{/if}}
 
-                   {{#if editar}}
+                    {{else}}
+                    <div class="row">
+                        <div class="col s6">
+                            <h5>Descrição de incidência :</h5> {{#if editar}} g {{else}} fdsgfds {{/if}}
+                        </div>
+                        <div class="col s6">
+
+                            <h5>Historico de atualizações :</h5>
+
+                        </div>
+                    </div>
+
+
+                    {{/if}} {{#if editar}}
 
                     <div class="row">
-                        <a class="btn waves-effect waves-light green right-align right" {{action 'salvar'}}><i class="material-icons right">save</i>Guardar</a>
-                    </div>
-                    <div class="row">
-                        <a class="btn waves-effect waves-light red right-align right" {{action 'cancelar'}}><i class="material-icons right">cancel</i>Cancelar</a>
+                        <div class="col s12">
+                            <div class="col s12">
+                                <h5>Estado do ticket :</h5>
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="col s6 left">
+                                            <div class="row">
+                                                {{md-select content=organismContent optionLabelPath="content.display_name" optionValuePath="content.value" value=content.value prompt="Please choose..." class="col s12"}}
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col s6 right">
+
+                                            <br>
+
+                                            <div class="col s6">
+                                                <a class="btn waves-effect waves-light red right" {{action 'cancelar'}}><i class="material-icons right">cancel</i>Cancelar</a>
+                                            </div>
+
+                                            <div class="col s6">
+                                                <a class="btn waves-effect waves-light green" {{action 'salvar'}}><i class="material-icons right">save</i>Guardar</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {{else}}
@@ -184,4 +243,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

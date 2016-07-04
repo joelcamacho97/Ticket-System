@@ -1,16 +1,16 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var ENV = {
-    modulePrefix: 'brain',
-    environment: environment,
-    contentSecurityPolicy: {
+    var ENV = {
+        modulePrefix: 'brain',
+        environment: environment,
+        contentSecurityPolicy: {
             'default-src': "'none'",
             'img-src': "'self' https://secure.gravatar.com https://s3-media4.fl.yelpcdn.com/bphoto/BVZUmyvne_ouvGg7uJ09kA/o.jpg ",
             'script-src': "'self' 'unsafe-eval' apis.google.com https://cdnjs.cloudflare.com/",
             'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
             'style-src': "'self' 'unsafe-inline'",
-            'frame-src': "'self' https://*.firebaseapp.com",
+            'child-src': "'self' https://*.firebaseapp.com",
 
         },
         firebase: {
@@ -22,44 +22,44 @@ module.exports = function(environment) {
         torii: {
             sessionServiceName: 'session'
         },
-    baseURL: '/',
-    locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
-      }
-    },
+        baseURL: '/',
+        locationType: 'auto',
+        EmberENV: {
+            FEATURES: {
+                // Here you can enable experimental features on an ember canary build
+                // e.g. 'with-controller': true
+            }
+        },
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+        APP: {
+            // Here you can pass flags/options to your application instance
+            // when it is created
+        }
+    };
+
+    if (environment === 'development') {
+        // ENV.APP.LOG_RESOLVER = true;
+        ENV.APP.LOG_ACTIVE_GENERATION = true;
+        ENV.APP.LOG_TRANSITIONS = true;
+        ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+        ENV.APP.LOG_VIEW_LOOKUPS = true;
     }
-  };
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-     ENV.APP.LOG_ACTIVE_GENERATION = true;
-     ENV.APP.LOG_TRANSITIONS = true;
-     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-     ENV.APP.LOG_VIEW_LOOKUPS = true;
-  }
+    if (environment === 'test') {
+        // Testem prefers this...
+        ENV.baseURL = '/';
+        ENV.locationType = 'none';
 
-  if (environment === 'test') {
-    // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
+        // keep test console output quieter
+        ENV.APP.LOG_ACTIVE_GENERATION = false;
+        ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
+        ENV.APP.rootElement = '#ember-testing';
+    }
 
-    ENV.APP.rootElement = '#ember-testing';
-  }
+    if (environment === 'production') {
 
-  if (environment === 'production') {
+    }
 
-  }
-
-  return ENV;
+    return ENV;
 };

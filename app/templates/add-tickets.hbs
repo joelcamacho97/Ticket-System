@@ -12,6 +12,18 @@
 
                     <span class="card-title text-darken-4"><h3> Novo Ticket </h3></span>
 
+{{#if erro}}
+                     <div class="row">
+      <div class="col s12">
+        <div class="card-panel red">
+            <center>
+          <span class="white-text"><i class="material-icons right">error</i> Tem de preencher tudo para poder prosseguir</span>
+            </center>
+        </div>
+      </div>
+    </div>
+             {{/if}}
+
                     <div class="row">
                         <div class="col s12">
                             <div class="card-panel ">
@@ -78,30 +90,31 @@
 
 
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Análise" checked=Análise}}
+                                        {{md-check name="Análise"  checked=Análise}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Orçamento" checked=Orçamento}}
+                                        {{md-check name="Orçamento"  checked=Orçamento}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Instalação" checked=Instalação}}
+                                        {{md-check name="Instalação"  checked=Instalação}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Manutenção" checked=Manutenção}}
+                                        {{md-check name="Manutenção"  checked=Manutenção}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Anomalia Software" checked=Software}}
+                                        {{md-check name="Anomalia Software"  checked=Software}}
                                     </div>
                                     <div class="col s12 m12 l2">
-                                        {{md-check name="Anomalia Hardware" checked=Hardware}}
+                                        {{md-check name="Anomalia Hardware"  checked=Hardware}}
                                     </div>
                                     <div class="col s12 m12 l6">
-                                        {{md-check name="Formação" checked=Formação}}
+                                        {{md-check name="Formação"  checked=Formação}}
                                     </div>
 
                                     <div class="input-field col s12 ">
-                                        <textarea id="descrição" class="materialize-textarea"></textarea>
-                                        <label for="descrição">Introduza uma breve descrição</label>
+
+                                        {{md-textarea label='Introduza uma breve descrição'
+                                         value=descrição class="col s12"}}
                                     </div>
 
                                 </div>

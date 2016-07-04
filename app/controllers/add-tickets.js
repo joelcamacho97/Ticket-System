@@ -1,5 +1,17 @@
 import Ember from 'ember';
 
+let Person = Ember.Object.extend({
+    tipo: null,
+
+    if: Ember.computed('tipo', function() {
+        if (`${this.get('tipo')}` === `undefined` || `${this.get('tipo')}` === ``) {
+            return `false`
+        } else {
+            return `${this.get('tipo')}`;
+        }
+    })
+});
+
 export default Ember.Controller.extend({
 
     ref: Ember.inject.service('firebase'),
@@ -11,139 +23,124 @@ export default Ember.Controller.extend({
 
             let ref = this.get('ref');
 
-            if (this.get('Cliente') === undefined || this.get('Cliente') === "") {
-                Cliente = "N/A";
-            } else {
-                Cliente = this.get('Cliente');
-            }
-            if (this.get('Solicitante') === undefined || this.get('Solicitante') === "") {
-                Solicitante = "N/A";
-            } else {
-                Solicitante = this.get('Solicitante');
-            }
-            if (this.get('Morada') === undefined || this.get('Morada') === "") {
-                Morada = "N/A";
-            } else {
-                Morada = this.get('Morada');
-            }
-            if (this.get('Localidade') === undefined || this.get('Localidade') === "") {
-                Localidade = "N/A";
-            } else {
-                Localidade = this.get('Localidade');
-            }
-            if (this.get('Telemovel') === undefined || this.get('Telemovel') === "") {
-                Telemovel = "N/A";
-            } else {
-                Telemovel = this.get('Telemovel');
-            }
-            if (this.get('NIF') === undefined || this.get('NIF') === "") {
-                NIF = "N/A";
-            } else {
-                NIF = this.get('NIF');
-            }
-            if (this.get('dateValue') === undefined || this.get('dateValue') === "") {
-                dateValue = "N/A";
-            } else {
-                dateValue = this.get('dateValue');
-            }
-            if (this.get('hora') === undefined || this.get('hora') === "") {
-                hora = "N/A";
-            } else {
-                hora = this.get('hora');
-            }
-            if (this.get('Recebido_por') === undefined || this.get('Recebido_por') === "") {
-                Recebido_por = "N/A";
-            } else {
-                Recebido_por = this.get('Recebido_por');
-            }
-            if (this.get('Telemovel') === undefined || this.get('Telemovel') === "") {
-                Telemovel = "N/A";
-            } else {
-                Telemovel = this.get('Telemovel');
-            }
-            if (this.get('Orçamento') === undefined || this.get('Orçamento') === "") {
-                Orçamento = false;
-            } else {
-                Orçamento = true;
-            }
-            if (this.get('Instalação') === undefined || this.get('Instalação') === "") {
-                Instalação = false;
-            } else {
-                Instalação = true;
-            }
-            if (this.get('Manutenção') === undefined || this.get('Manutenção') === "") {
-                Manutenção = false;
-            } else {
-                Manutenção = true;
-            }
-            if (this.get('Software') === undefined || this.get('Software') === "") {
-                Software = false;
-            } else {
-                Software = true;
-            }
-            if (this.get('Hardware') === undefined || this.get('Hardware') === "") {
-                Hardware = false;
-            } else {
-                Hardware = true;
-            }
-            if (this.get('Formação') === undefined || this.get('Formação') === "") {
-                Formação = false;
-            } else {
-                Formação = true;
-            }
-            if (this.get('descrição') === undefined || this.get('descrição') === "") {
-                descrição = true;
-            } else {
-                descrição = this.get('descrição');
-            }
-            if (this.get('Análise') === undefined || this.get('Análise') === "") {
-                Análise = false;
-            } else {
-                Análise = true;
-            }
-
-            this.store.query('tickets/nivel/1', {}).then((posts) => {
-
-                var id = posts.compact().length + 1;
-
-                ref.child('tickets/nivel/1s/' + id + '/Cliente').set(Cliente);
-                ref.child('tickets/nivel/1s/' + id + '/Solicitante').set(Solicitante);
-                ref.child('tickets/nivel/1s/' + id + '/Morada').set(Morada);
-                ref.child('tickets/nivel/1s/' + id + '/Localidade').set(Localidade);
-                ref.child('tickets/nivel/1s/' + id + '/Telemovel').set(Telemovel);
-                ref.child('tickets/nivel/1s/' + id + '/NIF').set(NIF);
-                ref.child('tickets/nivel/1s/' + id + '/dateValue').set(dateValue);
-                ref.child('tickets/nivel/1s/' + id + '/hora').set(hora);
-                ref.child('tickets/nivel/1s/' + id + '/Recebido_por').set(Recebido_por);
-                ref.child('tickets/nivel/1s/' + id + '/Análise').set(Análise);
-                ref.child('tickets/nivel/1s/' + id + '/Orçamento').set(Orçamento);
-                ref.child('tickets/nivel/1s/' + id + '/Instalação').set(Instalação);
-                ref.child('tickets/nivel/1s/' + id + '/Manutenção').set(Manutenção);
-                ref.child('tickets/nivel/1s/' + id + '/Software').set(Software);
-                ref.child('tickets/nivel/1s/' + id + '/Hardware').set(Hardware);
-                ref.child('tickets/nivel/1s/' + id + '/Formação').set(Formação);
-                ref.child('tickets/nivel/1s/' + id + '/descrição').set(descrição);
-                ref.child('tickets/nivel/1s/' + id + '/nivel').set(1);
-                ref.child('tickets/nivel/1s/' + id + '/estado').set("pendente");
+            Cliente = Person.create({
+                tipo: this.get('Cliente')
             });
 
-            this.set('Cliente', "");
-            this.set('Solicitante', "");
-            this.set('Morada', "");
-            this.set('Localidade', "");
-            this.set('Telemovel', "");
-            this.set('NIF', "");
-            this.set('hora', "");
-            this.set('Recebido_por', "");
-            this.set('Análise', "");
-            this.set('Orçamento', "");
-            this.set('Instalação', "");
-            this.set('Manutenção', "");
-            this.set('Software', "");
-            this.set('Hardware', "");
-            this.set('Formação', "");
-            this.set('descrição', "");
-            this.transitionToRoute('tikets');
+            Solicitante = Person.create({
+                tipo: this.get('Solicitante')
+            });
+
+            Morada = Person.create({
+                tipo: this.get('Morada')
+            });
+
+            Localidade = Person.create({
+                tipo: this.get('Localidade')
+            });
+
+            Telemovel = Person.create({
+                tipo: this.get('Telemovel')
+            });
+
+            NIF = Person.create({
+                tipo: this.get('NIF')
+            });
+
+            dateValue = Person.create({
+                tipo: this.get('dateValue')
+            });
+
+            hora = Person.create({
+                tipo: this.get('hora')
+            });
+
+            Recebido_por = Person.create({
+                tipo: this.get('Recebido_por')
+            });
+
+            descrição = Person.create({
+                tipo: this.get('descrição')
+            });
+
+            console.log(Cliente.get('if'));
+            console.log(Morada.get('if'));
+            console.log(Localidade.get('if'));
+            console.log(Telemovel.get('if'));
+            console.log(NIF.get('if'));
+            console.log(dateValue.get('if'));
+            console.log(hora.get('if'));
+            console.log(Recebido_por.get('if'));
+            console.log(descrição.get('if'));
+            console.log(Solicitante.get('if'));
+
+
+            console.log(this.get('erro'))
+
+            if (Cliente.get('if') !== 'false' && Morada.get('if') !== 'false' && Localidade.get('if') !== 'false' && Telemovel.get('if') !== 'false' && NIF.get('if') !== 'false' && dateValue.get('if') !== 'false' && hora.get('if') !== 'false' && Recebido_por.get('if') !== 'false' && descrição.get('if') !== 'false' && Solicitante.get('if') !== 'false') {
+                this.store.query('tickets/nivel/1', {}).then((posts) => {
+
+                    var id = posts.compact().length + 1;
+
+                    ref.child('tickets/nivel/1s/' + id + '/Cliente').set(Cliente.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Solicitante').set(Solicitante.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Morada').set(Morada.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Localidade').set(Localidade.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Telemovel').set(Telemovel.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/NIF').set(NIF.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/dateValue').set(dateValue.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/hora').set(hora.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Recebido_por').set(Recebido_por.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/Análise').set(Análise);
+                    ref.child('tickets/nivel/1s/' + id + '/Orçamento').set(Orçamento);
+                    ref.child('tickets/nivel/1s/' + id + '/Instalação').set(Instalação);
+                    ref.child('tickets/nivel/1s/' + id + '/Manutenção').set(Manutenção);
+                    ref.child('tickets/nivel/1s/' + id + '/Software').set(Software);
+                    ref.child('tickets/nivel/1s/' + id + '/Hardware').set(Hardware);
+                    ref.child('tickets/nivel/1s/' + id + '/Formação').set(Formação);
+                    ref.child('tickets/nivel/1s/' + id + '/descrição').set(descrição.get('if'));
+                    ref.child('tickets/nivel/1s/' + id + '/nivel').set(1);
+                    ref.child('tickets/nivel/1s/' + id + '/estado').set("pendente");
+                });
+
+                this.set('erro', false)
+                this.set('Cliente', "");
+                this.set('Solicitante', "");
+                this.set('Morada', "");
+                this.set('Localidade', "");
+                this.set('Telemovel', "");
+                this.set('NIF', "");
+                this.set('hora', "");
+                this.set('Recebido_por', "");
+                this.set('Análise', "");
+                this.set('Orçamento', "");
+                this.set('Instalação', "");
+                this.set('Manutenção', "");
+                this.set('Software', "");
+                this.set('Hardware', "");
+                this.set('Formação', "");
+                this.set('descrição', "");
+                this.transitionToRoute('tikets');
+
+            } else {
+                this.set('Cliente', "");
+                this.set('Solicitante', "");
+                this.set('Morada', "");
+                this.set('Localidade', "");
+                this.set('Telemovel', "");
+                this.set('NIF', "");
+                this.set('hora', "");
+                this.set('Recebido_por', "");
+                this.set('Análise', "");
+                this.set('Orçamento', "");
+                this.set('Instalação', "");
+                this.set('Manutenção', "");
+                this.set('Software', "");
+                this.set('Hardware', "");
+                this.set('Formação', "");
+                this.set('descrição', "");
+                this.set('erro', true);
+            }
         },
         limpar() {
             if (this.get('Cliente') != undefined) {
