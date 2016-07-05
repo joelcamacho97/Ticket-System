@@ -21,7 +21,8 @@ export default Model.extend({
     Formação: attr('boolean'),
     descrição: attr('string'),
     nivel: attr('string'),
-    estado: attr('string')
+    estado: attr('string'),
+    logs: attr('string')
 
 });
 
