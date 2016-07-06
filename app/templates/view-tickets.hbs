@@ -8,7 +8,8 @@
             <br>
             <div class="card z-depth-1">
                 <div class="card-content ">
-                    <span class="card-title "><h3> RIT nº{{model.id}} </h3>
+                    <span class="card-title "><h3> RIT nº{{model1.id}} </h3>
+                    {{log model1.id}}
                     </span>
 
                     <div class="row">
@@ -18,16 +19,16 @@
                                 <div class="col s12 m6">
 
                                     <div class="col s6">
-                                        NIF: {{md-input value=model.NIF}} Solicitante: {{md-input value=model.Solicitante}}
+                                        NIF: {{md-input value=model1.NIF}} Solicitante: {{md-input value=model1.Solicitante}}
                                     </div>
                                     <div class="col s6">
-                                        Cliente: {{md-input value=model.Cliente}} Telemovel: {{md-input value=model.Telemovel}}
+                                        Cliente: {{md-input value=model1.Cliente}} Telemovel: {{md-input value=model1.Telemovel}}
                                     </div>
                                     <div class="col s12">
-                                        Morada: {{md-input value=model.Morada}}
+                                        Morada: {{md-input value=model1.Morada}}
                                     </div>
                                     <div class="col s12">
-                                        Localidade: {{md-input value=model.Localidade}}
+                                        Localidade: {{md-input value=model1.Localidade}}
                                     </div>
                                 </div>
                                 {{else}}
@@ -36,23 +37,23 @@
                                         <tbody>
                                             <tr>
                                                 <td>NIF:</td>
-                                                <td>{{model.NIF}} </td>
+                                                <td>{{model1.NIF}} </td>
                                                 <td>Solicitante:</td>
-                                                <td>{{model.Solicitante}}</td>
+                                                <td>{{model1.Solicitante}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Cliente:</td>
-                                                <td>{{model.Cliente}}</td>
+                                                <td>{{model1.Cliente}}</td>
                                                 <td>Telemovel:</td>
-                                                <td>{{model.Telemovel}}</td>
+                                                <td>{{model1.Telemovel}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Morada:</td>
-                                                <td>{{model.Morada}}</td>
+                                                <td>{{model1.Morada}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Localidade:</td>
-                                                <td>{{model.Localidade}}</td>
+                                                <td>{{model1.Localidade}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -62,38 +63,38 @@
                                 <div class="col s12 m6">
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Análise onLabel="Sim" offLabel="Não" name="Análise:"}}
+                                            {{md-switch checked=model1.Análise onLabel="Sim" offLabel="Não" name="Análise:"}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Manutenção onLabel="Sim" offLabel="Não" name="Manutenção"}}
+                                            {{md-switch checked=model1.Manutenção onLabel="Sim" offLabel="Não" name="Manutenção"}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Orçamento onLabel="Sim" offLabel="Não" name="Orçamento"}}
+                                            {{md-switch checked=model1.Orçamento onLabel="Sim" offLabel="Não" name="Orçamento"}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Software onLabel="Sim" offLabel="Não" name=" Anomalia Software:"}}
+                                            {{md-switch checked=model1.Software onLabel="Sim" offLabel="Não" name=" Anomalia Software:"}}
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Instalação onLabel="Sim" offLabel="Não" name="Instalação:"}}
+                                            {{md-switch checked=model1.Instalação onLabel="Sim" offLabel="Não" name="Instalação:"}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Hardware onLabel="Sim" offLabel="Não" name="Anomalia Hardware:"}}
+                                            {{md-switch checked=model1.Hardware onLabel="Sim" offLabel="Não" name="Anomalia Hardware:"}}
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col s12">
-                                            {{md-switch checked=model.Formação onLabel="Sim" offLabel="Não" name="Formação"}}
+                                            {{md-switch checked=model1.Formação onLabel="Sim" offLabel="Não" name="Formação"}}
                                         </div>
                                     </div>
                                 </div>
@@ -103,13 +104,13 @@
                                         <tbody>
                                             <tr>
                                                 <td>Análise:</td>
-                                                {{#if model.Análise}}
+                                                {{#if model1.Análise}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
                                                 {{/if}}
                                                 <td>Manutenção:</td>
-                                                {{#if model.Manutenção}}
+                                                {{#if model1.Manutenção}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
@@ -117,13 +118,13 @@
                                             </tr>
                                             <tr>
                                                 <td>Orçamento:</td>
-                                                {{#if model.Orçamento}}
+                                                {{#if model1.Orçamento}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
                                                 {{/if}}
                                                 <td>Anomalia Software:</td>
-                                                {{#if model.Software}}
+                                                {{#if model1.Software}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
@@ -131,13 +132,13 @@
                                             </tr>
                                             <tr>
                                                 <td>Instalação:</td>
-                                                {{#if model.Instalação}}
+                                                {{#if model1.Instalação}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
                                                 {{/if}}
                                                 <td>Anomalia Hardware:</td>
-                                                {{#if model.Hardware}}
+                                                {{#if model1.Hardware}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
@@ -145,7 +146,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Formação:</td>
-                                                {{#if model.Formação}}
+                                                {{#if model1.Formação}}
                                                 <td>Sim</td>
                                                 {{else}}
                                                 <td>Não</td>
@@ -160,10 +161,10 @@
                             {{#if editar}}
 
                             <div class="col s12">
-                                <h5>Detalhes do RIT Nº {{model.id}} :</h5>
+                                <h5>Detalhes do RIT Nº {{model1.id}} :</h5>
                                 <div class="row">
                                     <div class="col s12">
-                                        {{md-textarea value=model.descrição class="col s12"}}
+                                        {{md-textarea value=model1.descrição class="col s12"}}
                                     </div>
                                 </div>
                             </div>
@@ -171,10 +172,13 @@
                             <div class="row">
                                 <div class="col s12">
                                     <div class="col s6">
-                                        <h5>Descrição de incidência :</h5> {{#if editar}} g {{else}} {{model.descrição}} {{/if}}
+                                        <h5>Descrição de incidência :</h5> {{#if editar}} g {{else}} {{model1.descrição}} {{/if}}
                                     </div>
                                     <div class="col s6">
-                                        <h5>Historico de atualizações :</h5> {{model.logs}}
+                                        <h5>Historico de atualizações :</h5> 
+                                        {{#each model2 as |update|}}
+                                        {{update.id}}
+                                        {{/each}}
                                     </div>
                                 </div>
                             </div>
@@ -191,10 +195,10 @@
                                                 <div class="col s6 left">
                                                     <div class="row">
 
-                                                        {{#md-radios selection=model.estado optionValuePath='id' optionLabelPath='text'}}
+                                                        {{#md-radios selection=model1.estado optionValuePath='id' optionLabelPath='text'}}
                                                         <p>{{md-radio value='Pendente' name="Pendente"}}</p>
                                                         <p>{{md-radio value='Em Progresso' name="Em progresso"}}</p>
-                                                        {{#if (eq model.nivel '1')}}
+                                                        {{#if (eq model1.nivel '1')}}
                                                         <p>{{md-radio value='Escalar N2 (Pendente)' name="Escalar N2 (Pendente)"}}</p>
                                                         {{/if}}
                                                         <p>{{md-radio value='Resolvido' name="Resolvido"}}</p>
@@ -244,7 +248,7 @@
                     {{#link-to 'tikets' class="btn waves-effect waves-light light-blue darken-4"}}<i class="material-icons left">arrow_back</i>Voltar atras{{/link-to}}
 
                     <div class="chip right">
-                        Nivel: {{model.id}} | Data: {{model.dateValue}} | Hora: {{model.hora}}
+                        Nivel: {{model1.id}} | Data: {{model1.dateValue}} | Hora: {{model1.hora}}
                     </div>
 
                 </div>

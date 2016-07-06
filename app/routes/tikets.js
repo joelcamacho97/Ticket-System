@@ -5,8 +5,8 @@ export default Ember.Route.extend({
     model() {
 
         return Ember.RSVP.hash({
-            model1: this.store.query('tickets/nivel/1', {}),
-            model2: this.store.query('tickets/nivel/1', {}),
+            model1: this.store.query('ticket', {}),
+            model2: this.store.query('ticket', {}),
         });
     },
 

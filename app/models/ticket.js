@@ -22,16 +22,11 @@ export default Model.extend({
     descrição: attr('string'),
     nivel: attr('string'),
     estado: attr('string'),
-    logs: attr('string')
-
+    logs: Model.extend({
+        nome: attr('string'),
+        date: attr('string')
+    })
 });
-
-
-
-
-
-
-
 
 
 // defaultValue: function() { return new Date(); }

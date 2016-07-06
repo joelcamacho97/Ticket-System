@@ -78,30 +78,30 @@ export default Ember.Controller.extend({
             //  console.log(this.get('erro'))
 
             if (Cliente.get('if') !== 'false' && Morada.get('if') !== 'false' && Localidade.get('if') !== 'false' && Telemovel.get('if') !== 'false' && NIF.get('if') !== 'false' && dateValue.get('if') !== 'false' && hora.get('if') !== 'false' && Recebido_por.get('if') !== 'false' && descrição.get('if') !== 'false' && Solicitante.get('if') !== 'false') {
-                this.store.query('tickets/nivel/1', {}).then((posts) => {
+                this.store.query('ticket', {}).then((posts) => {
 
                     var id = posts.compact().length + 1;
                     var estado = "Pendente";
 
-                    ref.child('tickets/nivel/1s/' + id + '/Cliente').set(Cliente.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/Solicitante').set(Solicitante.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/Morada').set(Morada.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/Localidade').set(Localidade.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/Telemovel').set(Telemovel.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/NIF').set(NIF.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/dateValue').set(dateValue.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/hora').set(hora.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/Recebido_por').set(Recebido_por.get('if'));
-                    /*ref.child('tickets/nivel/1s/' + id + '/Análise').set(Análise);
-                      ref.child('tickets/nivel/1s/' + id + '/Orçamento').set(Orçamento);
-                      ref.child('tickets/nivel/1s/' + id + '/Instalação').set(Instalação);
-                      ref.child('tickets/nivel/1s/' + id + '/Manutenção').set(Manutenção);
-                      ref.child('tickets/nivel/1s/' + id + '/Software').set(Software);
-                      ref.child('tickets/nivel/1s/' + id + '/Hardware').set(Hardware);
-                      ref.child('tickets/nivel/1s/' + id + '/Formação').set(Formação);*/
-                    ref.child('tickets/nivel/1s/' + id + '/descrição').set(descrição.get('if'));
-                    ref.child('tickets/nivel/1s/' + id + '/nivel').set(1);
-                    ref.child('tickets/nivel/1s/' + id + '/estado').set(estado);
+                    ref.child('tickets/' + id + '/Cliente').set(Cliente.get('if'));
+                    ref.child('tickets/' + id + '/Solicitante').set(Solicitante.get('if'));
+                    ref.child('tickets/' + id + '/Morada').set(Morada.get('if'));
+                    ref.child('tickets/' + id + '/Localidade').set(Localidade.get('if'));
+                    ref.child('tickets/' + id + '/Telemovel').set(Telemovel.get('if'));
+                    ref.child('tickets/' + id + '/NIF').set(NIF.get('if'));
+                    ref.child('tickets/' + id + '/dateValue').set(dateValue.get('if'));
+                    ref.child('tickets/' + id + '/hora').set(hora.get('if'));
+                    ref.child('tickets/' + id + '/Recebido_por').set(Recebido_por.get('if'));
+                    /*ref.child('tickets/' + id + '/Análise').set(Análise);
+                      ref.child('tickets/' + id + '/Orçamento').set(Orçamento);
+                      ref.child('tickets/' + id + '/Instalação').set(Instalação);
+                      ref.child('tickets/' + id + '/Manutenção').set(Manutenção);
+                      ref.child('tickets/' + id + '/Software').set(Software);
+                      ref.child('tickets/' + id + '/Hardware').set(Hardware);
+                      ref.child('tickets/' + id + '/Formação').set(Formação);*/
+                    ref.child('tickets/' + id + '/descrição').set(descrição.get('if'));
+                    ref.child('tickets/' + id + '/nivel').set(1);
+                    ref.child('tickets/' + id + '/estado').set(estado);
                 });
 
                 this.set('erro', false)

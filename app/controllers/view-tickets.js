@@ -57,80 +57,80 @@ export default Ember.Controller.extend({
             let ref = this.get('ref');
 
             Cliente = Person.create({
-                tipo: this.get('model.Cliente')
+                tipo: this.get('model1.Cliente')
             });
 
 
             Solicitante = Person.create({
-                tipo: this.get('model.Solicitante')
+                tipo: this.get('model1.Solicitante')
             });
 
             Morada = Person.create({
-                tipo: this.get('model.Morada')
+                tipo: this.get('model1.Morada')
             });
 
 
             Localidade = Person.create({
-                tipo: this.get('model.Localidade')
+                tipo: this.get('model1.Localidade')
             });
 
 
             Telemovel = Person.create({
-                tipo: this.get('model.Telemovel')
+                tipo: this.get('model1.Telemovel')
             });
 
 
             NIF = Person.create({
-                tipo: this.get('model.NIF')
+                tipo: this.get('model1.NIF')
             });
 
 
             dateValue = Person.create({
-                tipo: this.get('model.dateValue')
+                tipo: this.get('model1.dateValue')
             });
 
 
             hora = Person.create({
-                tipo: this.get('model.hora')
+                tipo: this.get('model1.hora')
             });
 
 
             Recebido_por = Person.create({
-                tipo: this.get('model.Recebido_por')
+                tipo: this.get('model1.Recebido_por')
             });
 
 
             descrição = Person.create({
-                tipo: this.get('model.descrição')
+                tipo: this.get('model1.descrição')
             });
 
 
             Análise = Person.create({
-                tipo: this.get('model.Análise')
+                tipo: this.get('model1.Análise')
             });
 
             Orçamento = Person.create({
-                tipo: this.get('model.Orçamento')
+                tipo: this.get('model1.Orçamento')
             });
 
             Instalação = Person.create({
-                tipo: this.get('model.Instalação')
+                tipo: this.get('model1.Instalação')
             });
 
             Manutenção = Person.create({
-                tipo: this.get('model.Manutenção')
+                tipo: this.get('model1.Manutenção')
             });
 
             Software = Person.create({
-                tipo: this.get('model.Software')
+                tipo: this.get('model1.Software')
             });
 
             Hardware = Person.create({
-                tipo: this.get('model.Hardware')
+                tipo: this.get('model1.Hardware')
             });
 
             Formação = Person.create({
-                tipo: this.get('model.Formação')
+                tipo: this.get('model1.Formação')
             });
 
             //console.log(this.get('organismContent').value)
@@ -155,37 +155,33 @@ export default Ember.Controller.extend({
 
 
             var nivel = '1s';
-            var id = this.get('model.id');
+            var id = this.get('model1.id');
 
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Análise').set(Análise.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Orçamento').set(Orçamento.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Instalação').set(Instalação.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Manutenção').set(Manutenção.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Software').set(Software.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Hardware').set(Hardware.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Formação').set(Formação.get('if'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Cliente').set(Cliente.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Solicitante').set(Solicitante.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Morada').set(Morada.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Localidade').set(Localidade.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Telemovel').set(Telemovel.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/NIF').set(NIF.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/dateValue').set(dateValue.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/hora').set(hora.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/Recebido_por').set(Recebido_por.get('if2'));
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/descrição').set(descrição.get('if2') + ' [' + 'nome' + '] ++ Por favor escreva na linha de baixo ++\n');
-            if (this.get('model.estado') === 'Escalar N2 (Pendente)') {
-                ref.child('tickets/nivel/' + nivel + '/' + id + '/nivel').set(2);
+            ref.child('tickets/' + id + '/Análise').set(Análise.get('if'));
+            ref.child('tickets/' + id + '/Orçamento').set(Orçamento.get('if'));
+            ref.child('tickets/' + id + '/Instalação').set(Instalação.get('if'));
+            ref.child('tickets/' + id + '/Manutenção').set(Manutenção.get('if'));
+            ref.child('tickets/' + id + '/Software').set(Software.get('if'));
+            ref.child('tickets/' + id + '/Hardware').set(Hardware.get('if'));
+            ref.child('tickets/' + id + '/Formação').set(Formação.get('if'));
+            ref.child('tickets/' + id + '/Cliente').set(Cliente.get('if2'));
+            ref.child('tickets/' + id + '/Solicitante').set(Solicitante.get('if2'));
+            ref.child('tickets/' + id + '/Morada').set(Morada.get('if2'));
+            ref.child('tickets/' + id + '/Localidade').set(Localidade.get('if2'));
+            ref.child('tickets/' + id + '/Telemovel').set(Telemovel.get('if2'));
+            ref.child('tickets/' + id + '/NIF').set(NIF.get('if2'));
+            ref.child('tickets/' + id + '/dateValue').set(dateValue.get('if2'));
+            ref.child('tickets/' + id + '/hora').set(hora.get('if2'));
+            ref.child('tickets/' + id + '/Recebido_por').set(Recebido_por.get('if2'));
+            ref.child('tickets/' + id + '/descrição').set(descrição.get('if2') + ' [' + 'nome' + '] ++ Por favor escreva na linha de baixo ++\n');
+            if (this.get('model1.estado') === 'Escalar N2 (Pendente)') {
+                ref.child('tickets/' + id + '/nivel').set(2);
             }
-            ref.child('tickets/nivel/' + nivel + '/' + id + '/estado').set(this.get('model.estado'));
-            //ref.child('tickets/nivel/' + nivel + '/' + id + '/logs/2').set('[nome] - Data\n[nome] - Data');
-
-
-            this.store.query('tickets/nivel/1', {}).then((posts) => {
-
-                var id = posts.compact().length + 1;
-                // console.log('1')
-                console.log(id)
+            ref.child('tickets/' + id + '/estado').set(this.get('model1.estado'));
+            ref.child('tickets/logs/' + id).once("value", function(snapshot) {
+                var cont = snapshot.numChildren() + 1;
+                ref.child('tickets/logs/' + id + '/' + cont + '/Name').set('[nome] - Data\n[nome] - Data');
+                ref.child('tickets/logs/' + id + '/' + cont + '/Date').set(new Date());
             });
 
             this.set('editar', false);
