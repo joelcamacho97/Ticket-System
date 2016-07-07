@@ -178,10 +178,11 @@ export default Ember.Controller.extend({
                 ref.child('tickets/' + id + '/nivel').set(2);
             }
             ref.child('tickets/' + id + '/estado').set(this.get('model1.estado'));
-            ref.child('tickets/logs/' + id).once("value", function(snapshot) {
+            ref.child('tickets/logs/').once("value", function(snapshot) {
                 var cont = snapshot.numChildren() + 1;
-                ref.child('tickets/logs/' + id + '/' + cont + '/Name').set('[nome] - Data\n[nome] - Data');
-                ref.child('tickets/logs/' + id + '/' + cont + '/Date').set(new Date());
+                ref.child('tickets/logs/' + cont + '/ids').set(id);
+                ref.child('tickets/logs/' + cont + '/name').set('[nome] - Data\n[nome] - Data');
+                ref.child('tickets/logs/' + cont + '/date').set(new Date());
             });
 
             this.set('editar', false);

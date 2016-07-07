@@ -1,7 +1,48 @@
  {{partial 'navbar'}}
-  <div class="container">
-  <center>
-<h2>Bem vindo a área tecnica PCN</h2>
-  </center>
-  </div>
-  
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card-panel">
+                <h4> Tickets ativos</h4> 
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card-panel">
+                <h4>Pesquisar cliente:</h4>
+                <div class="row">
+                    <div class="center">
+                        <div class="card-panel yellow center">
+                            <span class="black-text"> Apenas pode pesquisar através do <span class="red-text"> NIF </span> !!!! </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="col s10">
+                            {{md-input label="Insira aqui o NIF" value=pesqui}}
+                        </div>
+                        <div class="col s2">
+                            <br>
+                            <a class="waves-effect btn-floating" {{action "limpar" }}><i class="material-icons">close</i></a>
+                        </div>
+                    </div>
+                </div>
+                {{#if encontrou}} {{#each model as |customers|}}
+                <tr>
+                    <th class="center">{{customers.id}}</th>
+                    <td>{{customers.Company_Name}}</td>
+                    <td> {{#link-to 'profile-customers' customers.id class="btn-floating btn-large waves-effect waves-light right"}}<i class="material-icons">assignment_ind</i>{{/link-to}} </td>
+                </tr>
+                {{/each}} {{else}}
+                <div class="row">
+                    <div class="col s12">
+                        <th class="left"> Não foi encontrado nenhum cliente com esse nif </th>
+                        <td class="right"> {{#link-to 'profile-customers' model.id class="waves-effect waves-light btn-flat" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}</td>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
