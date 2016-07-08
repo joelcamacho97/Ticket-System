@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
             let ref = this.get('ref');
 
             Cliente = Person.create({
-                tipo: this.get('Cliente')
+                tipo: this.get('model.Company_Name')
             });
 
             Solicitante = Person.create({
@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
             });
 
             Morada = Person.create({
-                tipo: this.get('Morada')
+                tipo: this.get('model.Address')
             });
 
             Localidade = Person.create({
@@ -47,11 +47,11 @@ export default Ember.Controller.extend({
             });
 
             Telemovel = Person.create({
-                tipo: this.get('Telemovel')
+                tipo: this.get('model.Mobile')
             });
 
             NIF = Person.create({
-                tipo: this.get('NIF')
+                tipo: this.get('model.id')
             });
 
             dateValue = Person.create({

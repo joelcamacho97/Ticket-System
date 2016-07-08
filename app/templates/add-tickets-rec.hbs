@@ -12,6 +12,8 @@
 
                     <span class="card-title text-darken-4"><h3> Novo Ticket </h3></span>
 
+
+
                     <div class="row">
                         <div class="col s12">
                             <div class="card-panel ">
@@ -20,34 +22,28 @@
 
                                 <div class="row">
                                     <div class="input-field col s12 m12 l6">
-                                        {{input type="text" value=Cliente}}
-                                        <label>Cliente</label>
+                                        {{md-input type="text" label='Cliente' disabled='true' value=model.Company_Name}}
                                     </div>
                                     <div class="input-field col s12 m12 l6">
-                                        {{input type="text" value=Solicitante}}
-                                        <label>Solicitante</label>
+                                        {{md-input type="text" label='Solicitante' value=Solicitante}}
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        {{input type="text" value=Morada}}
-                                        <label>Morada</label>
+                                        {{md-input type="text" label='Morada' value=model.Address}}
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=Localidade}}
-                                        <label>Localidade</label>
+                                        {{md-input type="text" label='Localidade' value=Localidade}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=Telemovel}}
-                                        <label>Telemovel/Telefone</label>
+                                        {{md-input type="text" label='Telemovel/Telefone' value=model.Mobile}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input type="text" value=NIF}}
-                                        <label>NIF</label>
+                                        {{md-input type="text" label='NIF' disabled='true' value=model.id}}
                                     </div>
                                 </div>
 
@@ -56,10 +52,10 @@
                                         {{md-input-date label='Data do pedido' value=dateValue}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        <i class="material-icons prefix">access_time</i> {{input type="time" value=hora}}
+                                        <i class="material-icons prefix">access_time</i> {{md-input type="time" value=hora}}
                                     </div>
                                     <div class="input-field col s12 m12 l4">
-                                        {{input label='Recebido por' type="text" value=Recebido_por}}
+                                        {{md-input label='Recebido por' type="text" value=Recebido_por}}
                                     </div>
                                 </div>
 
@@ -111,7 +107,7 @@
                         </div>
                     </div>
 
-                    {{#if erro}}
+{{#if erro}}
                      <div class="row">
       <div class="col s12">
         <div class="card-panel red">
@@ -123,11 +119,12 @@
     </div>
              {{/if}}
 
+
                 </div>
 
                 <div class="card-action">
 
-                  <div class="row">
+                    <div class="row">
 
                         {{#link-to 'tikets' class="btn waves-effect waves-light cyan darken-4" tagName="button"}}<i class="material-icons left">arrow_back</i>Voltar{{/link-to}}
 

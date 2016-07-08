@@ -7,7 +7,6 @@
         "**/node_modules/**"
     ],
     "rewrites": [{
-        "cleanUrls": true,
         "source": "**",
         "destination": "/index.html"
     }]

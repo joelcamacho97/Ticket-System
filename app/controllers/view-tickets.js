@@ -153,8 +153,6 @@ export default Ember.Controller.extend({
                console.log(Recebido_por.get('if2'));
                console.log(descrição.get('if2'));*/
 
-
-            var nivel = '1s';
             var id = this.get('model1.id');
 
             ref.child('tickets/' + id + '/Análise').set(Análise.get('if'));
@@ -173,7 +171,7 @@ export default Ember.Controller.extend({
             ref.child('tickets/' + id + '/dateValue').set(dateValue.get('if2'));
             ref.child('tickets/' + id + '/hora').set(hora.get('if2'));
             ref.child('tickets/' + id + '/Recebido_por').set(Recebido_por.get('if2'));
-            ref.child('tickets/' + id + '/descrição').set(descrição.get('if2') + ' [' + 'nome' + '] ++ Por favor escreva na linha de baixo ++\n');
+            ref.child('tickets/' + id + '/descrição').set(descrição.get('if2') + '[' + this.get('model2.Name') + ']\n');
             if (this.get('model1.estado') === 'Escalar N2 (Pendente)') {
                 ref.child('tickets/' + id + '/nivel').set(2);
             }
@@ -190,7 +188,6 @@ export default Ember.Controller.extend({
         cancelar() {
             this.set('editar', false);
         }
-
     }
 });
 

@@ -16,6 +16,11 @@ export default Ember.Route.extend({
             content: ar
         });
 
+    },
+    nome() {
+
+        return "ola";
+
     }
 
 });

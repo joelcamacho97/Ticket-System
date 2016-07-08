@@ -46,7 +46,7 @@
                         <div class="col s12 m4 l4 wrapper">
 
                             <div class="row">
-                                <a class="col s12 waves-effect waves-light btn" {{action "abilitações"}}><i class="material-icons right">add_circle_outline</i>Adicionar pedidio de assistência</a>
+                                {{#link-to 'add_tickets_rec' model.id  class="col s12 waves-effect waves-light btn"}}<i class="material-icons right">add_circle_outline</i>Adicionar pedidio de assistência{{/link-to}}
                             </div>
                             <div class="row">
                                 <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">history</i>Historico de pedidios de assistência</a>

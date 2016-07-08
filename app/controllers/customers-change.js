@@ -31,9 +31,6 @@ export default Ember.Controller.extend({
                     if (b === true) {
                         _this.set('erro', "Não foi possivel alterar o nif por este estar em uso !!!");
                     } else {
-
-
-
                         ref.child('customers/' + id).remove();
                         ref.child('customers/' + _this.get('id'));
                         ref.child('customers/' + uid + '/Address').set(_this.get('model.Address'));
@@ -71,12 +68,15 @@ export default Ember.Controller.extend({
             this.set('nif', false);
         },
         limpar: function() {
-            this.set('erro', null);
-            this.set('nif', false);
-            /* this.set('inputEmail', '');
-             this.set('REmail', '');
-             this.set('Password', '');*/
-
+            this.set('model.Address', '');
+            this.set('model.City', '');
+            this.set('model.Common_Name', '');
+            this.set('model.Company_Name', '');
+            this.set('model.Country', '');
+            this.set('model.Home_Email', '');
+            this.set('model.Home_Phone', '');
+            this.set('model.Mobile', '');
+            this.set('model.Zip', '');
         },
         nif_back() {
             this.set('nif', false);

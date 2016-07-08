@@ -1,10 +1,46 @@
  {{partial 'navbar'}}
 
+{{log nome}}
+
 <div class="container">
     <div class="row">
         <div class="col s12 m6">
             <div class="card-panel">
-                <h4> Tickets ativos</h4> 
+                <h4> Tickets ativos:</h4>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="col s6">
+                            <h5>Nivel 1:</h5>
+                            <p>Pendente:</p>
+                            <p>Em progresso:</p>
+                            <p>Escalar n2:</p>
+                            <p>Resolvido:</p>
+
+                        </div>
+
+                        <div class="col s6">
+                            <h5>Nivel 2:</h5>
+                            <p>Pendente:</p>
+                            <p>Em progresso:</p>
+                            <p>Escalar n2:</p>
+                            <p>Resolvido:</p>
+
+                        </div>
+                        <div class="col m6 hide-on-small-only">
+                            {{#link-to 'tikets' class="waves-effect waves-light btn-flat right" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}}
+                        </div>
+                        <div class="col m6 hide-on-small-only">
+                            {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat left" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}
+                        </div>
+                        <center>
+                            <div class="col s12 hide-on-med-and-up">
+                                {{#link-to 'tikets' class="waves-effect waves-light btn-fla" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}} {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat" tagName="a"}}
+                                <i
+                                    class="material-icons left">add_circle_outline</i>Novo{{/link-to}}
+                            </div>
+                        </center>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col s12 m6">
@@ -38,7 +74,7 @@
                 <div class="row">
                     <div class="col s12">
                         <th class="left"> Não foi encontrado nenhum cliente com esse nif </th>
-                        <td class="right"> {{#link-to 'profile-customers' model.id class="waves-effect waves-light btn-flat" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}</td>
+                        <td class="right"> {{#link-to 'add-customers' class="waves-effect waves-light btn-flat" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}</td>
                     </div>
                 </div>
                 {{/if}}

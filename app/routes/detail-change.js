@@ -9,6 +9,10 @@ export default Ember.Route.extend({
             this.transitionTo('login');
         }
         return this.store.find('employers', this.get('session.uid'));
+    },
+    setupController(controller, model) {
+        this._super(...arguments);
+        Ember.set(controller, 'error', false);
     }
 
 

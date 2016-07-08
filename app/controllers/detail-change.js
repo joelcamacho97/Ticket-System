@@ -10,8 +10,9 @@ export default Ember.Controller.extend({
 
             let ref = this.get('ref');
 
-            if (this.get('name') === "") {
+            if (this.get('name') === "" || this.get('name') === undefined) {
                 this.set('name', '');
+                this.set('error', true);
 
             } else {
 
@@ -22,6 +23,7 @@ export default Ember.Controller.extend({
                 ref.child('employers/' + this.get('session.uid') + "/Name").set(this.get('name'));
                 this.set('name', '');
                 this.transitionToRoute('profile');
+                this.set('error', false);
 
             }
         },

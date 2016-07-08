@@ -1,7 +1,7 @@
  {{partial 'navbar'}}
 <div class="row">
     <div class="col s12 m8 l8 ">
-        <h4 class="center"> Tickets 1</h4> {{#each model1 as |tickets|}} {{#if (eq tickets.nivel '1')}} {{#if (eq tickets.estado 'Pendente')}}
+        <h4 class="center"> Tickets 1</h4> {{#each model as |tickets|}} {{#if (eq tickets.nivel '1')}} {{#if (eq tickets.estado 'Pendente')}}
 
         <div class="col s12 m12 l6">
             <div class="card light-blue darken-3">
@@ -26,7 +26,7 @@
 
         {{/if}} {{#if (eq tickets.estado 'Em Progresso')}}
         <div class="col s12 m12 l6 ">
-            <div class="card yellow accent-4">
+            <div class="card amber accent-3">
                 <div class="card-content white-text">
                     <span class="card-title">RIT nº{{tickets.id}} - {{tickets.dateValue}}</span> {{md-badge class='white black-text' text=tickets.estado}}
                     <p>Nif: {{tickets.NIF}}</p>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="col s12 m4 l4">
-        <h4 class="center"> Tickets nivel 2</h4> {{#each model2 as |tickets|}} {{#if (eq tickets.nivel '2')}} {{#if (eq tickets.estado 'Escalar N2 (Pendente)')}}
+        <h4 class="center"> Tickets nivel 2</h4> {{#each model as |tickets|}} {{#if (eq tickets.nivel '2')}} {{#if (eq tickets.estado 'Escalar N2 (Pendente)')}}
         <div class="col s12">
             <div class="card orange darken-3">
                 <div class="card-content white-text">
@@ -91,9 +91,31 @@
                 </div>
             </div>
         </div>
-        {{/if}} {{#if (eq tickets.estado 'Em progresso')}}
+        {{/if}} {{#if (eq tickets.estado 'Em Progresso')}}
         <div class="col s12">
-            <div class="card yellow accent-4">
+            <div class="card amber accent-3">
+                <div class="card-content white-text">
+                    <span class="card-title">RIT nº{{tickets.id}} - {{tickets.dateValue}}</span> {{md-badge class='white black-text' text=tickets.estado}}
+                    <p>Nif: {{tickets.NIF}}</p>
+                    <p>Solicitante: {{tickets.Solicitante}}</p>
+                    <p>Telemovel: {{tickets.Telemovel}}</p>
+                    <p>Recebido por: {{tickets.Recebido_por}}</p>
+                    <p>Hora: {{tickets.hora}}</p>
+                </div>
+                <div class="card-action">
+                    {{#link-to 'view-tickets' tickets.id class="btn waves-effect waves-blue-grey darken-1 white black-text"}}<i class="material-icons right">visibility</i>Ver detalhes {{/link-to}}
+                    <span>  
+                      <div class="chip right">
+                     Nivel   {{tickets.nivel}}
+                    </div> 
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        {{/if}} {{#if (eq tickets.estado 'Pendente')}}
+        <div class="col s12">
+            <div class="card light-blue darken-3">
                 <div class="card-content white-text">
                     <span class="card-title">RIT nº{{tickets.id}} - {{tickets.dateValue}}</span> {{md-badge class='white black-text' text=tickets.estado}}
                     <p>Nif: {{tickets.NIF}}</p>
@@ -139,5 +161,5 @@
 </div>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    {{#link-to 'add_tickets' }}<a class="btn-floating btn-large waves-effect waves-light grey"><i class="large material-icons">add</i>  </a>{{/link-to}}
+    {{#link-to 'add_tickets' }}<a class="btn-floating btn-large waves-effect waves-light light-green darken-1"><i class="large material-icons">add</i>  </a>{{/link-to}}
 </div>

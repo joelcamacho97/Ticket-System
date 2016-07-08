@@ -32,14 +32,14 @@ export default Ember.Controller.extend({
                     console.log(c);
 
                     if (c === false) {
-
                         _this.transitionToRoute('one-step-more');
-
+                    } else {
+                        this.transitionToRoute('dashboard');
                     }
 
                 });
 
-                this.transitionToRoute('dashboard');
+
 
             }.bind(this)).catch(function(error) {
                 if (error.code === 'INVALID_EMAIL') {

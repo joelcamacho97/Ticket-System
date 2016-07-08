@@ -9,33 +9,19 @@
                 <div class="card-content">
                     <img style="width: 70px; position: absolute; top: 110px; z-index: 1;" src=../img/another-users.png alt="" class="circle responsive-img activator card-profile-image">
 
-
-
                     <span class="card-title text-darken-4"><h3>Lista de todos os clientes</h3>    </span>
 
-
-
-
-
-
-
                     <div class="row">
+
                         {{#if ver}}
 
-                          {{md-input value=pesqui}}
-                          <a class="waves-effect waves-teal btn-flat right" {{action "pesquisa" }}><i class="material-icons">search</i></a>
-                          <a class="waves-effect waves-teal btn-flat right" {{action "fechar" }}><i class="material-icons">close</i></a>
-
+                        <div class="col s12">
+                            {{input value=pesqui class="col s11 "}}
+                            <br>
+                            <a class="btn-floating right" {{action "fechar" }}><i class="material-icons">close</i></a>
+                        </div>
                         {{else}}
-
-                          <a class="waves-effect waves-teal btn-flat right" {{action "ver" }}><i class="material-icons">search</i></a>
-
-                       {{/if}}
-
-
-
-
-
+                        <a class="btn-floating right" {{action "ver" }}><i class="material-icons">search</i></a> {{/if}}
                     </div>
                     <div class="row">
                         <div style="overflow-x:auto;">
@@ -49,24 +35,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each model as |customers|}}
+                                    {{#each model as |customers|}} {{#if model.isUpdating}} ujp89u89u {{else}}
 
-{{#if model.isUpdating}}
-      ujp89u89u
 
-    
-    {{else}}
- 
-  
                                     <tr>
                                         <th class="center">{{customers.id}}</th>
                                         <td>{{customers.Company_Name}}</td>
                                         <td align="center"> {{#link-to 'profile-customers' customers.id class="btn-floating btn-large waves-effect waves-light right"}}<i class="material-icons">assignment_ind</i>{{/link-to}} </td>
                                     </tr>
 
-  {{/if}}
-                                     {{/each}}
-                                   
+                                    {{/if}} {{/each}}
+
                                 </tbody>
 
                             </table>
@@ -83,17 +62,17 @@
                         {{/if}}
                         <li class="waves-effect" {{action "mais" }}><a href=""><i class="material-icons">chevron_right</i></a></li>
                     </ul>
-                  
+
                 </div>
 
-               
+
 
             </div>
         </div>
     </div>
 
- <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    {{#link-to 'add-customers'}}<a class="btn-floating btn-large waves-effect waves-light red"><i class="large material-icons">add</i>  </a>{{/link-to}}
-  </div>
+    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        {{#link-to 'add-customers'}}<a class="btn-floating btn-large waves-effect waves-light red"><i class="large material-icons">add</i>  </a>{{/link-to}}
+    </div>
 
 </div>
