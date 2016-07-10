@@ -6,11 +6,13 @@ module.exports = function(environment) {
         environment: environment,
         contentSecurityPolicy: {
             'default-src': "'none'",
-            'img-src': "'self' https://secure.gravatar.com https://s3-media4.fl.yelpcdn.com/bphoto/BVZUmyvne_ouvGg7uJ09kA/o.jpg ",
-            'script-src': "'self' 'unsafe-eval' apis.google.com https://cdnjs.cloudflare.com/",
+            'img-src': "'self' data: https://secure.gravatar.com https://s3-media4.fl.yelpcdn.com/bphoto/BVZUmyvne_ouvGg7uJ09kA/o.jpg",
             'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
             'style-src': "'self' 'unsafe-inline'",
-            'child-src': "'self' https://*.firebaseapp.com",
+            'child-src': "'self' https://*.firebaseapp.com https://*.firebaseio.com",
+            'script-src': "'self' 'unsafe-eval' https://apis.google.com https://*.firebaseio.com",
+            'font-src': "'self' http://fonts.gstatic.com",
+            'media-src': "'self'"
 
         },
         firebase: {

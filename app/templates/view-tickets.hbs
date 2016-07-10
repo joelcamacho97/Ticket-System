@@ -176,9 +176,31 @@
                                     </div>
                                     <div class="col s6">
                                         <h5>Historico de atualizações :</h5>
-                                        {{#each model2 as |update|}}
-                                        {{update.name}}
+
+                                         <table>
+        <thead>
+          <tr>
+              <th>Nome</th>
+              <th>Data/Hora</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                                        {{#each model3 as |update|}}
+                                        {{#if (eq update.id_do_ticket model1.id)}} 
+
+
+
+          <tr>
+            <td>{{update.Nome}}</td>
+            <td>{{update.Data}}</td>
+          </tr>
+                                        {{/if}}
                                         {{/each}}
+
+       </tbody>
+      </table>
+
                                     </div>
                                 </div>
                             </div>

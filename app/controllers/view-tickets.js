@@ -155,6 +155,10 @@ export default Ember.Controller.extend({
 
             var id = this.get('model1.id');
 
+            console.log(this.get('model2.Name'))
+
+            var nome = this.get('model2.Name');
+
             ref.child('tickets/' + id + '/Análise').set(Análise.get('if'));
             ref.child('tickets/' + id + '/Orçamento').set(Orçamento.get('if'));
             ref.child('tickets/' + id + '/Instalação').set(Instalação.get('if'));
@@ -171,16 +175,17 @@ export default Ember.Controller.extend({
             ref.child('tickets/' + id + '/dateValue').set(dateValue.get('if2'));
             ref.child('tickets/' + id + '/hora').set(hora.get('if2'));
             ref.child('tickets/' + id + '/Recebido_por').set(Recebido_por.get('if2'));
-            ref.child('tickets/' + id + '/descrição').set(descrição.get('if2') + '[' + this.get('model2.Name') + ']\n');
+            ref.child('tickets/' + id + '/descrição').set(descrição.get('if2') + '[' + nome + ']\n');
             if (this.get('model1.estado') === 'Escalar N2 (Pendente)') {
                 ref.child('tickets/' + id + '/nivel').set(2);
             }
             ref.child('tickets/' + id + '/estado').set(this.get('model1.estado'));
-            ref.child('tickets/logs/').once("value", function(snapshot) {
+
+            ref.child('logs/tickets/').once("value", function(snapshot) {
                 var cont = snapshot.numChildren() + 1;
-                ref.child('tickets/logs/' + cont + '/ids').set(id);
-                ref.child('tickets/logs/' + cont + '/name').set('[nome] - Data\n[nome] - Data');
-                ref.child('tickets/logs/' + cont + '/date').set(new Date());
+                ref.child('logs/tickets/' + cont + '/id_do_ticket').set(id);
+                ref.child('logs/tickets/' + cont + '/Nome').set(nome);
+                ref.child('logs/tickets/' + cont + '/Data').set(Date("YYYY-MM-DDTHH:MM:SS").toString());
             });
 
             this.set('editar', false);

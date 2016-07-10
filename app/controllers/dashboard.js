@@ -14,65 +14,67 @@ export default Ember.Controller.extend({
          });*/
 
         var id = this.store.query('ticket', {}).then((posts) => {
-            //    console.log(posts.compact().length);
+            console.log(posts.compact().length);
             var i;
+            var volume = posts.compact().length;
             var pendente = 0;
             var progresso = 0;
             var Resolvido = 0;
+            var pendente2 = 0;
+            var progresso2 = 0;
+            var Resolvido2 = 0;
+            var escalar = 0;
+            var _this = this;
 
-            for (i = 1; i <= posts.compact().length; i++) {
+            for (i = 1; i <= volume; i++) {
                 //  console.log(i)
                 var tickets = this.get('ref').child('tickets/' + i + '/estado').once('value', function(snap) {
                     //console.log(snap.val())
 
-                    if (snap.val() === "Pendente") {
+                    _this.get('ref').child('tickets/' + i + '/nivel').once('value', function(nivel) {
 
-                        pendente = pendente + 1;
+                        if (nivel.val() === null) {
+                            volume = volume + 1
+                        } else {
+                            //   console.log(progresso)
 
-                        console.log(pendente)
+                            //       console.log('id:' + i + ' e nivel é o ' + nivel.val())
 
-                    } else if (snap.val() === "Resolvido") {
-
-                        progresso = progresso + 1;
-
-                        console.log(progresso)
-
-                    } else if (snap.val() === 'Em Progresso') {
-
-                        Resolvido = Resolvido + 1;
-
-                        console.log(Resolvido)
-
-                    }
-
-
+                            if (snap.val() === "Pendente" && nivel.val() === 1) {
+                                pendente = pendente + 1;
+                                //  console.log('pendente:' + pendente)
+                            }
+                            if (snap.val() === "Pendente" && nivel.val() === 2) {
+                                pendente2 = pendente2 + 1;
+                                //      console.log('pendente:' + pendente2)
+                            } else if (snap.val() === "Resolvido" && nivel.val() === 1) {
+                                progresso = progresso + 1;
+                                //     console.log('progresso:' + progresso)
+                            } else if (snap.val() === "Resolvido" && nivel.val() === 2) {
+                                progresso2 = progresso2 + 1;
+                                //     console.log('progresso:' + progresso2)
+                            } else if (snap.val() === 'Em Progresso' && nivel.val() === 1) {
+                                Resolvido = Resolvido + 1;
+                                //     console.log('Resolvido:' + Resolvido)
+                            } else if (snap.val() === 'Em Progresso' && nivel.val() === 2) {
+                                Resolvido2 = Resolvido2 + 1;
+                                //    console.log('Resolvido:' + Resolvido2)
+                            } else if (snap.val() === 'Escalar N2 (Pendente)' && nivel.val() === 2) {
+                                escalar = escalar + 1;
+                                //    console.log('Resolvido:' + Resolvido2)
+                            }
+                        }
+                    });
                 });
-
-
             }
+            _this.set('pendente1', pendente);
+            _this.set('pendente2', pendente2);
+            _this.set('progresso1', progresso);
+            _this.set('progresso2', progresso2);
+            _this.set('Resolvido1', Resolvido);
+            _this.set('Resolvido2', Resolvido2);
+            _this.set('escalar', escalar);
         });
-
-        /*  for (i = 0, len = cars.length, text = ""; i < len; i++) {
-              text += cars[i];
-
-              var tickets = this.get('ref').child('tickets/id/estado').once('value', function(snap) {
-                  return console.log(snap.val())
-              });
-
-              tickets
-
-          }*/
-
-        /*  tickets.then((posts) => {
-
-              return console.log(posts.compact());
-          });*/
-
-        /*  .once('value', function(snap) {
-             console.log('accounts matching email address', snap.val())
-          });*/
-
-        //return console.log(tickets);
 
     },
 
