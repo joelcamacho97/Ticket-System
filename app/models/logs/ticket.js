@@ -7,6 +7,7 @@ export default Model.extend({
     Data: attr('date', {
         defaultValue: new Date
     }),
-    id_do_ticket: attr('string')
+    id_do_ticket: attr('string'),
+    id_utilizador: attr('string')
 
 });

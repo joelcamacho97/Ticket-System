@@ -159,6 +159,8 @@ export default Ember.Controller.extend({
 
             var nome = this.get('model2.Name');
 
+            var _this = this;
+
             ref.child('tickets/' + id + '/Análise').set(Análise.get('if'));
             ref.child('tickets/' + id + '/Orçamento').set(Orçamento.get('if'));
             ref.child('tickets/' + id + '/Instalação').set(Instalação.get('if'));
@@ -186,6 +188,7 @@ export default Ember.Controller.extend({
                 ref.child('logs/tickets/' + cont + '/id_do_ticket').set(id);
                 ref.child('logs/tickets/' + cont + '/Nome').set(nome);
                 ref.child('logs/tickets/' + cont + '/Data').set(Date("YYYY-MM-DDTHH:MM:SS").toString());
+                ref.child('logs/tickets/' + cont + '/id_utilizador').set(_this.get('model2.id'));
             });
 
             this.set('editar', false);

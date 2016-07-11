@@ -47,16 +47,16 @@ export default Ember.Controller.extend({
                             if (snap.val() === "Pendente" && nivel.val() === 2) {
                                 pendente2 = pendente2 + 1;
                                 //      console.log('pendente:' + pendente2)
-                            } else if (snap.val() === "Resolvido" && nivel.val() === 1) {
+                            } else if (snap.val() === "Em Progresso" && nivel.val() === 1) {
                                 progresso = progresso + 1;
                                 //     console.log('progresso:' + progresso)
-                            } else if (snap.val() === "Resolvido" && nivel.val() === 2) {
+                            } else if (snap.val() === "Em Progresso" && nivel.val() === 2) {
                                 progresso2 = progresso2 + 1;
                                 //     console.log('progresso:' + progresso2)
-                            } else if (snap.val() === 'Em Progresso' && nivel.val() === 1) {
+                            } else if (snap.val() === 'Resolvido' && nivel.val() === 1) {
                                 Resolvido = Resolvido + 1;
                                 //     console.log('Resolvido:' + Resolvido)
-                            } else if (snap.val() === 'Em Progresso' && nivel.val() === 2) {
+                            } else if (snap.val() === 'Resolvido' && nivel.val() === 2) {
                                 Resolvido2 = Resolvido2 + 1;
                                 //    console.log('Resolvido:' + Resolvido2)
                             } else if (snap.val() === 'Escalar N2 (Pendente)' && nivel.val() === 2) {
