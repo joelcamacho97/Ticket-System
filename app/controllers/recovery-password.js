@@ -5,23 +5,32 @@ export default Ember.Controller.extend({
     isValid: Ember.computed.match('email', /^.+@.+\..+$/),
     isDisabled: Ember.computed.not('isValid'),
     ref: Ember.inject.service('firebase'),
+    firebaseApp: Ember.inject.service(),
 
     actions: {
 
         recuperar: function() {
-            let ref = this.get('ref');
+
             var _this = this;
-            ref.resetPassword({
-                email: this.get('email')
+
+            this.get('firebaseApp').auth().sendPasswordResetEmail(this.get('email')).then(function() {
+
+                _this.set('tipo', "green");
+                _this.set('responseMessage', "Email enviado com sucesso");
+
+
             }, function(error) {
-                if (error === null) {
-                    _this.set('tipo', "success");
-                    _this.set('responseMessage', "Email ...");
-                } else {
-                    _this.set('tipo', "warning");
+
+                console.log(error)
+
+                if (error !== null) {
+                    _this.set('tipo', "red");
                     _this.set('responseMessage', "Email invalido");
                 }
             });
+
+            this.set('email', "");
+
         }
     }
 });
