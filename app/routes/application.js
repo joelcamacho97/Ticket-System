@@ -3,9 +3,6 @@ import configuration from 'torii/configuration';
 
 export default Ember.Route.extend({
 
-    //session: Ember.inject.service('session'),
-
-
     beforeModel: function(transition) {
 
         return this.get('session').fetch()

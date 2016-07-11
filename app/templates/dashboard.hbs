@@ -1,30 +1,77 @@
- {{partial 'navbar'}}
-
-{{log nome}}
+ {{partial 'navbar'}} {{log nome}}
 
 <div class="container">
     <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 l6">
             <div class="card-panel">
-                <h4> Tickets ativos:</h4>
+                <h4 class="center"> Tickets ativos</h4>
                 <div class="row">
                     <div class="col s12">
-                        <div class="col s6">
-                            <h5>Nivel 1:</h5>
-                            <p>Pendente: {{pendente1}}</p>
-                            <p>Em progresso: {{progresso1}}</p>
-                            <p>Resolvido: {{Resolvido1}}</p>
+                        <div class="col s12 l6">
+
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="center">Nivel 1</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Pendente:</td>
+                                        <td>{{pendente1}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Em progresso:</td>
+                                        <td>{{progresso1}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Resolvido:</td>
+                                        <td>{{Resolvido1}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="col s12 l6">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="center">Nivel 2</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Pendente:</td>
+                                        <td>{{pendente2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Escalar n2:</td>
+                                        <td>{{escalar}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Em progresso:</td>
+                                        <td>{{progresso2}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Resolvido:</td>
+                                        <td>{{Resolvido2}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
                         </div>
 
-                        <div class="col s6">
-                            <h5>Nivel 2:</h5>
-                            <p>Pendente:{{pendente2}}</p>
-                            <p>Em progresso: {{progresso2}}</p>
-                            <p>Escalar n2: {{escalar}}</p>
-                            <p>Resolvido: {{Resolvido2}}</p>
 
-                        </div>
+
+
+                    </div>
+                    <div class="col s12">
+                        <br>
                         <div class="col m6 hide-on-small-only">
                             {{#link-to 'tikets' class="waves-effect waves-light btn-flat right" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}}
                         </div>
@@ -34,22 +81,26 @@
                         <center>
                             <div class="col s12 hide-on-med-and-up">
                                 {{#link-to 'tikets' class="waves-effect waves-light btn-fla" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}} {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat" tagName="a"}}
-                                <i
-                                    class="material-icons left">add_circle_outline</i>Novo{{/link-to}}
+                                <i class="material-icons left">add_circle_outline</i>Novo{{/link-to}}
                             </div>
                         </center>
+
+
                     </div>
+
                 </div>
+                <br>
+                <center>
+                    <p class="black-text"> Faça <span class="red-text"> refresh </span> para ver as estatisticas atualizadas </p>
+                </center>
             </div>
         </div>
-        <div class="col s12 m6">
+        <div class="col s12 l6">
             <div class="card-panel">
-                <h4>Pesquisar cliente:</h4>
+                <h4 class="center">Pesquisar cliente</h4>
                 <div class="row">
                     <div class="center">
-                        <div class="card-panel yellow center">
-                            <span class="black-text"> Apenas pode pesquisar através do <span class="red-text"> NIF </span> !!!! </span>
-                        </div>
+                        <span class="black-text"> Apenas pode pesquisar através do <span class="red-text"> NIF </span> !!!! </span>
                     </div>
                 </div>
                 <div class="row">

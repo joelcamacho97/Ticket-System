@@ -49,7 +49,7 @@
                                 {{#link-to 'add_tickets_rec' model.id  class="col s12 waves-effect waves-light btn"}}<i class="material-icons right">add_circle_outline</i>Adicionar pedidio de assistência{{/link-to}}
                             </div>
                             <div class="row">
-                                <a class="col s12 waves-effect waves-light btn"><i class="material-icons right">history</i>Historico de pedidios de assistência</a>
+                                <a class="col s12 waves-effect waves-light btn disabled"><i class="material-icons right">history</i>Historico de pedidios de assistência</a>
                             </div>
                             <div class="row">
                                 {{#link-to 'customers' class="col s12 waves-effect waves-light yellow darken-2 black-text btn" tagName="a"}}<i class="material-icons right">view_list</i>Voltar a lista de clientes{{/link-to}}
@@ -67,7 +67,7 @@
 
                                 {{#link-to 'customers-change' model.id  class="waves-effect waves-light btn right col s12 l2"}}<i class="material-icons right">border_color</i>Editar{{/link-to}}
 
-                        <a class="waves-effect waves-light btn red col s12 l3" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar cliente</a>
+                        <a class="waves-effect waves-light btn red col s12 l3 btn disabled" {{action "toggleModal"}}><i class="material-icons right">delete forever</i>Apagar cliente</a>
 
                     </div>
                 </div>

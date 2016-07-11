@@ -18,7 +18,6 @@ export default Ember.Route.extend({
             ref.on("value", function(snapshot) {
 
                 var uid = _this.get('session.uid');
-                console.log('ola' + uid);
                 var b = snapshot.child('employers/' + uid + "/Supervisor").val();
 
                 if (b === false) {

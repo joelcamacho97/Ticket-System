@@ -1,16 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-
-    /*redirect: function() {
+    redirect: function() {
         if (!this.get('session.isAuthenticated')) {
             this.transitionTo('login');
         }
-    },*/
+    },
 
     model(tabela, ar, qry) {
 
-        console.log(this.get('firebaseApp'))
 
         ar = null;
 
@@ -18,6 +16,14 @@ export default Ember.Route.extend({
             content: ar
         });
 
-    }
+    },
+
+    beforeModel: function(transition) {
+
+        return this.get('session').fetch()
+            .catch(function() {
+                // no-op, cause no session is ok
+            })
+    },
 
 });

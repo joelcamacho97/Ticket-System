@@ -3,15 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
     ref: Ember.inject.service('firebase'),
+    firebaseApp: Ember.inject.service(),
 
     init: function() {
         this._super();
         this.set('nome', "null");
 
-        /* var tickets = this.store.query('ticket', {
-             startAt: "estado",
-             endAt: "estado"
-         });*/
+        //console.log(this.get('firebaseApp'))
 
         var id = this.store.query('ticket', {}).then((posts) => {
             console.log(posts.compact().length);
@@ -36,7 +34,6 @@ export default Ember.Controller.extend({
                         if (nivel.val() === null) {
                             volume = volume + 1
                         } else {
-                            //   console.log(progresso)
 
                             //       console.log('id:' + i + ' e nivel é o ' + nivel.val())
 

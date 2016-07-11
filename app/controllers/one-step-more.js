@@ -88,7 +88,7 @@ export default Ember.Controller.extend({
                 }
             });
             login.save();
-            this.transitionToRoute('index');
+            this.transitionToRoute('dashboard');
         }
     }
 });

@@ -11,7 +11,6 @@ export default Ember.Controller.extend({
         recuperar: function() {
             let ref = this.get('ref');
             var _this = this;
-            // var ref = new Firebase("https://brainpcn.firebaseio.com/");
             ref.resetPassword({
                 email: this.get('email')
             }, function(error) {
