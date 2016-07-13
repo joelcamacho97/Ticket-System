@@ -19,7 +19,9 @@ Router.map(function() {
     this.route('users-ability', {
         path: 'users-ability/:employers'
     });
-    this.route('tikets');
+    this.route('tikets', {
+        path: 'tickets'
+    });
     this.route('customers');
     this.route('add_tickets');
     this.route('sortable-list');

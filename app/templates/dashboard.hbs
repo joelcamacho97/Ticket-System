@@ -73,14 +73,14 @@
                     <div class="col s12">
                         <br>
                         <div class="col m6 hide-on-small-only">
-                            {{#link-to 'tikets' class="waves-effect waves-light btn-flat right" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}}
+                            {{#link-to 'tikets' class="waves-effect waves-light btn-flat right" tagName="a"}}<i class="material-icons left">receipt</i>Visualizar{{/link-to}}
                         </div>
                         <div class="col m6 hide-on-small-only">
                             {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat left" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}
                         </div>
                         <center>
                             <div class="col s12 hide-on-med-and-up">
-                                {{#link-to 'tikets' class="waves-effect waves-light btn-fla" tagName="a"}}<i class="material-icons left">receipt</i>Vizualizar{{/link-to}} {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat" tagName="a"}}
+                                {{#link-to 'tikets' class="waves-effect waves-light btn-fla" tagName="a"}}<i class="material-icons left">receipt</i>Visualizar{{/link-to}} {{#link-to 'add_tickets' class="waves-effect waves-light btn-flat" tagName="a"}}
                                 <i class="material-icons left">add_circle_outline</i>Novo{{/link-to}}
                             </div>
                         </center>
@@ -126,6 +126,9 @@
                         <th class="left"> Não foi encontrado nenhum cliente com esse nif </th>
                         <td class="right"> {{#link-to 'add-customers' class="waves-effect waves-light btn-flat" tagName="a"}}<i class="material-icons right">add_circle_outline</i>Novo{{/link-to}}</td>
                     </div>
+                    <center>
+                    {{#link-to 'customers' class="btn waves-effect waves-light white black-text" tagName="a"}}<i class="material-icons right">receipt</i>Visualizar lista de clientes{{/link-to}}
+                    </center>
                 </div>
                 {{/if}}
             </div>

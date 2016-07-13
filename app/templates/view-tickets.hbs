@@ -16,23 +16,23 @@
                         <div class="col s12">
                             <div class="col s12">
                                 <h5>Dados :</h5> {{#if editar}}
-                                <div class="col s12 m6">
+                                <div class="col s12 l6">
 
-                                    <div class="col s6">
+                                    <div class="col s12 l6">
                                         NIF: {{md-input value=model1.NIF}} Solicitante: {{md-input value=model1.Solicitante}}
                                     </div>
-                                    <div class="col s6">
+                                    <div class="col s12 l6">
                                         Cliente: {{md-input value=model1.Cliente}} Telemovel: {{md-input value=model1.Telemovel}}
                                     </div>
-                                    <div class="col s12">
+                                    <div class="col s12 l6">
                                         Morada: {{md-input value=model1.Morada}}
                                     </div>
-                                    <div class="col s12">
+                                    <div class="col s12 l6">
                                         Localidade: {{md-input value=model1.Localidade}}
                                     </div>
                                 </div>
                                 {{else}}
-                                <div class="col s6">
+                                <div class="col s12 l6">
                                     <table>
                                         <tbody>
                                             <tr>
@@ -60,7 +60,7 @@
                                 </div>
                                 {{/if}} {{#if editar}}
 
-                                <div class="col s12 m6">
+                                <div class="col s12 l6">
                                     <div class="row">
                                         <div class="col s12">
                                             {{md-switch checked=model1.Análise onLabel="Sim" offLabel="Não" name="Análise:"}}
@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
                                 {{else}}
-                                <div class="col s6">
+                                <div class="col s12 l6">
                                     <table>
                                         <tbody>
                                             <tr>
@@ -171,35 +171,31 @@
                             {{else}}
                             <div class="row">
                                 <div class="col s12">
-                                    <div class="col s6">
+                                    <div class="col s12 m6">
                                         <h5>Descrição de incidência :</h5> {{#if editar}} g {{else}} {{model1.descrição}} {{/if}}
                                     </div>
-                                    <div class="col s6">
+                                    <div class="col s12 m6">
                                         <h5>Historico de atualizações :</h5>
 
-                                         <table>
-        <thead>
-          <tr>
-              <th>Nome</th>
-              <th>Data/Hora</th>
-          </tr>
-        </thead>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>Data/Hora</th>
+                                                </tr>
+                                            </thead>
 
-        <tbody>
-                                        {{#each model3 as |update|}}
-                                        {{#if (eq update.id_do_ticket model1.id)}} 
+                                            <tbody>
+                                                {{#each model3 as |update|}} {{#if (eq update.id_do_ticket model1.id)}}
 
+                                                <tr>
+                                                    <td>{{update.Nome}}</td>
+                                                    <td>{{update.Data}}</td>
+                                                </tr>
+                                                {{/if}} {{/each}}
 
-
-          <tr>
-            <td>{{update.Nome}}</td>
-            <td>{{update.Data}}</td>
-          </tr>
-                                        {{/if}}
-                                        {{/each}}
-
-       </tbody>
-      </table>
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                 </div>
@@ -231,15 +227,15 @@
 
 
 
-                                                <div class="col s6 right">
+                                                <div class="col s6 ">
 
                                                     <br>
 
-                                                    <div class="col s6">
+                                                    <div class="col s12 l6">
                                                         <a class="btn waves-effect waves-light red right" {{action 'cancelar'}}><i class="material-icons right">cancel</i>Cancelar</a>
                                                     </div>
 
-                                                    <div class="col s6">
+                                                    <div class="col s12 l6">
                                                         <a class="btn waves-effect waves-light green" {{action 'salvar'}}><i class="material-icons right">save</i>Guardar</a>
                                                     </div>
 
