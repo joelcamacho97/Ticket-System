@@ -16,10 +16,10 @@ module.exports = function(environment) {
 
         },
         firebase: {
-            apiKey: "AIzaSyDuF_-2TRrtGquGKYT9skUHpB0_o3Akx0E",
-            authDomain: "brainpcn.firebaseapp.com",
-            databaseURL: "https://brainpcn.firebaseio.com",
-            storageBucket: "project-8607016508820273191.appspot.com",
+            apiKey: "AIzaSyCKY8Lae4TXjXgjz3QBe22r89n-C-s3KaY",
+            authDomain: "ticket-sys.firebaseapp.com",
+            databaseURL: "https://ticket-sys.firebaseio.com",
+            storageBucket: "ticket-sys.appspot.com",
         },
         torii: {
             sessionServiceName: 'session'
