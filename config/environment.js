@@ -24,7 +24,7 @@ module.exports = function(environment) {
         torii: {
             sessionServiceName: 'session'
         },
-        baseURL: '/',
+        rootURL: '/',
         locationType: 'auto',
         EmberENV: {
             FEATURES: {
